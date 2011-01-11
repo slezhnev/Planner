@@ -53,4 +53,13 @@ public class WorkInPlan {
         // Делаем не очень красиво - но что ж делать-то...
         Starter.getMainForm().planPartTotalLaborChanged();
     }
+
+    public double calcRestLabor(int month) {
+        // Считаем ОБЩИЙ остаток трудоемкости по этой работе за указанный месяц...
+        double total = 0;
+        for (WorkerInPlan worker : workersInPlan) {
+            total = total + worker.calcRestLabor(month);
+        }
+        return total;
+    }
 }

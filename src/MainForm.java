@@ -26,7 +26,7 @@ public class MainForm {
     private JButton addWorkerBtn;
     private JButton delWorkerBtn;
     private JTabbedPane quarterPlan_divisions;
-    private JTabbedPane tabbedPane2;
+    private JTabbedPane kindWorksTabbedPane;
     private JButton savePlanBtn;
     private JButton loadPlanBtn;
     private JButton планButton;
@@ -37,14 +37,14 @@ public class MainForm {
     private JButton delWorkBtn;
     private JButton addWorkerToWorkBtn;
     private JButton delWorkerFromWorkBtn;
-    private JTextField month1Name;
-    private JButton отчетButton1;
-    private JTextField month2Name;
-    private JButton отчетButton2;
-    private JTextField month3Name;
-    private JButton отчетButton3;
     private JButton moveUpPlanPartBtn;
     private JButton moveDownPlanPartBtn;
+    private JTabbedPane monthTabbedPane;
+    private JComboBox quarterComboBox;
+    private JButton monthReportBtn;
+    private JTable monthWorksTable;
+    private JTable monthWorkersPerWorkTable;
+    private JTabbedPane quarterPlan_month;
 
     public Vector<Worker> getWorkers() {
         return workers;
@@ -81,8 +81,10 @@ public class MainForm {
         plan.get(0).getWorks().add(new WorkInPlan("Работа 3", "Описание 3"));
         //
         quarterPlan_divisions.removeAll();
+        quarterPlan_month.removeAll();
         for (PlanPart part : plan) {
             quarterPlan_divisions.addTab(part.getName(), null);
+            quarterPlan_month.addTab(part.getName(), null);
         }
         quarterPlan_divisions.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
@@ -221,6 +223,83 @@ public class MainForm {
                 movePlanPart(1);
             }
         });
+        //
+        quarterComboBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                switch (quarterComboBox.getSelectedIndex()) {
+                    case 0: {
+                        monthTabbedPane.setTitleAt(0, "Январь");
+                        monthTabbedPane.setTitleAt(1, "Февраль");
+                        monthTabbedPane.setTitleAt(2, "Март");
+                        break;
+                    }
+                    case 1: {
+                        monthTabbedPane.setTitleAt(0, "Апрель");
+                        monthTabbedPane.setTitleAt(1, "Май");
+                        monthTabbedPane.setTitleAt(2, "Июнь");
+                        break;
+                    }
+                    case 2: {
+                        monthTabbedPane.setTitleAt(0, "Июль");
+                        monthTabbedPane.setTitleAt(1, "Август");
+                        monthTabbedPane.setTitleAt(2, "Сентябрь");
+                        break;
+                    }
+                    case 3: {
+                        monthTabbedPane.setTitleAt(0, "Октябрь");
+                        monthTabbedPane.setTitleAt(1, "Ноябрь");
+                        monthTabbedPane.setTitleAt(2, "Декабрь");
+                        break;
+                    }
+                }
+            }
+        });
+        quarterComboBox.setSelectedIndex(0);
+        //
+        monthTabbedPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                if ((monthTabbedPane.getSelectedIndex() > -1) && (monthTabbedPane.getSelectedIndex() < 4)) {
+                    ((MonthWorksTableModel) monthWorksTable.getModel()).setMonth(monthTabbedPane.getSelectedIndex());
+                    int i = monthWorksTable.getSelectedRow();
+                    ((MonthWorksTableModel) monthWorksTable.getModel()).fireTableDataChanged();
+                    if (i > -1) monthWorksTable.getSelectionModel().setSelectionInterval(i, i);
+                    ((MonthWorkersTableModel) monthWorkersPerWorkTable.getModel()).setMonth(monthTabbedPane.getSelectedIndex());
+                }
+            }
+        });
+        monthTabbedPane.setSelectedIndex(0);
+        //
+        quarterPlan_month.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                PlanPart currPart = plan.get(quarterPlan_month.getSelectedIndex());
+                ((MonthWorksTableModel) monthWorksTable.getModel()).setPlanPart(currPart);
+                // Сбрасываем еще список работников
+                ((MonthWorkersTableModel) monthWorkersPerWorkTable.getModel()).clearWorkInPlan();
+            }
+        });
+        //
+        monthWorkersPerWorkTable.setModel(new MonthWorkersTableModel());
+        monthWorkersPerWorkTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        //
+        MonthWorksTableModel monthWorksTableModel = new MonthWorksTableModel();
+        monthWorksTable.setModel(monthWorksTableModel);
+        monthWorksTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        monthWorksTableModel.setPlanPart(plan.get(0));
+        monthWorksTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                PlanPart currPart = plan.get(quarterPlan_month.getSelectedIndex());
+                if ((monthWorksTable.getSelectedRow() > -1) && (monthWorksTable.getSelectedRow() < currPart.getWorks().size())) {
+                    ((MonthWorkersTableModel) monthWorkersPerWorkTable.getModel()).setWorkInPlan(currPart.getWorks().get(monthWorksTable.getSelectedRow()));
+                }
+            }
+        });
+        kindWorksTabbedPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // Запустим обновление всего чего можно тама...
+                ((MonthWorksTableModel) monthWorksTable.getModel()).fireTableDataChanged();
+                ((MonthWorkersTableModel) monthWorkersPerWorkTable.getModel()).clearWorkInPlan();
+            }
+        });
     }
 
     /**
@@ -268,6 +347,18 @@ public class MainForm {
         }
         worker.setLaborContentTotal(total);
         ((WorkersTableModel) workersTable.getModel()).fireTableCellUpdated(workers.indexOf(worker), 1);
+    }
+
+    /**
+     * Обновляет информацию о оставшейся трудоемкости в monthWorksTable
+     */
+    public void updateRestLabor() {
+        if (monthWorksTable.getSelectedRow() != -1) {
+            ((MonthWorksTableModel)monthWorksTable.getModel()).fireTableCellUpdated(monthWorksTable.getSelectedRow(), 2);
+        } else {
+            ((MonthWorksTableModel)monthWorksTable.getModel()).fireTableDataChanged();
+            ((MonthWorkersTableModel) monthWorkersPerWorkTable.getModel()).clearWorkInPlan();
+        }
     }
 
     /**
