@@ -20,6 +20,10 @@ public class Starter {
     }
 
     private static void createAndShowGUI() {
+        // Setting UI
+        try {
+           UIManager.setLookAndFeel("com.jgoodies.looks.plastic.PlasticXPLookAndFeel");
+        } catch (Exception e) {}
         //Create and set up the window.
         JFrame frame = new JFrame("Planner");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -30,4 +30,14 @@ public class Worker {
     public void setLaborContentTotal(Double laborContentTotal) {
         this.laborContentTotal = laborContentTotal;
     }
+
+    /**
+     * Returns a string representation of the object.
+     *
+     * @return a string representation of the object.
+     */
+    @Override
+    public String toString() {
+        return name;
+    }
 }
