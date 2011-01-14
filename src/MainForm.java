@@ -5,9 +5,14 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumn;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Vector;
 
 /**
@@ -22,14 +27,13 @@ public class MainForm {
     private JPanel mainPanel;
     private JTable workersTable;
     private JButton saveWorkersBtn;
-    private JButton loadWorkersBtn;
     private JButton addWorkerBtn;
     private JButton delWorkerBtn;
     private JTabbedPane quarterPlan_divisions;
     private JTabbedPane kindWorksTabbedPane;
     private JButton savePlanBtn;
     private JButton loadPlanBtn;
-    private JButton планButton;
+    private JButton printPlanBtn;
     private JButton отчетButton;
     private JTable planPartTable;
     private JTable workersInPlanTable;
@@ -45,6 +49,27 @@ public class MainForm {
     private JTable monthWorksTable;
     private JTable monthWorkersPerWorkTable;
     private JTabbedPane quarterPlan_month;
+    private JFormattedTextField yearEdit;
+    private JButton editWorkBtn;
+    private JButton createNewPlanBtn;
+
+    public int getSelectedQuarter() {
+        return quarterComboBox.getSelectedIndex() + 1;
+    }
+
+    public void setSelectedQuarter(int quarter) {
+        if ((quarter > -1) && (quarter < 4)) {
+            quarterComboBox.setSelectedIndex(quarter);
+        }
+    }
+
+    public String getYear() {
+        return yearEdit.getText();
+    }
+
+    public void setYear(String year) {
+        yearEdit.setText(year);
+    }
 
     public Vector<Worker> getWorkers() {
         return workers;
@@ -52,50 +77,62 @@ public class MainForm {
 
     //
     private Vector<Worker> workers = new Vector<Worker>();
+
+    public ArrayList<PlanPart> getPlan() {
+        return plan;
+    }
+
     private ArrayList<PlanPart> plan = new ArrayList<PlanPart>();
     //
 
     public MainForm() {
         //
-        Worker worker1 = new Worker("Рогов П.?.", 0.0);
+        Worker worker1 = new Worker("Рогов П.А.", 0.0);
         workers.add(worker1);
-        Worker worker2 = new Worker("Золотов А.?.", 0.0);
+        Worker worker2 = new Worker("Золотов А.В.", 0.0);
         workers.add(worker2);
-        workers.add(new Worker("Полулях А.?.", 0.0));
-        workers.add(new Worker("Горелов А.?.", 0.0));
-        workers.add(new Worker("Воронин Р.?.", 0.0));
-        workers.add(new Worker("Гуськов С.?.", 0.0));
-        workers.add(new Worker("Мармер В.?.", -1.0));
-        workers.add(new Worker("Зореев В.?.", -1.0));
-        workers.add(new Worker("Шварцман А.?.", 0.0));
+        workers.add(new Worker("Полулях А.В.", 0.0));
+        workers.add(new Worker("Горелов А.Г.", 0.0));
+        workers.add(new Worker("Воронин Р.М.", 0.0));
+        workers.add(new Worker("Гуськов С.С.", 0.0));
+        workers.add(new Worker("Конев Д.С.", 0.0));
+        workers.add(new Worker("Шумский Ю.Н.", 0.0));
+        workers.add(new Worker("Мироненко Н.Л.", 0.0));
+        workers.add(new Worker("Мармер В.В.", -1.0));
+        workers.add(new Worker("Зореев В.П.", -1.0));
+        workers.add(new Worker("Шварцман А.М.", 0.0));
+        workers.add(new Worker("Никитина Н.Е.", 0.0));
+        workers.add(new Worker("Хехнева А.В.", 0.0));
+        workers.add(new Worker("Конашина О.А.", 0.0));
+        workers.add(new Worker("Косарев В.В.", 0.0));
         //
-        plan.add(new PlanPart("Собств.работы - новые"));
-        plan.add(new PlanPart("Собств.работы - продолжение"));
-        plan.add(new PlanPart("СМК"));
-        plan.add(new PlanPart("Корр.мероприятия"));
+        plan.add(new PlanPart("Собств.работы - новые", "1. Собственные работы (по основному процессу подразделения)"));
+        plan.add(new PlanPart("Собств.работы - продолжение", "1а). Собственные работы (завершение работ по предыдущим квартальным планам)"));
+        plan.add(new PlanPart("Внешн.заказчик", "3. Работы по внешней кооперации (с другими организациями)"));
+        plan.add(new PlanPart("СМК", "4. Разработка документации по СМК"));
+        plan.add(new PlanPart("Корр.мероприятия", "5. Корректирующие и предупреждающие действия"));
         //
-        plan.get(0).getWorks().add(new WorkInPlan("Работа 1", "Описание 1"));
+        plan.get(0).getWorks().add(new WorkInPlan("Работа 1", "Описание 1\nСтрока2\n]]", "10.10.2010", "", "Предоставлено \n куча \n всего \n ]]"));
         plan.get(0).getWorks().get(0).getWorkersInPlan().add(new WorkerInPlan(worker1, 3.5));
         plan.get(0).getWorks().get(0).getWorkersInPlan().add(new WorkerInPlan(worker2, 5.5));
         plan.get(0).getWorks().add(new WorkInPlan("Работа 2", "Описание 2"));
         plan.get(0).getWorks().add(new WorkInPlan("Работа 3", "Описание 3"));
         //
-        quarterPlan_divisions.removeAll();
-        quarterPlan_month.removeAll();
-        for (PlanPart part : plan) {
-            quarterPlan_divisions.addTab(part.getName(), null);
-            quarterPlan_month.addTab(part.getName(), null);
-        }
+        yearEdit.setText(new SimpleDateFormat("yyyy").format(new Date()));
+        //
+        makePlanPartTabs();
         quarterPlan_divisions.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                PlanPart currPart = plan.get(quarterPlan_divisions.getSelectedIndex());
-                ((PlanPartModel) planPartTable.getModel()).setPlanPart(currPart);
-                // Сбрасываем еще список работников
-                ((WorkersInPlanTableModel) workersInPlanTable.getModel()).clearWorkInPlan();
+                if (quarterPlan_divisions.getSelectedIndex() != -1) {
+                    PlanPart currPart = plan.get(quarterPlan_divisions.getSelectedIndex());
+                    ((PlanPartModel) planPartTable.getModel()).setPlanPart(currPart);
+                    // Сбрасываем еще список работников
+                    ((WorkersInPlanTableModel) workersInPlanTable.getModel()).clearWorkInPlan();
+                }
             }
         });
         //
-        workersTable.setModel(new WorkersTableModel());
+        workersTable.setModel(new WorkersTableModel(workers));
         workersTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         //
         PlanPartModel planPartModel = new PlanPartModel();
@@ -271,10 +308,12 @@ public class MainForm {
         //
         quarterPlan_month.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                PlanPart currPart = plan.get(quarterPlan_month.getSelectedIndex());
-                ((MonthWorksTableModel) monthWorksTable.getModel()).setPlanPart(currPart);
-                // Сбрасываем еще список работников
-                ((MonthWorkersTableModel) monthWorkersPerWorkTable.getModel()).clearWorkInPlan();
+                if (quarterPlan_month.getSelectedIndex() != -1) {
+                    PlanPart currPart = plan.get(quarterPlan_month.getSelectedIndex());
+                    ((MonthWorksTableModel) monthWorksTable.getModel()).setPlanPart(currPart);
+                    // Сбрасываем еще список работников
+                    ((MonthWorkersTableModel) monthWorkersPerWorkTable.getModel()).clearWorkInPlan();
+                }
             }
         });
         //
@@ -300,7 +339,93 @@ public class MainForm {
                 ((MonthWorkersTableModel) monthWorkersPerWorkTable.getModel()).clearWorkInPlan();
             }
         });
+        //
+        editWorkBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                PlanPart currPart = plan.get(quarterPlan_divisions.getSelectedIndex());
+                if ((planPartTable.getSelectedRow() > -1) && (planPartTable.getSelectedRow() < currPart.getWorks().size())) {
+                    WorkInPlan currWork = currPart.getWorks().get(planPartTable.getSelectedRow());
+                    WorkInPlan resWork = WorkParamForm.showDialog(planPartTable, planPartTable, currWork);
+                    if (resWork != null) {
+                        currWork.setName(resWork.getName());
+                        currWork.setDesc(resWork.getDesc());
+                        currWork.setEndDate(resWork.getEndDate());
+                        currWork.setReserve(resWork.getReserve());
+                        currWork.setFinishDoc(resWork.getFinishDoc());
+                        // Fire change
+                        ((PlanPartModel) planPartTable.getModel()).fireTableCellUpdated(planPartTable.getSelectedRow(), 0);
+                    }
+                }
+            }
+        });
+        //
+        savePlanBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Вначале - выбираем куда сохранять
+                PlanUtils.savePlanToFile();
+            }
+        });
+        loadPlanBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (PlanUtils.loadPlanFromFile()) {
+                    // Пересчитаем общую трудоемкость по всем
+                    for (Worker worker : workers) {
+                        updateTotalWorkerLabor(worker);
+                    }
+                    // Теперь еще перезапустим все модели
+                    makePlanPartTabs();
+                    ((AbstractTableModel) workersTable.getModel()).fireTableDataChanged();
+                    ((AbstractTableModel) planPartTable.getModel()).fireTableDataChanged();
+                    ((AbstractTableModel) workersInPlanTable.getModel()).fireTableDataChanged();
+                    ((AbstractTableModel) monthWorksTable.getModel()).fireTableDataChanged();
+                    ((AbstractTableModel) monthWorkersPerWorkTable.getModel()).fireTableDataChanged();
+                }
+            }
+        });
+        //
+        createNewPlanBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (JOptionPane.showConfirmDialog(null, "Вы уверены, что хотите создать новый план? Все работы текущего плана будут удалены!",
+                        "Создание нового плана", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) {
+                    for (PlanPart part : plan) {
+                        part.getWorks().clear();
+                    }
+                    ((PlanPartModel) planPartTable.getModel()).fireTableDataChanged();
+                    ((WorkersInPlanTableModel) workersInPlanTable.getModel()).fireTableDataChanged();
+                    for (Worker worker : workers) {
+                        worker.setLaborContentTotal(0.0);
+                    }
+                    ((WorkersTableModel) workersTable.getModel()).fireTableDataChanged();
+                }
+            }
+        });
+        printPlanBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    PlanUtils.makeQuarterPlan();
+                } catch (IOException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка ввода-вывода");
+                } catch (TransformerException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка сохранения XML документа");
+                } catch (ParserConfigurationException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка работы с XML документом");
+                }
+            }
+        });
     }
+
+    /**
+     * Создает табы по видам работ
+     */
+    private void makePlanPartTabs() {
+        quarterPlan_divisions.removeAll();
+        quarterPlan_month.removeAll();
+        for (PlanPart part : plan) {
+            quarterPlan_divisions.addTab(part.getName(), null);
+            quarterPlan_month.addTab(part.getName(), null);
+        }
+    }
+
 
     /**
      * Двигает выбранный элемент в planPartTable вверх или вниз
@@ -328,7 +453,7 @@ public class MainForm {
 
     public void planPartTotalLaborChanged() {
         if (planPartTable.getSelectedRow() != -1) {
-            ((PlanPartModel) planPartTable.getModel()).fireTableCellUpdated(planPartTable.getSelectedRow(), 2);
+            ((PlanPartModel) planPartTable.getModel()).fireTableCellUpdated(planPartTable.getSelectedRow(), 1);
         } else {
             ((PlanPartModel) planPartTable.getModel()).fireTableDataChanged();
         }
@@ -354,100 +479,11 @@ public class MainForm {
      */
     public void updateRestLabor() {
         if (monthWorksTable.getSelectedRow() != -1) {
-            ((MonthWorksTableModel)monthWorksTable.getModel()).fireTableCellUpdated(monthWorksTable.getSelectedRow(), 2);
+            ((MonthWorksTableModel) monthWorksTable.getModel()).fireTableCellUpdated(monthWorksTable.getSelectedRow(), 2);
         } else {
-            ((MonthWorksTableModel)monthWorksTable.getModel()).fireTableDataChanged();
+            ((MonthWorksTableModel) monthWorksTable.getModel()).fireTableDataChanged();
             ((MonthWorkersTableModel) monthWorkersPerWorkTable.getModel()).clearWorkInPlan();
         }
     }
 
-    /**
-     * Класс - модель списка работников
-     */
-    private class WorkersTableModel extends AbstractTableModel {
-        /**
-         * Returns the number of rows in the model. A
-         * <code>JTable</code> uses this method to determine how many rows it
-         * should display.  This method should be quick, as it
-         * is called frequently during rendering.
-         *
-         * @return the number of rows in the model
-         * @see #getColumnCount
-         */
-        public int getRowCount() {
-            return workers.size();
-        }
-
-        /**
-         * Returns the number of columns in the model. A
-         * <code>JTable</code> uses this method to determine how many columns it
-         * should create and display by default.
-         *
-         * @return the number of columns in the model
-         * @see #getRowCount
-         */
-        public int getColumnCount() {
-            return 2;
-        }
-
-        @Override
-        public String getColumnName(int col) {
-            switch (col) {
-                case 0:
-                    return "Имя";
-                case 1:
-                    return "Общая трудоемкость";
-                default:
-                    return "Этого тут быть не должно!";
-            }
-        }
-
-        @Override
-        public Class getColumnClass(int col) {
-            if (col <= 2) {
-                return getValueAt(0, col).getClass();
-            } else {
-                return null;
-            }
-        }
-
-        /**
-         * Returns the value for the cell at <code>columnIndex</code> and
-         * <code>rowIndex</code>.
-         *
-         * @param rowIndex    the row whose value is to be queried
-         * @param columnIndex the column whose value is to be queried
-         * @return the value Object at the specified cell
-         */
-        public Object getValueAt(int rowIndex, int columnIndex) {
-            switch (columnIndex) {
-                case 0:
-                    return workers.get(rowIndex).getName();
-                case 1:
-                    return workers.get(rowIndex).getLaborContentTotal();
-                default:
-                    return null;
-            }
-        }
-
-        @Override
-        public boolean isCellEditable(int row, int col) {
-            return true;
-        }
-
-        @Override
-        public void setValueAt(Object value, int row, int col) {
-            switch (col) {
-                case 0:
-                    workers.get(row).setName((String) value);
-                    break;
-                case 1:
-                    workers.get(row).setLaborContentTotal((Double) value);
-                    break;
-            }
-            fireTableCellUpdated(row, col);
-        }
-
-
-    }
 }

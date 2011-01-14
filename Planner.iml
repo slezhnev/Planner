@@ -9,6 +9,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JGoodies Common 1.1.1" level="application" />
     <orderEntry type="library" name="JGoodies Looks 2.4.0" level="application" />
+    <orderEntry type="library" name="JGoodies Common 1.1.1" level="application" />
+    <orderEntry type="library" name="JGoodies Looks 2.4.0" level="application" />
+    <orderEntry type="library" name="Jasper Report 4.0.0" level="application" />
   </component>
 </module>
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plan quarter="1" year="2011">
+  <planParts>
+    <planPart id="1" labor="9.0" longName="1. Собственные работы (по основному процессу подразделения)" name="Собств.работы - новые"/>
+    <planPart id="2" labor="0.0" longName="1а). Собственные работы (завершение работ по предыдущим квартальным планам)" name="Собств.работы - продолжение"/>
+    <planPart id="3" labor="0.0" longName="3. Работы по внешней кооперации (с другими организациями)" name="Внешн.заказчик"/>
+    <planPart id="4" labor="0.0" longName="4. Разработка документации по СМК" name="СМК"/>
+    <planPart id="5" labor="0.0" longName="5. Корректирующие и предупреждающие действия" name="Корр.мероприятия"/>
+  </planParts>
+  <works>
+    <work endDate="10.10.2010" id="1" name="Работа 1" planPartId="1">
+      <desc>Описание 1
+Строка2
+]]</desc>
+      <reserve/>
+      <finishDocs>Предоставлено 
+ куча 
+ всего 
+ ]]</finishDocs>
+      <labor>9.0</labor>
+    </work>
+    <work endDate="" id="2" name="Работа 2" planPartId="1">
+      <desc>Описание 2</desc>
+      <reserve/>
+      <finishDocs/>
+      <labor>0.0</labor>
+    </work>
+    <work endDate="" id="3" name="Работа 3" planPartId="1">
+      <desc>Описание 3</desc>
+      <reserve/>
+      <finishDocs/>
+      <labor>0.0</labor>
+    </work>
+  </works>
+</plan>

@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quarterPlan" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="Table Dataset 1"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["F:\\Lsv\\JavaProjects\\Planner\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[/plan/planParts/planPart]]>
+	</queryString>
+	<field name="labor" class="java.lang.String">
+		<fieldDescription><![CDATA[@labor]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[@name]]></fieldDescription>
+	</field>
+	<field name="longName" class="java.lang.String">
+		<fieldDescription><![CDATA[@longName]]></fieldDescription>
+	</field>
+	<field name="quarter" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::plan/@quarter]]></fieldDescription>
+	</field>
+	<field name="year" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::plan/@year]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[@id]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="161" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="132" width="802" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[План работ на          квартал                    года]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="16" width="213" height="86"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[СОГЛАСОВАНО
+Зам. генерального директора
+
+__________________ Пасманик Л.А.
+
+«___» __________ 2010 г.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="607" y="16" width="195" height="86"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[УТВЕРЖДАЮ
+Главный инженер
+
+________________ Смирнов В.А.
+
+«___» __________ 2010 г.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="112" width="802" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[ОТДЕЛ НОВОЙ ТЕХНИКИ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="118" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ФОРМА Ф-ПО-1]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="363" y="132" width="25" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{quarter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="132" width="52" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{year}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="98" splitType="Stretch">
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="0" width="802" height="20"/>
+				</rectangle>
+				<textField>
+					<reportElement x="0" y="0" width="802" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{longName}]]></textFieldExpression>
+				</textField>
+			</elementGroup>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="20" width="37" height="47"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="20" width="37" height="47"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[№]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="20" width="155" height="47"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="37" y="20" width="155" height="47"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Наименование работ,
+шифр работ]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="192" y="20" width="181" height="47"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="192" y="20" width="181" height="47"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Представляемые результаты]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="373" y="20" width="57" height="47"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="373" y="20" width="57" height="47"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Трудо-емкость
+ч/дн.]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="430" y="20" width="104" height="47"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="430" y="20" width="104" height="47"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Наличие задела]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="534" y="20" width="87" height="47"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="534" y="20" width="85" height="47"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Срок выполнения]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="621" y="20" width="181" height="47"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="621" y="20" width="181" height="47"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Отметка о выполнении
+документ, подтверждающий выполнение]]></text>
+				</staticText>
+			</elementGroup>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="0" y="67" width="802" height="20" isRemoveLineWhenBlank="true" backcolor="#FFCC99"/>
+				<subreportParameter name="XML_DATA_DOCUMENT">
+					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="XML_LOCALE">
+					<subreportParameterExpression><![CDATA[$P{XML_LOCALE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="XML_TIME_ZONE">
+					<subreportParameterExpression><![CDATA[$P{XML_TIME_ZONE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="planPartId">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "quarterPlan_works.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="25" splitType="Prevent">
+			<staticText>
+				<reportElement x="722" y="5" width="32" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Стр.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="754" y="5" width="48" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="489" splitType="Stretch">
+			<subreport runToBottom="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="802" height="22"/>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "quarterPlan_part6.jasper"]]></subreportExpression>
+			</subreport>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="54" width="802" height="20"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="54" width="802" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[8. Выполнение запланированных мероприятий, %]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="0" y="74" width="37" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="74" width="37" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[№]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="74" width="286" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="37" y="74" width="286" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Наименование работ]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="323" y="74" width="237" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="323" y="74" width="237" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[выполнение по количеству, %]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="560" y="74" width="242" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="560" y="74" width="242" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[выполнение по трудоемкости, %]]></text>
+				</staticText>
+			</elementGroup>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="95" width="37" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="95" width="37" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[1]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="95" width="286" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="47" y="95" width="276" height="21"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Собственные работы]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="323" y="95" width="237" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="323" y="95" width="237" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="560" y="95" width="242" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="560" y="95" width="242" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</elementGroup>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="116" width="37" height="32"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="116" width="37" height="32"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[1a]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="116" width="286" height="32"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="47" y="116" width="276" height="32"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Завершение работ по предыдущим
+квартальным планам]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="323" y="116" width="237" height="32"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="323" y="116" width="237" height="32"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="560" y="116" width="242" height="32"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="560" y="116" width="242" height="32"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</elementGroup>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="148" width="37" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="148" width="37" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[2]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="148" width="286" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="47" y="148" width="276" height="21"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Работы по внутренней кооперации]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="323" y="148" width="237" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="323" y="148" width="237" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="560" y="148" width="242" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="560" y="148" width="242" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</elementGroup>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="169" width="37" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="169" width="37" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[3]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="169" width="286" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="47" y="169" width="276" height="21"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Работы по внешней кооперации]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="323" y="169" width="237" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="323" y="169" width="237" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="560" y="169" width="242" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="560" y="169" width="242" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</elementGroup>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="190" width="37" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="190" width="37" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[4]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="190" width="286" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="47" y="190" width="276" height="21"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Разработка документации по СМК]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="323" y="190" width="237" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="323" y="190" width="237" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="560" y="190" width="242" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="560" y="190" width="242" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</elementGroup>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="211" width="37" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="211" width="37" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[5]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="211" width="286" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="47" y="211" width="276" height="21"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Корректирующие и предупреждающие действия]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="323" y="211" width="237" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="323" y="211" width="237" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="560" y="211" width="242" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="560" y="211" width="242" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</elementGroup>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="232" width="37" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="232" width="37" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[6]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="232" width="286" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="47" y="232" width="276" height="21"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Предоставление планов]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="323" y="232" width="237" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="323" y="232" width="237" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="560" y="232" width="242" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="560" y="232" width="242" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</elementGroup>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="253" width="37" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="253" width="37" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[7]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="37" y="253" width="286" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="47" y="253" width="276" height="21"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Предоставление отчетов]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="323" y="253" width="237" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="323" y="253" width="237" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="560" y="253" width="242" height="21"/>
+				</rectangle>
+				<staticText>
+					<reportElement mode="Transparent" x="560" y="253" width="242" height="21"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</elementGroup>
+			<staticText>
+				<reportElement x="0" y="288" width="167" height="100"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[СОГЛАСОВАНО
+
+Никитин Ю.А.
+
+Горшенков А.И.
+
+Шабалова Н.В.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="531" y="288" width="271" height="100"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Руководитель подразделения:
+
+
+
+«___» ________________ 2011 г.]]></text>
+			</staticText>
+			<subreport runToBottom="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="22" width="802" height="21"/>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "quarterPlan_part7.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

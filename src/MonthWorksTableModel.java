@@ -19,7 +19,7 @@ public class MonthWorksTableModel extends AbstractTableModel {
     private PlanPart planPart;
 
     public MonthWorksTableModel() {
-        planPart = new PlanPart("Tmp");
+        planPart = new PlanPart("Tmp", "Tmp");
     }
 
 

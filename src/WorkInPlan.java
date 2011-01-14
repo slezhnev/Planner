@@ -11,12 +11,28 @@ public class WorkInPlan {
 
     private String name;
     private String desc;
+    private String endDate;
+    private String reserve;
+    private String finishDoc;
     private Double laborTotal;
     private ArrayList<WorkerInPlan> workersInPlan = new ArrayList<WorkerInPlan>();
+
+    public WorkInPlan(String name, String desc, String endDate, String reserve, String finishDoc) {
+        this.name = name;
+        this.desc = desc;
+        this.endDate = endDate;
+        this.reserve = reserve;
+        this.finishDoc = finishDoc;
+        laborTotal = 0.0;
+
+    }
 
     public WorkInPlan(String name, String desc) {
         this.name = name;
         this.desc = desc;
+        this.endDate = "";
+        this.reserve = "";
+        this.finishDoc = "";
         laborTotal = 0.0;
     }
 
@@ -61,5 +77,29 @@ public class WorkInPlan {
             total = total + worker.calcRestLabor(month);
         }
         return total;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getFinishDoc() {
+        return finishDoc;
+    }
+
+    public void setFinishDoc(String finishDoc) {
+        this.finishDoc = finishDoc;
+    }
+
+    public String getReserve() {
+        return reserve;
+    }
+
+    public void setReserve(String reserve) {
+        this.reserve = reserve;
     }
 }

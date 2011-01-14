@@ -17,7 +17,7 @@ class PlanPartModel extends AbstractTableModel {
     private PlanPart planPart;
 
     public PlanPartModel() {
-        planPart = new PlanPart("Tmp");
+        planPart = new PlanPart("Tmp", "Tmp");
     }
 
 
@@ -43,7 +43,7 @@ class PlanPartModel extends AbstractTableModel {
      * @see #getRowCount
      */
     public int getColumnCount() {
-        return 3;
+        return 2;
     }
 
     /**
@@ -59,9 +59,9 @@ class PlanPartModel extends AbstractTableModel {
             switch (columnIndex) {
                 case 0:
                     return planPart.getWorks().get(rowIndex).getName();
+//                case 1:
+//                    return planPart.getWorks().get(rowIndex).getDesc();
                 case 1:
-                    return planPart.getWorks().get(rowIndex).getDesc();
-                case 2:
                     return planPart.getWorks().get(rowIndex).getLaborTotal();
                 default:
                     return "";
@@ -84,9 +84,9 @@ class PlanPartModel extends AbstractTableModel {
         switch (column) {
             case 0:
                 return "Наим.";
+//            case 1:
+//                return "Описание";
             case 1:
-                return "Описание";
-            case 2:
                 return "Общая труд.";
             default:
                 return "WTF?!";
@@ -103,8 +103,8 @@ class PlanPartModel extends AbstractTableModel {
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
             case 0 : return String.class;
-            case 1 : return String.class;
-            case 2 : return Double.class;
+//            case 1 : return String.class;
+            case 1 : return Double.class;
             default : return String.class;
         }
         /*if (columnIndex <= 3) {
@@ -125,7 +125,7 @@ class PlanPartModel extends AbstractTableModel {
      */
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return (columnIndex == 0) || (columnIndex == 1);
+        return (columnIndex == 0);
     }
 
     /**
@@ -143,10 +143,10 @@ class PlanPartModel extends AbstractTableModel {
                     planPart.getWorks().get(rowIndex).setName((String) aValue);
                     break;
                 }
-                case 1: {
-                    planPart.getWorks().get(rowIndex).setDesc((String) aValue);
-                    break;
-                }
+//                case 1: {
+//                    planPart.getWorks().get(rowIndex).setDesc((String) aValue);
+//                    break;
+//                }
             }
         }
     }
