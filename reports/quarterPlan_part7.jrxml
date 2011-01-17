@@ -3,68 +3,98 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<queryString language="xPath">
+		<![CDATA[/plan]]>
+	</queryString>
+	<field name="quarter" class="java.lang.String">
+		<fieldDescription><![CDATA[@quarter]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="502" splitType="Stretch">
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="0" width="802" height="20"/>
-				</rectangle>
 				<staticText>
 					<reportElement x="0" y="0" width="802" height="20"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12" isBold="true" isItalic="true"/>
 					</textElement>
 					<text><![CDATA[7. Предоставление отчетов]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="0" y="20" width="37" height="47"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="20" width="37" height="47"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[№]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="20" width="286" height="47"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="37" y="20" width="286" height="47"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Наименование работ]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="20" width="137" height="47"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="20" width="137" height="47"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Трудоемкость
 ч/дн.]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="20" width="134" height="47"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="20" width="134" height="47"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Срок выполнения]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="20" width="208" height="47"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="20" width="208" height="47"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -73,11 +103,15 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="67" width="802" height="22"/>
-				</rectangle>
 				<staticText>
 					<reportElement x="0" y="67" width="802" height="22"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -85,51 +119,71 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="89" width="37" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="89" width="37" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[1]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="89" width="286" height="32"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="89" width="276" height="32"/>
+					<reportElement mode="Transparent" x="37" y="89" width="286" height="32"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Отчет о трудозатратах за месяц]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="89" width="137" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="89" width="137" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[1]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="89" width="134" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="89" width="134" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[До 5-го числа следующего месяца]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="89" width="208" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="89" width="208" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -137,51 +191,71 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="121" width="37" height="46"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="121" width="37" height="46"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[2]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="121" width="286" height="46"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="121" width="276" height="46"/>
+					<reportElement mode="Transparent" x="37" y="121" width="286" height="46"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Отчет по выявленным несоответствиям и потенциальным несоответствиям, корректирующим и предупреждающим действиям за месяц]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="121" width="137" height="46"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="121" width="137" height="46"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[1]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="121" width="134" height="46"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="121" width="134" height="46"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[До 5-го числа следующего месяца]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="121" width="208" height="46"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="121" width="208" height="46"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -189,51 +263,71 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="167" width="37" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="167" width="37" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[3]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="167" width="286" height="32"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="167" width="276" height="32"/>
+					<reportElement mode="Transparent" x="37" y="167" width="286" height="32"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Отчет о незавершенном производстве (заделе)*]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="167" width="137" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="167" width="137" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="167" width="134" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="167" width="134" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="167" width="208" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="167" width="208" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -241,51 +335,71 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="199" width="37" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="199" width="37" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[4]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="199" width="286" height="32"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="199" width="276" height="32"/>
+					<reportElement mode="Transparent" x="37" y="199" width="286" height="32"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Отчет "Наличие товара и комплектующих на складе" **]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="199" width="137" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="199" width="137" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="199" width="134" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="199" width="134" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="199" width="208" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="199" width="208" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -293,11 +407,15 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="231" width="802" height="22"/>
-				</rectangle>
 				<staticText>
 					<reportElement x="0" y="231" width="802" height="22"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -305,51 +423,71 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="253" width="37" height="44"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="253" width="37" height="44"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[1]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="253" width="286" height="44"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="253" width="276" height="44"/>
+					<reportElement mode="Transparent" x="37" y="253" width="286" height="44"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Квартальный отчет]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="253" width="137" height="44"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="253" width="137" height="44"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[1]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="253" width="134" height="44"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="253" width="134" height="44"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[До 25-го числа последнего месяца квартала]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="253" width="208" height="44"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="253" width="208" height="44"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -357,52 +495,72 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="297" width="37" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="297" width="37" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[2]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="297" width="286" height="32"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="297" width="276" height="32"/>
+					<reportElement mode="Transparent" x="37" y="297" width="286" height="32"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Отчеты по выполнению прочих запланированных мероприятий
 ]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="297" width="137" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="297" width="137" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="297" width="134" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="297" width="134" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="297" width="208" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="297" width="208" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -410,11 +568,15 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="329" width="802" height="22"/>
-				</rectangle>
 				<staticText>
 					<reportElement x="0" y="329" width="802" height="22"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -422,51 +584,71 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="351" width="37" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="351" width="37" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[1]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="351" width="286" height="32"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="351" width="276" height="32"/>
+					<reportElement mode="Transparent" x="37" y="351" width="286" height="32"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Отчет о выполнении целей в области качества подразделения]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="351" width="137" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="351" width="137" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[2]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="351" width="134" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="351" width="134" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[23.12.2010]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="351" width="208" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="351" width="208" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -474,51 +656,71 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="383" width="37" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="383" width="37" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[2]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="383" width="286" height="32"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="383" width="276" height="32"/>
+					<reportElement mode="Transparent" x="37" y="383" width="286" height="32"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Справка о ходе процесса]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="383" width="137" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="383" width="137" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="383" width="134" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="383" width="134" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="383" width="208" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="383" width="208" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -526,51 +728,71 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="415" width="37" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="415" width="37" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[3]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="415" width="286" height="32"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="415" width="276" height="32"/>
+					<reportElement mode="Transparent" x="37" y="415" width="286" height="32"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Отчеты, предоставляемые в соответствии с паспортом процесса]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="415" width="137" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="415" width="137" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="415" width="134" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="415" width="134" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[-]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="415" width="208" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="415" width="208" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -578,51 +800,71 @@
 				</staticText>
 			</elementGroup>
 			<elementGroup>
-				<rectangle>
-					<reportElement x="0" y="447" width="37" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="0" y="447" width="37" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[4]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="37" y="447" width="286" height="32"/>
-				</rectangle>
 				<staticText>
-					<reportElement mode="Transparent" x="47" y="447" width="276" height="32"/>
+					<reportElement mode="Transparent" x="37" y="447" width="286" height="32"/>
+					<box leftPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Отчет о закупках и ППР компьютерной техники]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="323" y="447" width="137" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="323" y="447" width="137" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[3]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="460" y="447" width="134" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="460" y="447" width="134" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[23.12.2010]]></text>
 				</staticText>
-				<rectangle>
-					<reportElement x="594" y="447" width="208" height="32"/>
-				</rectangle>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="447" width="208" height="32"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
@@ -638,4 +880,13 @@
 			</staticText>
 		</band>
 	</title>
+	<detail>
+		<band height="13">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="10"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{quarter}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
 </jasperReport>

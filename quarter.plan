@@ -17,19 +17,19 @@
  куча 
  всего 
  ]]</finishDocs>
-      <labor>9.0</labor>
+      <labor>198.0 ч/д (9.0 ч/м)</labor>
     </work>
     <work endDate="" id="2" name="Работа 2" planPartId="1">
       <desc>Описание 2</desc>
       <reserve/>
       <finishDocs/>
-      <labor>0.0</labor>
+      <labor/>
     </work>
     <work endDate="" id="3" name="Работа 3" planPartId="1">
       <desc>Описание 3</desc>
       <reserve/>
       <finishDocs/>
-      <labor>0.0</labor>
+      <labor/>
     </work>
   </works>
 </plan>

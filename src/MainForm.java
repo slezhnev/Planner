@@ -403,6 +403,7 @@ public class MainForm {
             public void actionPerformed(ActionEvent e) {
                 try {
                     PlanUtils.makeQuarterPlan();
+                    ReportViewer.showPreview(kindWorksTabbedPane, kindWorksTabbedPane, "quarterPlan");
                 } catch (IOException e1) {
                     JOptionPane.showMessageDialog(null, "Ошибка ввода-вывода");
                 } catch (TransformerException e1) {
