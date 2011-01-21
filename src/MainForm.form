@@ -413,7 +413,7 @@
                   <component id="74942" class="javax.swing.JTable" binding="workersTable">
                     <constraints/>
                     <properties>
-                      <autoCreateRowSorter value="true"/>
+                      <autoCreateRowSorter value="false"/>
                       <preferredScrollableViewportSize width="800" height="600"/>
                     </properties>
                   </component>

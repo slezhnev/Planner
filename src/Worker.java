@@ -8,11 +8,19 @@
 public class Worker {
 
     private String name;
+    private boolean overhead;
+    private boolean notInMonthReport;
     private Double laborContentTotal;
 
     public Worker(String name, Double laborContentTotal) {
+        this(name, laborContentTotal, false, false);
+    }
+
+    public Worker(String name, Double laborContentTotal, boolean overhead, boolean notInMonthReport) {
         this.name = name;
         this.laborContentTotal = laborContentTotal;
+        this.overhead = overhead;
+        this.notInMonthReport = notInMonthReport;
     }
 
     public String getName() {
@@ -39,5 +47,21 @@ public class Worker {
     @Override
     public String toString() {
         return name;
+    }
+
+    public boolean isOverhead() {
+        return overhead;
+    }
+
+    public void setOverhead(boolean overhead) {
+        this.overhead = overhead;
+    }
+
+    public boolean isNotInMonthReport() {
+        return notInMonthReport;
+    }
+
+    public void setNotInMonthReport(boolean notInMonthReport) {
+        this.notInMonthReport = notInMonthReport;
     }
 }

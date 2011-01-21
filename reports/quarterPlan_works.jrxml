@@ -35,7 +35,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="20">
+		<band height="20" splitType="Prevent">
 			<textField isBlankWhenNull="true">
 				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="37" height="20"/>
 				<box>
@@ -80,7 +80,7 @@
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement stretchType="RelativeToBandHeight" x="373" y="0" width="57" height="20"/>
-				<box topPadding="3" bottomPadding="3">
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -106,7 +106,7 @@
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{reserve}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement stretchType="RelativeToBandHeight" x="534" y="0" width="87" height="20"/>
 				<box>
 					<pen lineWidth="0.5"/>
@@ -120,7 +120,7 @@
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{endDate}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement stretchType="RelativeToBandHeight" x="621" y="0" width="180" height="20"/>
 				<box topPadding="3" leftPadding="5" bottomPadding="3" rightPadding="5">
 					<pen lineWidth="0.5"/>

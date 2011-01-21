@@ -9,10 +9,13 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Properties;
 import java.util.Vector;
 
 /**
@@ -75,36 +78,24 @@ public class MainForm {
         return workers;
     }
 
-    //
+    /**
+     * Работники
+     */
     private Vector<Worker> workers = new Vector<Worker>();
 
     public ArrayList<PlanPart> getPlan() {
         return plan;
     }
 
+    /**
+     * План
+     */
     private ArrayList<PlanPart> plan = new ArrayList<PlanPart>();
-    //
+
+
+    private boolean dataChanged = false;
 
     public MainForm() {
-        //
-        Worker worker1 = new Worker("Рогов П.А.", 0.0);
-        workers.add(worker1);
-        Worker worker2 = new Worker("Золотов А.В.", 0.0);
-        workers.add(worker2);
-        workers.add(new Worker("Полулях А.В.", 0.0));
-        workers.add(new Worker("Горелов А.Г.", 0.0));
-        workers.add(new Worker("Воронин Р.М.", 0.0));
-        workers.add(new Worker("Гуськов С.С.", 0.0));
-        workers.add(new Worker("Конев Д.С.", 0.0));
-        workers.add(new Worker("Шумский Ю.Н.", 0.0));
-        workers.add(new Worker("Мироненко Н.Л.", 0.0));
-        workers.add(new Worker("Мармер В.В.", -1.0));
-        workers.add(new Worker("Зореев В.П.", -1.0));
-        workers.add(new Worker("Шварцман А.М.", 0.0));
-        workers.add(new Worker("Никитина Н.Е.", 0.0));
-        workers.add(new Worker("Хехнева А.В.", 0.0));
-        workers.add(new Worker("Конашина О.А.", 0.0));
-        workers.add(new Worker("Косарев В.В.", 0.0));
         //
         plan.add(new PlanPart("Собств.работы - новые", "1. Собственные работы (по основному процессу подразделения)"));
         plan.add(new PlanPart("Собств.работы - продолжение", "1а). Собственные работы (завершение работ по предыдущим квартальным планам)"));
@@ -112,11 +103,7 @@ public class MainForm {
         plan.add(new PlanPart("СМК", "4. Разработка документации по СМК"));
         plan.add(new PlanPart("Корр.мероприятия", "5. Корректирующие и предупреждающие действия"));
         //
-        plan.get(0).getWorks().add(new WorkInPlan("Работа 1", "Описание 1\nСтрока2\n]]", "10.10.2010", "", "Предоставлено \n куча \n всего \n ]]"));
-        plan.get(0).getWorks().get(0).getWorkersInPlan().add(new WorkerInPlan(worker1, 3.5));
-        plan.get(0).getWorks().get(0).getWorkersInPlan().add(new WorkerInPlan(worker2, 5.5));
-        plan.get(0).getWorks().add(new WorkInPlan("Работа 2", "Описание 2"));
-        plan.get(0).getWorks().add(new WorkInPlan("Работа 3", "Описание 3"));
+        //fillTempInfo();
         //
         yearEdit.setText(new SimpleDateFormat("yyyy").format(new Date()));
         //
@@ -161,6 +148,7 @@ public class MainForm {
                 currPart.getWorks().add(new WorkInPlan("", ""));
                 ((PlanPartModel) planPartTable.getModel()).fireTableDataChanged();
                 ((WorkersInPlanTableModel) workersInPlanTable.getModel()).clearWorkInPlan();
+                dataChanged = true;
             }
         });
         delWorkBtn.addActionListener(new ActionListener() {
@@ -171,6 +159,7 @@ public class MainForm {
                         currPart.getWorks().remove(planPartTable.getSelectedRow());
                         ((PlanPartModel) planPartTable.getModel()).fireTableDataChanged();
                         ((WorkersInPlanTableModel) workersInPlanTable.getModel()).clearWorkInPlan();
+                        dataChanged = true;
                     }
                 }
             }
@@ -179,6 +168,7 @@ public class MainForm {
             public void actionPerformed(ActionEvent e) {
                 workers.add(new Worker("", 0.0));
                 ((WorkersTableModel) workersTable.getModel()).fireTableDataChanged();
+                dataChanged = true;
             }
         });
         delWorkerBtn.addActionListener(new ActionListener() {
@@ -205,6 +195,7 @@ public class MainForm {
                                 "Удаление работника", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                             workers.remove(worker);
                             ((WorkersTableModel) workersTable.getModel()).fireTableDataChanged();
+                            dataChanged = true;
                         }
                     }
                 }
@@ -228,6 +219,7 @@ public class MainForm {
                         if (!found) {
                             work.getWorkersInPlan().add(new WorkerInPlan(worker, 0.0));
                             ((WorkersInPlanTableModel) workersInPlanTable.getModel()).fireTableDataChanged();
+                            dataChanged = true;
                             break;
                         }
                     }
@@ -245,6 +237,7 @@ public class MainForm {
                             WorkerInPlan worker = work.getWorkersInPlan().get(workersInPlanTable.getSelectedRow());
                             work.getWorkersInPlan().remove(worker);
                             ((WorkersInPlanTableModel) workersInPlanTable.getModel()).fireTableDataChanged();
+                            dataChanged = true;
                         }
                     }
                 }
@@ -253,11 +246,13 @@ public class MainForm {
         moveUpPlanPartBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 movePlanPart(-1);
+                dataChanged = true;
             }
         });
         moveDownPlanPartBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 movePlanPart(1);
+                dataChanged = true;
             }
         });
         //
@@ -354,6 +349,7 @@ public class MainForm {
                         currWork.setFinishDoc(resWork.getFinishDoc());
                         // Fire change
                         ((PlanPartModel) planPartTable.getModel()).fireTableCellUpdated(planPartTable.getSelectedRow(), 0);
+                        dataChanged = true;
                     }
                 }
             }
@@ -363,22 +359,14 @@ public class MainForm {
             public void actionPerformed(ActionEvent e) {
                 // Вначале - выбираем куда сохранять
                 PlanUtils.savePlanToFile();
+                dataChanged = false;
             }
         });
         loadPlanBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (PlanUtils.loadPlanFromFile()) {
-                    // Пересчитаем общую трудоемкость по всем
-                    for (Worker worker : workers) {
-                        updateTotalWorkerLabor(worker);
-                    }
-                    // Теперь еще перезапустим все модели
-                    makePlanPartTabs();
-                    ((AbstractTableModel) workersTable.getModel()).fireTableDataChanged();
-                    ((AbstractTableModel) planPartTable.getModel()).fireTableDataChanged();
-                    ((AbstractTableModel) workersInPlanTable.getModel()).fireTableDataChanged();
-                    ((AbstractTableModel) monthWorksTable.getModel()).fireTableDataChanged();
-                    ((AbstractTableModel) monthWorkersPerWorkTable.getModel()).fireTableDataChanged();
+                    refreshData();
+                    dataChanged = false;
                 }
             }
         });
@@ -396,6 +384,7 @@ public class MainForm {
                         worker.setLaborContentTotal(0.0);
                     }
                     ((WorkersTableModel) workersTable.getModel()).fireTableDataChanged();
+                    dataChanged = true;
                 }
             }
         });
@@ -403,7 +392,7 @@ public class MainForm {
             public void actionPerformed(ActionEvent e) {
                 try {
                     PlanUtils.makeQuarterPlan();
-                    ReportViewer.showPreview(kindWorksTabbedPane, kindWorksTabbedPane, "quarterPlan");
+                    ReportViewer.showPreview(kindWorksTabbedPane, kindWorksTabbedPane, "quarterPlan", "quarterPlan.toReport");
                 } catch (IOException e1) {
                     JOptionPane.showMessageDialog(null, "Ошибка ввода-вывода");
                 } catch (TransformerException e1) {
@@ -413,6 +402,88 @@ public class MainForm {
                 }
             }
         });
+        //
+        monthReportBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    PlanUtils.makeMonthPlan(monthTabbedPane.getSelectedIndex(), monthTabbedPane.getTitleAt(monthTabbedPane.getSelectedIndex()));
+                    ReportViewer.showPreview(monthTabbedPane, monthTabbedPane, "monthReport", "monthReport.toReport");
+                } catch (ParserConfigurationException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка работы с XML документом");
+                } catch (TransformerException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка сохранения XML документа");
+                } catch (IOException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка ввода-вывода");
+                }
+            }
+        });
+    }
+
+    /**
+     * Обновление всех моделей
+     * Применяется после загрузки данных
+     */
+    public void refreshData() {
+        // Пересчитаем общую трудоемкость по всем
+        for (Worker worker : workers) {
+            updateTotalWorkerLabor(worker);
+        }
+        // Теперь еще перезапустим все модели
+        makePlanPartTabs();
+        ((AbstractTableModel) workersTable.getModel()).fireTableDataChanged();
+        ((AbstractTableModel) planPartTable.getModel()).fireTableDataChanged();
+        ((AbstractTableModel) workersInPlanTable.getModel()).fireTableDataChanged();
+        ((AbstractTableModel) monthWorksTable.getModel()).fireTableDataChanged();
+        ((AbstractTableModel) monthWorkersPerWorkTable.getModel()).fireTableDataChanged();
+    }
+
+    private void fillTempInfo() {
+        Worker worker1 = new Worker("Рогов П.А.", 0.0);
+        workers.add(worker1);
+        Worker worker2 = new Worker("Золотов А.В.", 0.0);
+        workers.add(worker2);
+        workers.add(new Worker("Полулях А.В.", 0.0));
+        workers.add(new Worker("Горелов А.Г.", 0.0));
+        workers.add(new Worker("Воронин Р.М.", 0.0));
+        workers.add(new Worker("Гуськов С.С.", 0.0));
+        workers.add(new Worker("Конев Д.С.", 0.0));
+        workers.add(new Worker("Шумский Ю.Н.", 0.0));
+        workers.add(new Worker("Мироненко Н.Л.", 0.0));
+        workers.add(new Worker("Мармер В.В.", -1.0));
+        workers.add(new Worker("Зореев В.П.", -1.0));
+        workers.add(new Worker("Шварцман А.М.", 0.0));
+        workers.add(new Worker("Никитина Н.Е.", 0.0));
+        workers.add(new Worker("Хехнева А.В.", 0.0));
+        workers.add(new Worker("Конашина О.А.", 0.0));
+        workers.add(new Worker("Косарев В.В.", 0.0));
+        //
+        plan.get(0).getWorks().add(new WorkInPlan("Работа 1", "Описание 1\nСтрока2\n]]", "10.10.2010", "", "Предоставлено \n куча \n всего \n ]]"));
+        plan.get(0).getWorks().get(0).getWorkersInPlan().add(new WorkerInPlan(worker1, 3.5));
+        plan.get(0).getWorks().get(0).getWorkersInPlan().add(new WorkerInPlan(worker2, 5.5));
+        plan.get(0).getWorks().add(new WorkInPlan("Работа 2", "Описание 2"));
+        plan.get(0).getWorks().add(new WorkInPlan("Работа 3", "Описание 3"));
+        dataChanged = true;
+    }
+
+    /**
+     * Загружает план, который сохраняли последним
+     */
+    public void loadLastPlan() {
+        Properties props = new Properties();
+        try {
+            props.loadFromXML(new FileInputStream("work.file"));
+            if (props.get("workFileName") != null) {
+                File f = new File((String) props.get("workFileName"));
+                if (f.isFile() && f.canRead()) {
+                    if (PlanUtils.loadPlan(f)) {
+                        refreshData();
+                        JOptionPane.showMessageDialog(null, "Загружен план из файла "+f.getPath(), "Загрузка последнего плана", JOptionPane.INFORMATION_MESSAGE);
+                        dataChanged = false;
+                    }
+                }
+            }
+        } catch (IOException ignored) {
+        }
     }
 
     /**
@@ -460,6 +531,10 @@ public class MainForm {
         }
     }
 
+    public void setDataChanged(boolean dataChanged) {
+        this.dataChanged = dataChanged;
+    }
+
     public void updateTotalWorkerLabor(Worker worker) {
         double total = 0;
         for (PlanPart planPart : plan) {
@@ -471,6 +546,7 @@ public class MainForm {
                 }
             }
         }
+
         worker.setLaborContentTotal(total);
         ((WorkersTableModel) workersTable.getModel()).fireTableCellUpdated(workers.indexOf(worker), 1);
     }
@@ -487,4 +563,7 @@ public class MainForm {
         }
     }
 
+    public boolean isDataChanged() {
+        return dataChanged;
+    }
 }

@@ -133,7 +133,7 @@ ________________ Смирнов В.А.
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="340" splitType="Stretch">
+		<band height="384" splitType="Stretch">
 			<elementGroup>
 				<staticText>
 					<reportElement x="0" y="0" width="802" height="20"/>
@@ -672,7 +672,7 @@ ________________ Смирнов В.А.
 				</staticText>
 			</elementGroup>
 			<staticText>
-				<reportElement x="0" y="234" width="167" height="100"/>
+				<reportElement x="0" y="234" width="167" height="130"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
@@ -681,6 +681,8 @@ ________________ Смирнов В.А.
 Никитин Ю.А.
 
 Горшенков А.И.
+
+Краснов Б.А.
 
 Шабалова Н.В.
 ]]></text>
