@@ -6,7 +6,7 @@
 	<parameter name="planPartId" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="labor" class="java.lang.Double" isForPrompting="false"/>
+	<parameter name="labor" class="java.lang.String" isForPrompting="false"/>
 	<queryString language="xPath">
 		<![CDATA[/plan/works/work[@planPartId='$P{planPartId}']]]>
 	</queryString>
@@ -154,12 +154,12 @@
 					</textElement>
 					<text><![CDATA[Трудоемкость по разделу:]]></text>
 				</staticText>
-				<textField pattern="###0.0">
+				<textField pattern="">
 					<reportElement x="251" y="0" width="39" height="20"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12" isBold="true"/>
 					</textElement>
-					<textFieldExpression class="java.lang.Double"><![CDATA[$P{labor}]]></textFieldExpression>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{labor}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="290" y="0" width="25" height="20"/>

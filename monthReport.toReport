@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<monthReport month="Январь" year="2011">
+  <workers>
+    <worker labor="1.0" name="Рогов П.А.">
+      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)
+Модификация переходников USB-COM для приборов ИН-5101А и ДО-03</works>
+    </worker>
+    <worker labor="-" name="Золотов А.В.">
+      <works>-</works>
+    </worker>
+    <worker labor="1.0" name="Полулях А.В.">
+      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
+    </worker>
+    <worker labor="0.5" name="Горелов А.Г.">
+      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
+    </worker>
+    <worker labor="-" name="Воронин Р.М.">
+      <works>-</works>
+    </worker>
+    <worker labor="-" name="Гуськов С.С.">
+      <works>-</works>
+    </worker>
+    <worker labor="-" name="Конев Д.С.">
+      <works>-</works>
+    </worker>
+    <worker labor="-" name="Шумский Ю.Н.">
+      <works>-</works>
+    </worker>
+    <worker labor="-" name="Мироненко Н.Л.">
+      <works>-</works>
+    </worker>
+    <worker labor="Накладные расходы" name="Мармер В.В.">
+      <works>-</works>
+    </worker>
+    <worker labor="Накладные расходы" name="Зореев В.П.">
+      <works>-</works>
+    </worker>
+    <worker labor="-" name="Шварцман А.М.">
+      <works>-</works>
+    </worker>
+    <worker labor="-" name="Никитина Н.Е.">
+      <works>-</works>
+    </worker>
+    <worker labor="-" name="Хехнева А.В.">
+      <works>-</works>
+    </worker>
+    <worker labor="-" name="Конашина О.А.">
+      <works>-</works>
+    </worker>
+    <worker labor="-" name="Косарев В.В.">
+      <works>-</works>
+    </worker>
+  </workers>
+  <works>
+    <work labor="0.25" name="Модификация переходников USB-COM для приборов ИН-5101А и ДО-03"/>
+    <work labor="2.25" name="Разработка нового поколения приборов для анализа напряжений (NEW-1)"/>
+  </works>
+</monthReport>
