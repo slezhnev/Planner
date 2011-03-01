@@ -575,4 +575,127 @@ public class PlanUtils extends DefaultHandler {
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.transform(domSource, new StreamResult(new FileWriter(file)));
     }
+
+
+    /**
+     * Формирование плана по людям
+     *
+     * @throws java.io.IOException В случае ошибок ввода-вывода при формировании и сохранении XML
+     * @throws javax.xml.parsers.ParserConfigurationException
+     *                             см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
+     * @throws javax.xml.transform.TransformerException
+     *                             см. @javax.xml.transform.Transformer
+     */
+    public static void makePerWorkerPlan() throws IOException, TransformerException, ParserConfigurationException {
+        File file = new File("perWorkerPlan.toReport");
+        DocumentBuilderFactory factory
+                = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        DOMImplementation impl = builder.getDOMImplementation();
+
+        Document doc = impl.createDocument(null, null, null);
+
+        Element root = doc.createElement("perWorkerPlan");
+        root.setAttribute("quarter", "" + (Starter.getMainForm().getSelectedQuarter()));
+        root.setAttribute("year", Starter.getMainForm().getYear());
+        doc.appendChild(root);
+
+        // Поехали сохранять план
+        Element e1 = doc.createElement("workers");
+        root.appendChild(e1);
+        int workerId = 1;
+        for (Worker worker : Starter.getMainForm().getWorkers()) {
+            Element e2 = doc.createElement("worker");
+            e1.appendChild(e2);
+            e2.setAttribute("name", worker.getName());
+            e2.setAttribute("id", ""+workerId);
+            Text text = null;
+            if (worker.isOverhead()) {
+                e2.setAttribute("labor", "Накладные расходы");
+                text = doc.createTextNode("-");
+                e2.appendChild(text);
+            } else {
+                HashMap<String, Double> works = new HashMap<String, Double>();
+                double totalLabor = 0;
+                for (int i = 0; i < Starter.getMainForm().getPlan().size(); i++) {
+                    for (WorkInPlan work : Starter.getMainForm().getPlan().get(i).getWorks()) {
+                        for (WorkerInPlan workerInPlan : work.getWorkersInPlan()) {
+                            if (worker.getName().equals(workerInPlan.getWorker().getName())) {
+                                // Значит это тот работник
+                                totalLabor = totalLabor + workerInPlan.getLaborContent();
+                                if (workerInPlan.getLaborContent() > 0) {
+                                    if (works.containsKey(work.getName())) {
+                                        works.put(work.getName(), works.get(work.getName()) + workerInPlan.getLaborContent());
+                                    } else {
+                                        works.put(work.getName(), workerInPlan.getLaborContent());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (totalLabor == 0) {
+                    e2.setAttribute("labor", "-");
+                    Element e4 = doc.createElement("work");
+                    e4.setAttribute("workerId", ""+workerId);
+                    e4.setAttribute("name", "-");
+                    e4.setAttribute("labor", "-");
+                    e2.appendChild(e4);
+                } else {
+                    e2.setAttribute("labor", "" + totalLabor);
+                    for (String work : works.keySet()) {
+                        Element e4 = doc.createElement("work");
+                        e4.setAttribute("workerId", ""+workerId);
+                        e4.setAttribute("name", work);
+                        e4.setAttribute("labor", "" + works.get(work));
+                        e2.appendChild(e4);
+                    }
+                }
+            }
+            workerId++;
+        }
+        e1 = doc.createElement("works");
+        root.appendChild(e1);
+        HashMap<String, Double> works = new HashMap<String, Double>();
+        for (PlanPart planPart : Starter.getMainForm().getPlan()) {
+            for (WorkInPlan work : planPart.getWorks()) {
+                double totalLabor = 0;
+                for (WorkerInPlan worker : work.getWorkersInPlan()) {
+                    totalLabor = totalLabor + worker.getLaborContent();
+                }
+                if (works.containsKey(work.getName())) {
+                    works.put(work.getName(), works.get(work.getName()) + totalLabor);
+                } else {
+                    works.put(work.getName(), totalLabor);
+                }
+            }
+        }
+        for (String key : works.keySet()) {
+            if (works.get(key) > 0) {
+                Element e2 = doc.createElement("work");
+                e2.setAttribute("name", key);
+                if (works.get(key) == 0) {
+                    e2.setAttribute("labor", "-");
+                } else {
+                    e2.setAttribute("labor", "" + works.get(key));
+                }
+                e1.appendChild(e2);
+            }
+        }
+
+
+        //
+        // Сохраняем
+        DOMSource domSource = new DOMSource(doc);
+        TransformerFactory tf = TransformerFactory.newInstance();
+        Transformer transformer;
+        transformer = tf.newTransformer();
+        //transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.transform(domSource, new StreamResult(new FileWriter(file)));
+    }
+
 }

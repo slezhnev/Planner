@@ -55,6 +55,7 @@ public class MainForm {
     private JFormattedTextField yearEdit;
     private JButton editWorkBtn;
     private JButton createNewPlanBtn;
+    private JButton perWorkerPlanBtn;
 
     public int getSelectedQuarter() {
         return quarterComboBox.getSelectedIndex() + 1;
@@ -414,6 +415,20 @@ public class MainForm {
                     JOptionPane.showMessageDialog(null, "Ошибка сохранения XML документа");
                 } catch (IOException e1) {
                     JOptionPane.showMessageDialog(null, "Ошибка ввода-вывода");
+                }
+            }
+        });
+        perWorkerPlanBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    PlanUtils.makePerWorkerPlan();
+                    //ReportViewer.showPreview(kindWorksTabbedPane, kindWorksTabbedPane, "perWorkerPlan", "perWorkerPlan.toReport");
+                } catch (IOException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка ввода-вывода");
+                } catch (TransformerException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка сохранения XML документа");
+                } catch (ParserConfigurationException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка работы с XML документом");
                 }
             }
         });

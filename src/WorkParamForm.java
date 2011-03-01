@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  */
 public class WorkParamForm extends JDialog implements ActionListener {
     private JPanel panel1;
-    private JFormattedTextField nameWorkEdit;
+    private JTextArea nameWorkEdit;
     private JFormattedTextField finishDateEdit;
     private JButton saveBtn;
     private JButton cancelBtn;
@@ -48,7 +48,7 @@ public class WorkParamForm extends JDialog implements ActionListener {
         finishResultsEdit.setText(workToEdit.getFinishDoc());
         reserveEdit.setText(workToEdit.getReserve());
         getContentPane().add(panel1);
-        setBounds(0, 0, 800, 600);
+        setBounds(0, 0, 900, 800);
         //setLocationRelativeTo(locationComp);
         setLocationRelativeTo(null);
     }

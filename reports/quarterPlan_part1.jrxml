@@ -162,11 +162,6 @@
 				</subreportParameter>
 				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "quarterPlan_works.jasper"]]></subreportExpression>
 			</subreport>
-			<textField>
-				<reportElement x="455" y="24" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{labor}]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
 </jasperReport>

@@ -2,29 +2,28 @@
 <monthReport month="Январь" year="2011">
   <workers>
     <worker labor="1.0" name="Рогов П.А.">
-      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)
-Модификация переходников USB-COM для приборов ИН-5101А и ДО-03</works>
+      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
     </worker>
-    <worker labor="-" name="Золотов А.В.">
-      <works>-</works>
+    <worker labor="1.0" name="Золотов А.В.">
+      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
     </worker>
     <worker labor="1.0" name="Полулях А.В.">
       <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
     </worker>
-    <worker labor="0.5" name="Горелов А.Г.">
+    <worker labor="1.0" name="Горелов А.Г.">
       <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
     </worker>
-    <worker labor="-" name="Воронин Р.М.">
-      <works>-</works>
+    <worker labor="1.0" name="Воронин Р.М.">
+      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
     </worker>
-    <worker labor="-" name="Гуськов С.С.">
-      <works>-</works>
+    <worker labor="1.0" name="Гуськов С.С.">
+      <works>АРМИД-Экспресс 1.1</works>
     </worker>
-    <worker labor="-" name="Конев Д.С.">
-      <works>-</works>
+    <worker labor="1.0" name="Конев Д.С.">
+      <works>Коррекция КД Т2001М (в связи с заменой корпуса)</works>
     </worker>
-    <worker labor="-" name="Шумский Ю.Н.">
-      <works>-</works>
+    <worker labor="0.5" name="Шумский Ю.Н.">
+      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
     </worker>
     <worker labor="-" name="Мироненко Н.Л.">
       <works>-</works>
@@ -52,7 +51,8 @@
     </worker>
   </workers>
   <works>
-    <work labor="0.25" name="Модификация переходников USB-COM для приборов ИН-5101А и ДО-03"/>
-    <work labor="2.25" name="Разработка нового поколения приборов для анализа напряжений (NEW-1)"/>
+    <work labor="1.0" name="АРМИД-Экспресс 1.1"/>
+    <work labor="5.5" name="Разработка нового поколения приборов для анализа напряжений (NEW-1)"/>
+    <work labor="1.0" name="Коррекция КД Т2001М (в связи с заменой корпуса)"/>
   </works>
 </monthReport>
