@@ -1,11 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Created by IntelliJ IDEA.
- * User: Alla
- * Date: 05.01.11
- * Time: 1:01
- * To change this template use File | Settings | File Templates.
+ * Работа в плане
  */
 public class WorkInPlan {
 
@@ -13,6 +9,7 @@ public class WorkInPlan {
     private String desc;
     private String endDate;
     private String reserve;
+    private boolean maked;
     private String finishDoc;
     private Double laborTotal;
     private ArrayList<WorkerInPlan> workersInPlan = new ArrayList<WorkerInPlan>();
@@ -24,7 +21,7 @@ public class WorkInPlan {
         this.reserve = reserve;
         this.finishDoc = finishDoc;
         laborTotal = 0.0;
-
+        maked = false;
     }
 
     public WorkInPlan(String name, String desc) {
@@ -34,6 +31,7 @@ public class WorkInPlan {
         this.reserve = "";
         this.finishDoc = "";
         laborTotal = 0.0;
+        maked = false;
     }
 
     public String getName() {
@@ -102,4 +100,14 @@ public class WorkInPlan {
     public void setReserve(String reserve) {
         this.reserve = reserve;
     }
+
+    public boolean isMaked() {
+        return maked;
+    }
+
+    public void setMaked(boolean maked) {
+        this.maked = maked;
+    }
+
+
 }

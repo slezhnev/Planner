@@ -4,11 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by IntelliJ IDEA.
- * User: admin
- * Date: 12.01.11
- * Time: 12:55
- * To change this template use File | Settings | File Templates.
+ * Редактирование параметров работы в плане
  */
 public class WorkParamForm extends JDialog implements ActionListener {
     private JPanel panel1;
@@ -19,6 +15,7 @@ public class WorkParamForm extends JDialog implements ActionListener {
     private JTextArea resultsEdit;
     private JTextArea finishResultsEdit;
     private JTextArea reserveEdit;
+    private JCheckBox makedCheckBox;
     //
     private static WorkInPlan res = null;
     private static WorkParamForm dialog;
@@ -45,6 +42,7 @@ public class WorkParamForm extends JDialog implements ActionListener {
         nameWorkEdit.setText(workToEdit.getName());
         resultsEdit.setText(workToEdit.getDesc());
         finishDateEdit.setText(workToEdit.getEndDate());
+        makedCheckBox.setSelected(workToEdit.isMaked());
         finishResultsEdit.setText(workToEdit.getFinishDoc());
         reserveEdit.setText(workToEdit.getReserve());
         getContentPane().add(panel1);
@@ -57,6 +55,7 @@ public class WorkParamForm extends JDialog implements ActionListener {
         if (e.getActionCommand().equals("Сохранить")) {
             res = new WorkInPlan(nameWorkEdit.getText(), resultsEdit.getText(), finishDateEdit.getText(),
                     reserveEdit.getText(), finishResultsEdit.getText());
+            res.setMaked(makedCheckBox.isSelected());
         }
         dialog.setVisible(false);
     }

@@ -13,6 +13,8 @@
     <orderEntry type="library" name="JGoodies Looks 2.4.0" level="application" />
     <orderEntry type="library" name="Jasper Report 4.0.0" level="application" />
     <orderEntry type="library" name="Jaxen" level="project" />
+    <orderEntry type="library" name="Jasper Report 4.0.0" level="project" />
+    <orderEntry type="library" name="Jaxen" level="project" />
   </component>
 </module>
 

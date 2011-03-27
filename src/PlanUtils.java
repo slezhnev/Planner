@@ -107,6 +107,7 @@ public class PlanUtils extends DefaultHandler {
                 Element e3 = doc.createElement("work");
                 e3.setAttribute("name", work.getName());
                 e3.setAttribute("endDate", work.getEndDate());
+                e3.setAttribute("maked", "" + (work.isMaked() ? 1 : 0));
                 // desc
                 Element e4 = doc.createElement("desc");
                 Text text = doc.createTextNode(work.getDesc());
@@ -401,6 +402,8 @@ public class PlanUtils extends DefaultHandler {
         } else if ("work".equalsIgnoreCase(qName)) {
             tempWork = new WorkInPlan(attributes.getValue("name"), "");
             tempWork.setEndDate(attributes.getValue("endDate"));
+            if ((attributes.getValue("maked") == null)||(!attributes.getValue("maked").equals("1")))  tempWork.setMaked(false);
+            else tempWork.setMaked(true);
             inWork = true;
         }
     }
@@ -608,7 +611,7 @@ public class PlanUtils extends DefaultHandler {
             Element e2 = doc.createElement("worker");
             e1.appendChild(e2);
             e2.setAttribute("name", worker.getName());
-            e2.setAttribute("id", ""+workerId);
+            e2.setAttribute("id", "" + workerId);
             Text text = null;
             if (worker.isOverhead()) {
                 e2.setAttribute("labor", "Накладные расходы");
@@ -637,7 +640,7 @@ public class PlanUtils extends DefaultHandler {
                 if (totalLabor == 0) {
                     e2.setAttribute("labor", "-");
                     Element e4 = doc.createElement("work");
-                    e4.setAttribute("workerId", ""+workerId);
+                    e4.setAttribute("workerId", "" + workerId);
                     e4.setAttribute("name", "-");
                     e4.setAttribute("labor", "-");
                     e2.appendChild(e4);
@@ -645,7 +648,7 @@ public class PlanUtils extends DefaultHandler {
                     e2.setAttribute("labor", "" + totalLabor);
                     for (String work : works.keySet()) {
                         Element e4 = doc.createElement("work");
-                        e4.setAttribute("workerId", ""+workerId);
+                        e4.setAttribute("workerId", "" + workerId);
                         e4.setAttribute("name", work);
                         e4.setAttribute("labor", "" + works.get(work));
                         e2.appendChild(e4);
