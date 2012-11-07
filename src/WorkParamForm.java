@@ -16,6 +16,7 @@ public class WorkParamForm extends JDialog implements ActionListener {
     private JTextArea finishResultsEdit;
     private JTextArea reserveEdit;
     private JCheckBox makedCheckBox;
+    private JComboBox workTypeCB;
     //
     private static WorkInPlan res = null;
     private static WorkParamForm dialog;
@@ -45,6 +46,14 @@ public class WorkParamForm extends JDialog implements ActionListener {
         makedCheckBox.setSelected(workToEdit.isMaked());
         finishResultsEdit.setText(workToEdit.getFinishDoc());
         reserveEdit.setText(workToEdit.getReserve());
+        //
+        DefaultComboBoxModel cbModel = new DefaultComboBoxModel();
+        for (PlanUtils.WorkTypes type : PlanUtils.WorkTypes.values()) {
+            cbModel.addElement(type);
+        }
+        workTypeCB.setModel(cbModel);
+        //
+        workTypeCB.setSelectedItem(workToEdit.getWorkType());
         getContentPane().add(panel1);
         setBounds(0, 0, 900, 800);
         //setLocationRelativeTo(locationComp);
@@ -54,7 +63,7 @@ public class WorkParamForm extends JDialog implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Сохранить")) {
             res = new WorkInPlan(nameWorkEdit.getText(), resultsEdit.getText(), finishDateEdit.getText(),
-                    reserveEdit.getText(), finishResultsEdit.getText());
+                    reserveEdit.getText(), finishResultsEdit.getText(), (PlanUtils.WorkTypes) workTypeCB.getSelectedItem());
             res.setMaked(makedCheckBox.isSelected());
         }
         dialog.setVisible(false);

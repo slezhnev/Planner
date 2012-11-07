@@ -13,7 +13,6 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
@@ -29,17 +28,8 @@ public class PlanUtils extends DefaultHandler {
      * @return true - если план был сохранен. false - иначе
      */
     public static boolean savePlanToFile() {
-        JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new File("./plans"));
-        fc.setDialogTitle("Сохранение плана");
-        fc.setFileFilter(new FileNameExtensionFilter("Файлы планов", "plan"));
-        File file;
-        if (fc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-            file = fc.getSelectedFile();
-            if ((getExt(file) == null) || (!getExt(file).equals("plan"))) {
-                file = new File(file.getPath() + ".plan");
-            }
-        } else {
+        File file = selectPlanFile("Сохранение плана", false);
+        if (file == null) {
             return false;
         }
         //
@@ -105,11 +95,15 @@ public class PlanUtils extends DefaultHandler {
             e1.appendChild(e2);
             for (WorkInPlan work : part.getWorks()) {
                 Element e3 = doc.createElement("work");
-                e3.setAttribute("name", work.getName());
+                Element e4 = doc.createElement("workName");
+                e4.setTextContent(work.getName());
+                e3.appendChild(e4);
+                //e3.setAttribute("name", work.getName());
                 e3.setAttribute("endDate", work.getEndDate());
                 e3.setAttribute("maked", "" + (work.isMaked() ? 1 : 0));
+                e3.setAttribute("workType", work.getWorkType().name());
                 // desc
-                Element e4 = doc.createElement("desc");
+                e4 = doc.createElement("desc");
                 Text text = doc.createTextNode(work.getDesc());
                 e4.appendChild(text);
                 e3.appendChild(e4);
@@ -182,13 +176,14 @@ public class PlanUtils extends DefaultHandler {
     /**
      * Формирование квартального плана
      *
+     * @param type 0 - план, 1 - отчет
      * @throws java.io.IOException В случае ошибок ввода-вывода при формировании и сохранении XML
      * @throws javax.xml.parsers.ParserConfigurationException
      *                             см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
      * @throws javax.xml.transform.TransformerException
      *                             см. @javax.xml.transform.Transformer
      */
-    public static void makeQuarterPlan() throws IOException, TransformerException, ParserConfigurationException {
+    public static void makeQuarterPlan(int type) throws IOException, TransformerException, ParserConfigurationException {
         //File file = File.createTempFile("quarter", "plan");
         File file = new File("quarterPlan.toReport");
         DocumentBuilderFactory factory
@@ -201,6 +196,8 @@ public class PlanUtils extends DefaultHandler {
         Element root = doc.createElement("plan");
         root.setAttribute("quarter", "" + (Starter.getMainForm().getSelectedQuarter()));
         root.setAttribute("year", Starter.getMainForm().getYear());
+        root.setAttribute("typeStr", (type == 0) ? "План работ на" : "Отчет");
+        root.setAttribute("type", "" + type);
         doc.appendChild(root);
 
         // Поехали сохранять план
@@ -217,7 +214,11 @@ public class PlanUtils extends DefaultHandler {
             e2.setAttribute("longName", part.getLongName());
             e2.setAttribute("id", "" + planPartId);
             int workId = 1;
+            int makedTotal = 0;
+            double makedLabor = 0;
+            double laborTotal = 0.0;
             for (WorkInPlan work : part.getWorks()) {
+                if (work.isMaked()) makedTotal++;
                 Element e3 = doc.createElement("work");
                 e3.setAttribute("id", "" + workId);
                 e3.setAttribute("planPartId", "" + planPartId);
@@ -235,7 +236,11 @@ public class PlanUtils extends DefaultHandler {
                 e3.appendChild(e4);
                 // finishDocs
                 e4 = doc.createElement("finishDocs");
-                text = doc.createTextNode(work.getFinishDoc());
+                if (type == 1) {
+                    text = doc.createTextNode(work.getFinishDoc());
+                } else {
+                    text = doc.createTextNode("");
+                }
                 e4.appendChild(text);
                 e3.appendChild(e4);
                 // labor
@@ -245,7 +250,6 @@ public class PlanUtils extends DefaultHandler {
                 if (work.getLaborTotal() == 0) {
                     sLabor = "";
                 } else {
-
                     sLabor = "" + (work.getLaborTotal() * 22) + " ч/д (" + work.getLaborTotal() + " ч/м)";
                 }
                 text = doc.createTextNode(sLabor);
@@ -256,8 +260,21 @@ public class PlanUtils extends DefaultHandler {
                 works.appendChild(e3);
                 //
                 workId++;
+                // Считаем по трудоемкости
+                laborTotal = laborTotal + work.getLaborTotal();
+                for (WorkerInPlan worker : work.getWorkersInPlan()) {
+                    for (int i = 0; i < 3; i++) makedLabor = makedLabor + worker.getPerMonth()[i];
+                }
+
             }
             e2.setAttribute("labor", "" + total);
+            if (type == 0) {
+                e2.setAttribute("makedTotal", "-");
+                e2.setAttribute("makedLabor", "-");
+            } else {
+                e2.setAttribute("makedTotal", (part.getWorks().size() != 0) ? ("" + Math.round(100 * makedTotal / part.getWorks().size())) : "-");
+                e2.setAttribute("makedLabor", ((laborTotal != 0) ? ("" + Math.round(100 * makedLabor / laborTotal)) : "-"));
+            }
             //
             e1.appendChild(e2);
             //
@@ -278,6 +295,47 @@ public class PlanUtils extends DefaultHandler {
         transformer.transform(domSource, new StreamResult(new FileWriter(file)));
     }
 
+    /**
+     * file chooser
+     */
+    private static JFileChooser fc = null;
+
+    /**
+     * Отображает диалог выбора файла плана
+     *
+     * @param dialogTitle    Заголовок диалога
+     * @param showLoadDialog Какой диалог отображать. true - загрузки, false - сохранения
+     * @return null - если ничего не выбрано, иначе - File
+     */
+    public static File selectPlanFile(String dialogTitle, boolean showLoadDialog) {
+        if (fc == null) {
+            fc = new JFileChooser();
+            fc.setCurrentDirectory(new File("./plans"));
+            fc.setFileFilter(new FileNameExtensionFilter("Файлы планов", "plan"));
+        }
+        fc.setDialogTitle(dialogTitle);
+        if (loadedFrom != null) {
+            fc.setSelectedFile(loadedFrom);
+        }
+        if (showLoadDialog) {
+            if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                return fc.getSelectedFile();
+            } else {
+                return null;
+            }
+        } else {
+            if (fc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+                return fc.getSelectedFile();
+            } else {
+                return null;
+            }
+        }
+    }
+
+    /**
+     * Файл, из которого грузили план
+     */
+    private static File loadedFrom = null;
 
     /**
      * Загружает план из файла
@@ -285,14 +343,8 @@ public class PlanUtils extends DefaultHandler {
      * @return true - если план был сохранен. false - иначе
      */
     public static boolean loadPlanFromFile() {
-        JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new File("./plans"));
-        fc.setDialogTitle("Загрузка плана");
-        fc.setFileFilter(new FileNameExtensionFilter("Файлы планов", "plan"));
-        File file;
-        if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            file = fc.getSelectedFile();
-        } else {
+        File file = selectPlanFile("Загрузка плана", true);
+        if (file == null) {
             return false;
         }
         //
@@ -300,6 +352,7 @@ public class PlanUtils extends DefaultHandler {
             JOptionPane.showMessageDialog(null, "Ошибка загрузки плана", "загрузка плана", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
+            loadedFrom = file;
             JOptionPane.showMessageDialog(null, "План успешно загружен", "Загрузка плана", JOptionPane.INFORMATION_MESSAGE);
             return true;
         }
@@ -358,7 +411,7 @@ public class PlanUtils extends DefaultHandler {
      *                   Attributes object.
      * @throws org.xml.sax.SAXException Any SAX exception, possibly
      *                                  wrapping another exception.
-     * @see org.xml.sax.ContentHandler#startElement
+     * @see org.xml.sax.ContentHandler#startElement(String, String, String, org.xml.sax.Attributes)
      */
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
@@ -400,10 +453,22 @@ public class PlanUtils extends DefaultHandler {
         } else if ("planPart".equalsIgnoreCase(qName)) {
             tempPlanPart = new PlanPart(attributes.getValue("name"), attributes.getValue("longName"));
         } else if ("work".equalsIgnoreCase(qName)) {
-            tempWork = new WorkInPlan(attributes.getValue("name"), "");
+            if (attributes.getValue("name") != null) {
+                tempWork = new WorkInPlan(attributes.getValue("name"), "");
+            } else {
+                tempWork = new WorkInPlan("", "");
+            }
             tempWork.setEndDate(attributes.getValue("endDate"));
-            if ((attributes.getValue("maked") == null)||(!attributes.getValue("maked").equals("1")))  tempWork.setMaked(false);
+            if ((attributes.getValue("maked") == null) || (!attributes.getValue("maked").equals("1")))
+                tempWork.setMaked(false);
             else tempWork.setMaked(true);
+            WorkTypes workType = WorkTypes.INNER;
+            try {
+                workType = WorkTypes.valueOf(attributes.getValue("workType"));
+            } catch (Exception ignored) {
+
+            }
+            tempWork.setWorkType(workType);
             inWork = true;
         }
     }
@@ -421,7 +486,7 @@ public class PlanUtils extends DefaultHandler {
      *                  empty string if qualified names are not available.
      * @throws org.xml.sax.SAXException Any SAX exception, possibly
      *                                  wrapping another exception.
-     * @see org.xml.sax.ContentHandler#endElement
+     * @see org.xml.sax.ContentHandler#endElement(String, String, String)
      */
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
@@ -442,6 +507,8 @@ public class PlanUtils extends DefaultHandler {
             if (tempWork != null) tempWork.setReserve(tempVal.toString());
         } else if ("finishDocs".equalsIgnoreCase(qName)) {
             if (tempWork != null) tempWork.setFinishDoc(tempVal.toString());
+        } else if ("workName".equalsIgnoreCase(qName)) {
+            if (tempWork != null) tempWork.setName(tempVal.toString());
         }
     }
 
@@ -454,7 +521,7 @@ public class PlanUtils extends DefaultHandler {
      *               character array.
      * @throws org.xml.sax.SAXException Any SAX exception, possibly
      *                                  wrapping another exception.
-     * @see org.xml.sax.ContentHandler#characters
+     * @see org.xml.sax.ContentHandler#characters(char[], int, int)
      */
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
@@ -495,7 +562,7 @@ public class PlanUtils extends DefaultHandler {
                 e1.appendChild(e2);
                 e2.setAttribute("name", worker.getName());
                 Element e3 = doc.createElement("works");
-                Text text = null;
+                Text text;
                 if (worker.isOverhead()) {
                     e2.setAttribute("labor", "Накладные расходы");
                     text = doc.createTextNode("-");
@@ -612,7 +679,7 @@ public class PlanUtils extends DefaultHandler {
             e1.appendChild(e2);
             e2.setAttribute("name", worker.getName());
             e2.setAttribute("id", "" + workerId);
-            Text text = null;
+            Text text;
             if (worker.isOverhead()) {
                 e2.setAttribute("labor", "Накладные расходы");
                 text = doc.createTextNode("-");
@@ -699,6 +766,44 @@ public class PlanUtils extends DefaultHandler {
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.transform(domSource, new StreamResult(new FileWriter(file)));
+    }
+
+    /**
+     * Виды работ
+     */
+    public enum WorkTypes {
+        /**
+         * Работы с внешним заказчиком
+         */
+        OUTER {
+            @Override
+            public String toString() {
+                return "Работа для внешнего заказчика";
+            }
+        },
+        /**
+         * Внутренние работы
+         */
+        INNER {
+            @Override
+            public String toString() {
+                return "Внутренние работы";
+            }
+        },
+        /**
+         * Поддержка производства
+         */
+        SUPPORT {
+            @Override
+            public String toString() {
+                return "Поддержка производства";
+            }
+        };
+
+        /**
+         * Получение текстового описания
+         */
+        public abstract String toString();
     }
 
 }

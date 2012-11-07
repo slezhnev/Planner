@@ -638,7 +638,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<text><![CDATA[23.12.2010]]></text>
+					<text><![CDATA[23.12.2012]]></text>
 				</staticText>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="351" width="208" height="32"/>
@@ -854,7 +854,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<text><![CDATA[23.12.2010]]></text>
+					<text><![CDATA[23.12.2012]]></text>
 				</staticText>
 				<staticText>
 					<reportElement mode="Transparent" x="594" y="447" width="208" height="32"/>

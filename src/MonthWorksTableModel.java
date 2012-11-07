@@ -1,11 +1,7 @@
 import javax.swing.table.AbstractTableModel;
 
 /**
- * Created by IntelliJ IDEA.
- * User: Сергей
- * Date: 11.01.11
- * Time: 22:55
- * To change this template use File | Settings | File Templates.
+ * Модель помесячного отображения работ
  */
 public class MonthWorksTableModel extends AbstractTableModel {
 

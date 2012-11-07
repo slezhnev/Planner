@@ -12,14 +12,16 @@ public class WorkInPlan {
     private boolean maked;
     private String finishDoc;
     private Double laborTotal;
+    private PlanUtils.WorkTypes workType;
     private ArrayList<WorkerInPlan> workersInPlan = new ArrayList<WorkerInPlan>();
 
-    public WorkInPlan(String name, String desc, String endDate, String reserve, String finishDoc) {
+    public WorkInPlan(String name, String desc, String endDate, String reserve, String finishDoc, PlanUtils.WorkTypes workType) {
         this.name = name;
         this.desc = desc;
         this.endDate = endDate;
         this.reserve = reserve;
         this.finishDoc = finishDoc;
+        this.workType = workType;
         laborTotal = 0.0;
         maked = false;
     }
@@ -110,4 +112,39 @@ public class WorkInPlan {
     }
 
 
+    public PlanUtils.WorkTypes getWorkType() {
+        return workType;
+    }
+
+    public void setWorkType(PlanUtils.WorkTypes workType) {
+        this.workType = workType;
+    }
+
+    @Override
+    public int hashCode() {
+        if (name == null) {
+            return 0;
+        } else {
+            return name.hashCode();
+        }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof WorkInPlan) {
+            WorkInPlan sec = (WorkInPlan)obj;
+        if (name == null) {
+            return false;
+        } else {
+            return name.equals(sec.getName());
+        }
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

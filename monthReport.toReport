@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<monthReport month="Январь" year="2011">
+<monthReport month="Октябрь" year="2012">
   <workers>
     <worker labor="1.0" name="Рогов П.А.">
-      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
+      <works>Проведение работ на КАЭС, БалАЭС
+(Производственный отдел)
+Доработка ДО-03</works>
     </worker>
     <worker labor="1.0" name="Золотов А.В.">
-      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
+      <works>Разработка программного комплекса "АРМИД-Мониторинг"</works>
     </worker>
     <worker labor="1.0" name="Полулях А.В.">
-      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
-    </worker>
-    <worker labor="1.0" name="Горелов А.Г.">
-      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
+      <works>Разработка программного комплекса "АРМИД-Мониторинг"</works>
     </worker>
     <worker labor="1.0" name="Воронин Р.М.">
-      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
+      <works>Разработка программного комплекса "АРМИД-Мониторинг"</works>
     </worker>
-    <worker labor="1.0" name="Гуськов С.С.">
-      <works>АРМИД-Экспресс 1.1</works>
+    <worker labor="-" name="Гуськов С.С.">
+      <works>-</works>
     </worker>
     <worker labor="1.0" name="Конев Д.С.">
-      <works>Коррекция КД Т2001М (в связи с заменой корпуса)</works>
+      <works>Проведение работ на КАЭС, БалАЭС</works>
     </worker>
-    <worker labor="0.5" name="Шумский Ю.Н.">
-      <works>Разработка нового поколения приборов для анализа напряжений (NEW-1)</works>
-    </worker>
-    <worker labor="-" name="Мироненко Н.Л.">
+    <worker labor="-" name="Шумский Ю.Н.">
       <works>-</works>
     </worker>
     <worker labor="Накладные расходы" name="Мармер В.В.">
@@ -43,16 +39,25 @@
     <worker labor="-" name="Хехнева А.В.">
       <works>-</works>
     </worker>
-    <worker labor="-" name="Конашина О.А.">
-      <works>-</works>
+    <worker labor="1.0" name="Конашина О.А.">
+      <works>Разработка программного комплекса "АРМИД-Мониторинг"</works>
     </worker>
     <worker labor="-" name="Косарев В.В.">
       <works>-</works>
     </worker>
+    <worker labor="-" name="Смирнова Н.В.">
+      <works>-</works>
+    </worker>
+    <worker labor="1.0" name="Романченко П.А.">
+      <works>Разработка программного комплекса "АРМИД-Мониторинг"</works>
+    </worker>
+    <worker labor="1.0" name="Кузин Е.В.">
+      <works>Разработка программного комплекса "АРМИД-Мониторинг"</works>
+    </worker>
   </workers>
   <works>
-    <work labor="1.0" name="АРМИД-Экспресс 1.1"/>
-    <work labor="5.5" name="Разработка нового поколения приборов для анализа напряжений (NEW-1)"/>
-    <work labor="1.0" name="Коррекция КД Т2001М (в связи с заменой корпуса)"/>
+    <work labor="1.7" name="Проведение работ на КАЭС, БалАЭС"/>
+    <work labor="7.0" name="Разработка программного комплекса &quot;АРМИД-Мониторинг&quot;"/>
+    <work labor="0.3" name="(Производственный отдел)&#10;Доработка ДО-03"/>
   </works>
 </monthReport>

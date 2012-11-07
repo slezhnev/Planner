@@ -29,7 +29,7 @@
 		<fieldDescription><![CDATA[reserve]]></fieldDescription>
 	</field>
 	<field name="finishDocs" class="java.lang.String">
-		<fieldDescription><![CDATA[inishDocs]]></fieldDescription>
+		<fieldDescription><![CDATA[finishDocs]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>

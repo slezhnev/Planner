@@ -19,11 +19,7 @@ import java.util.Properties;
 import java.util.Vector;
 
 /**
- * Created by IntelliJ IDEA.
- * User: Alla
- * Date: 04.01.11
- * Time: 23:11
- * To change this template use File | Settings | File Templates.
+ * Основной класс
  */
 public class MainForm {
     private JTabbedPane tabbedPane1;
@@ -37,7 +33,7 @@ public class MainForm {
     private JButton savePlanBtn;
     private JButton loadPlanBtn;
     private JButton printPlanBtn;
-    private JButton отчетButton;
+    private JButton quarterReportButton;
     private JTable planPartTable;
     private JTable workersInPlanTable;
     private JButton addWorkBtn;
@@ -56,6 +52,7 @@ public class MainForm {
     private JButton editWorkBtn;
     private JButton createNewPlanBtn;
     private JButton perWorkerPlanBtn;
+    private JButton analyzeBtn;
 
     public int getSelectedQuarter() {
         return quarterComboBox.getSelectedIndex() + 1;
@@ -98,17 +95,9 @@ public class MainForm {
 
     public MainForm() {
         //
-        plan.add(new PlanPart("Собств.работы - новые", "1. Собственные работы (по основному процессу подразделения)"));
-        plan.add(new PlanPart("Собств.работы - продолжение", "1а). Собственные работы (завершение работ по предыдущим квартальным планам)"));
-        plan.add(new PlanPart("Внешн.заказчик", "3. Работы по внешней кооперации (с другими организациями)"));
-        plan.add(new PlanPart("СМК", "4. Разработка документации по СМК"));
-        plan.add(new PlanPart("Корр.мероприятия", "5. Корректирующие и предупреждающие действия"));
-        //
-        //fillTempInfo();
+        makeNewPlanTabs();
         //
         yearEdit.setText(new SimpleDateFormat("yyyy").format(new Date()));
-        //
-        makePlanPartTabs();
         quarterPlan_divisions.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 if (quarterPlan_divisions.getSelectedIndex() != -1) {
@@ -348,6 +337,8 @@ public class MainForm {
                         currWork.setEndDate(resWork.getEndDate());
                         currWork.setReserve(resWork.getReserve());
                         currWork.setFinishDoc(resWork.getFinishDoc());
+                        currWork.setWorkType(resWork.getWorkType());
+                        currWork.setMaked(resWork.isMaked());
                         // Fire change
                         ((PlanPartModel) planPartTable.getModel()).fireTableCellUpdated(planPartTable.getSelectedRow(), 0);
                         dataChanged = true;
@@ -379,6 +370,10 @@ public class MainForm {
                     for (PlanPart part : plan) {
                         part.getWorks().clear();
                     }
+                    plan.clear();
+                    //
+                    makeNewPlanTabs();
+                    //
                     ((PlanPartModel) planPartTable.getModel()).fireTableDataChanged();
                     ((WorkersInPlanTableModel) workersInPlanTable.getModel()).fireTableDataChanged();
                     for (Worker worker : workers) {
@@ -392,7 +387,7 @@ public class MainForm {
         printPlanBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    PlanUtils.makeQuarterPlan();
+                    PlanUtils.makeQuarterPlan(0);
                     ReportViewer.showPreview(kindWorksTabbedPane, kindWorksTabbedPane, "quarterPlan", "quarterPlan.toReport");
                 } catch (IOException e1) {
                     JOptionPane.showMessageDialog(null, "Ошибка ввода-вывода");
@@ -432,6 +427,40 @@ public class MainForm {
                 }
             }
         });
+        quarterReportButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    PlanUtils.makeQuarterPlan(1);
+                    ReportViewer.showPreview(kindWorksTabbedPane, kindWorksTabbedPane, "quarterPlan", "quarterPlan.toReport");
+                } catch (IOException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка ввода-вывода");
+                } catch (TransformerException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка сохранения XML документа");
+                } catch (ParserConfigurationException e1) {
+                    JOptionPane.showMessageDialog(null, "Ошибка работы с XML документом");
+                }
+            }
+        });
+        analyzeBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (JOptionPane.showConfirmDialog(null, "Вы уверены, что хотите перейти к анализу? Все изменения текущего плана не будут сохранены!",
+                        "Анализ", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) {
+                    AnalyzeForm form = new AnalyzeForm();
+                    form.showForm();
+                }
+            }
+        });
+    }
+
+    private void makeNewPlanTabs() {
+        plan.add(new PlanPart("Собств.работы - новые", "1. Собственные работы (по основному процессу подразделения)"));
+        plan.add(new PlanPart("Собств.работы - продолжение", "1а). Собственные работы (завершение работ по предыдущим квартальным планам)"));
+        plan.add(new PlanPart("Внутр.кооп.", "3. Работы по внутренней кооперации"));
+        plan.add(new PlanPart("Внешн.заказчик", "4. Работы по внешней кооперации (с другими организациями)"));
+        plan.add(new PlanPart("СМК", "5. Разработка документации по СМК"));
+        plan.add(new PlanPart("Корр.мероприятия", "6. Корректирующие и предупреждающие действия"));
+        //
+        makePlanPartTabs();
     }
 
     /**
@@ -472,7 +501,7 @@ public class MainForm {
         workers.add(new Worker("Конашина О.А.", 0.0));
         workers.add(new Worker("Косарев В.В.", 0.0));
         //
-        plan.get(0).getWorks().add(new WorkInPlan("Работа 1", "Описание 1\nСтрока2\n]]", "10.10.2010", "", "Предоставлено \n куча \n всего \n ]]"));
+        plan.get(0).getWorks().add(new WorkInPlan("Работа 1", "Описание 1\nСтрока2\n]]", "10.10.2010", "", "Предоставлено \n куча \n всего \n ]]", PlanUtils.WorkTypes.INNER));
         plan.get(0).getWorks().get(0).getWorkersInPlan().add(new WorkerInPlan(worker1, 3.5));
         plan.get(0).getWorks().get(0).getWorkersInPlan().add(new WorkerInPlan(worker2, 5.5));
         plan.get(0).getWorks().add(new WorkInPlan("Работа 2", "Описание 2"));
@@ -492,7 +521,7 @@ public class MainForm {
                 if (f.isFile() && f.canRead()) {
                     if (PlanUtils.loadPlan(f)) {
                         refreshData();
-                        JOptionPane.showMessageDialog(null, "Загружен план из файла "+f.getPath(), "Загрузка последнего плана", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Загружен план из файла " + f.getPath(), "Загрузка последнего плана", JOptionPane.INFORMATION_MESSAGE);
                         dataChanged = false;
                     }
                 }

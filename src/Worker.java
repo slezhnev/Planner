@@ -1,9 +1,5 @@
 /**
- * Created by IntelliJ IDEA.
- * User: Alla
- * Date: 04.01.11
- * Time: 23:25
- * To change this template use File | Settings | File Templates.
+ * Представление работника
  */
 public class Worker {
 
@@ -37,6 +33,26 @@ public class Worker {
 
     public void setLaborContentTotal(Double laborContentTotal) {
         this.laborContentTotal = laborContentTotal;
+    }
+
+    @Override
+    public int hashCode() {
+        String str = this.toString();
+        if (str == null) {
+            return 0;
+        } else {
+            return str.hashCode();
+        }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        String str = this.toString();
+        if (str != null) {
+            return str.equals("" + obj);
+        } else {
+            return false;
+        }
     }
 
     /**

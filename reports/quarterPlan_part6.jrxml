@@ -222,7 +222,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<text><![CDATA[23.12.2010]]></text>
+					<text><![CDATA[23.12.2012]]></text>
 				</staticText>
 				<staticText>
 					<reportElement mode="Transparent" x="545" y="84" width="257" height="32"/>
