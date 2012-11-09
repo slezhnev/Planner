@@ -6,7 +6,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.print.Printable;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,6 +28,7 @@ public class AnalyzeForm extends JDialog {
     private JTree tree1;
     private JCheckBox withoutLaborCB;
     private JButton saveBtn;
+    private JTable table3;
 
     /**
      * Default constructor
@@ -137,6 +137,8 @@ public class AnalyzeForm extends JDialog {
         doSaveTableModel(fOut, table1.getModel());
         fOut.println("По людям");
         doSaveTableModel(fOut, table2.getModel());
+        fOut.println("По проектам");
+        doSaveTableModel(fOut, table3.getModel());
         // Сохраняем дерево...
         // У нас тут ВСЕГДА фиксированно два или три уровня
         fOut.println("По людям и проектам");
@@ -168,7 +170,7 @@ public class AnalyzeForm extends JDialog {
         }
         //
         fOut.close();
-        JOptionPane.showMessageDialog(this, "Файл сохранени", "Сохранение", JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog(this, "Файл сохранени", "Сохранение", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
@@ -225,6 +227,7 @@ public class AnalyzeForm extends JDialog {
         AnalyzeResult result = new AnalyzeResult(files);
         table1.setModel(new TotalLaboriousnessModel(result.totalLaboriousness, !withoutLaborCB.isSelected()));
         table2.setModel(new PerWorkerLaboriousnessModel(result.workers, result.totalLabByWorker, !withoutLaborCB.isSelected()));
+        table3.setModel(new ByWorkTableModel(result.byWorks));
         // Поехали строить дереффо!
         DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("Root");
         DefaultTreeModel treeModel = new DefaultTreeModel(rootNode);
@@ -300,7 +303,10 @@ public class AnalyzeForm extends JDialog {
          * Общая трудоемкость по типу работу для рабоникам
          */
         private HashMap<Worker, HashMap<PlanUtils.WorkTypes, Double>> totalLabByWorker = new HashMap<Worker, HashMap<PlanUtils.WorkTypes, Double>>();
-
+        /**
+         * Общая трудоемкость по работам
+         */
+        private HashMap<WorkInPlan, Double> byWorks = new HashMap<WorkInPlan, Double>();
         /**
          * Общая трудоемкость по типам работ
          */
@@ -332,6 +338,13 @@ public class AnalyzeForm extends JDialog {
                     // Если план удачно загрузился - поедем его обрабатывать
                     for (PlanPart planPart : Starter.getMainForm().getPlan()) {
                         for (WorkInPlan work : planPart.getWorks()) {
+                            // Обрабатываем
+                            double byWorkLab = 0;
+                            if (byWorks.containsKey(work)) {
+                                byWorkLab = byWorks.get(work);
+                            }
+                            byWorks.put(work, work.getLaborTotal() - work.calcRestLabor(2) + byWorkLab);
+                            // Добавляем в общий список
                             works.get(work.getWorkType()).add(work);
                             // Обрабатываем еще людей
                             for (WorkerInPlan worker : work.getWorkersInPlan()) {
@@ -518,7 +531,7 @@ public class AnalyzeForm extends JDialog {
         /**
          * Formatter
          */
-        DecimalFormat df = new DecimalFormat("#.##");
+        private DecimalFormat df = new DecimalFormat("#.##");
         /**
          * Отображать или нет трудоемкость в ч/м
          */
@@ -623,6 +636,95 @@ public class AnalyzeForm extends JDialog {
                 return PlanUtils.WorkTypes.values()[column - 1].toString();
             } else {
                 return "Итого";
+            }
+        }
+    }
+
+    /**
+     * Модель отображения трудоемоксти по работам
+     */
+    private static class ByWorkTableModel extends AbstractTableModel {
+
+        /**
+         * Список работ
+         */
+        private HashMap<WorkInPlan, Double> works;
+        /**
+         * Formatter
+         */
+        private DecimalFormat df = new DecimalFormat("#.##");
+
+        /**
+         * Default constructor
+         *
+         * @param works Работы
+         */
+        public ByWorkTableModel(HashMap<WorkInPlan, Double> works) {
+            this.works = works;
+        }
+
+        /**
+         * Returns the number of rows in the model. A
+         * <code>JTable</code> uses this method to determine how many rows it
+         * should display.  This method should be quick, as it
+         * is called frequently during rendering.
+         *
+         * @return the number of rows in the model
+         * @see #getColumnCount
+         */
+        public int getRowCount() {
+            return works.keySet().size();
+        }
+
+        /**
+         * Returns the number of columns in the model. A
+         * <code>JTable</code> uses this method to determine how many columns it
+         * should create and display by default.
+         *
+         * @return the number of columns in the model
+         * @see #getRowCount
+         */
+        public int getColumnCount() {
+            return 2;
+        }
+
+        /**
+         * Returns the value for the cell at <code>columnIndex</code> and
+         * <code>rowIndex</code>.
+         *
+         * @param rowIndex    the row whose value is to be queried
+         * @param columnIndex the column whose value is to be queried
+         * @return the value Object at the specified cell
+         */
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            switch (columnIndex) {
+                case 0:
+                    return works.keySet().toArray()[rowIndex].toString();
+                case 1:
+                    return df.format(works.get(works.keySet().toArray()[rowIndex])) + " ч/м";
+                default:
+                    return "WTF?!";
+            }
+
+        }
+
+        /**
+         * Returns a default name for the column using spreadsheet conventions:
+         * A, B, C, ... Z, AA, AB, etc.  If <code>column</code> cannot be found,
+         * returns an empty string.
+         *
+         * @param column the column being queried
+         * @return a string containing the default name of <code>column</code>
+         */
+        @Override
+        public String getColumnName(int column) {
+            switch (column) {
+                case 0:
+                    return "Название работы";
+                case 1:
+                    return "Трудоемкость";
+                default:
+                    return "WTF?!";
             }
         }
     }
