@@ -29,6 +29,7 @@ public class AnalyzeForm extends JDialog {
     private JCheckBox withoutLaborCB;
     private JButton saveBtn;
     private JTable table3;
+    private JTable table4;
 
     /**
      * Default constructor
@@ -168,6 +169,9 @@ public class AnalyzeForm extends JDialog {
                 }
             }
         }
+        //
+        fOut.println("Проценты выполнения");
+        doSaveTableModel(fOut, table4.getModel());
         //
         fOut.close();
         JOptionPane.showMessageDialog(this, "Файл сохранени", "Сохранение", JOptionPane.INFORMATION_MESSAGE);
