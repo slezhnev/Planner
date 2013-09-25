@@ -10,6 +10,7 @@ public class WorkInPlan {
     private String endDate;
     private String reserve;
     private boolean maked;
+    private Double makedPercent;
     private String finishDoc;
     private Double laborTotal;
     private PlanUtils.WorkTypes workType;
@@ -111,6 +112,13 @@ public class WorkInPlan {
         this.maked = maked;
     }
 
+    public Double getMakedPercent() {
+        return makedPercent;
+    }
+
+    public void setMakedPercent(Double makedPercent) {
+        this.makedPercent = makedPercent;
+    }
 
     public PlanUtils.WorkTypes getWorkType() {
         return workType;
@@ -132,12 +140,12 @@ public class WorkInPlan {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof WorkInPlan) {
-            WorkInPlan sec = (WorkInPlan)obj;
-        if (name == null) {
-            return false;
-        } else {
-            return name.equals(sec.getName());
-        }
+            WorkInPlan sec = (WorkInPlan) obj;
+            if (name == null) {
+                return false;
+            } else {
+                return name.equals(sec.getName());
+            }
         } else {
             return false;
         }
@@ -146,5 +154,21 @@ public class WorkInPlan {
     @Override
     public String toString() {
         return name;
+    }
+
+    /**
+     * Переносит значения полей из другого объекта
+     *
+     * @param resWork Откуда переносить значения
+     */
+    public void assign(WorkInPlan resWork) {
+        this.setName(resWork.getName());
+        this.setDesc(resWork.getDesc());
+        this.setEndDate(resWork.getEndDate());
+        this.setReserve(resWork.getReserve());
+        this.setFinishDoc(resWork.getFinishDoc());
+        this.setWorkType(resWork.getWorkType());
+        this.setMaked(resWork.isMaked());
+        this.setMakedPercent(resWork.getMakedPercent());
     }
 }

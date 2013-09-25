@@ -332,13 +332,7 @@ public class MainForm {
                     WorkInPlan currWork = currPart.getWorks().get(planPartTable.getSelectedRow());
                     WorkInPlan resWork = WorkParamForm.showDialog(planPartTable, planPartTable, currWork);
                     if (resWork != null) {
-                        currWork.setName(resWork.getName());
-                        currWork.setDesc(resWork.getDesc());
-                        currWork.setEndDate(resWork.getEndDate());
-                        currWork.setReserve(resWork.getReserve());
-                        currWork.setFinishDoc(resWork.getFinishDoc());
-                        currWork.setWorkType(resWork.getWorkType());
-                        currWork.setMaked(resWork.isMaked());
+                        currWork.assign(resWork);
                         // Fire change
                         ((PlanPartModel) planPartTable.getModel()).fireTableCellUpdated(planPartTable.getSelectedRow(), 0);
                         dataChanged = true;

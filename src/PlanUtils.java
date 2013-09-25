@@ -101,6 +101,7 @@ public class PlanUtils extends DefaultHandler {
                 //e3.setAttribute("name", work.getName());
                 e3.setAttribute("endDate", work.getEndDate());
                 e3.setAttribute("maked", "" + (work.isMaked() ? 1 : 0));
+                e3.setAttribute("makedPercent", "" + work.getMakedPercent());
                 e3.setAttribute("workType", work.getWorkType().name());
                 // desc
                 e4 = doc.createElement("desc");
@@ -214,11 +215,11 @@ public class PlanUtils extends DefaultHandler {
             e2.setAttribute("longName", part.getLongName());
             e2.setAttribute("id", "" + planPartId);
             int workId = 1;
-            int makedTotal = 0;
+            double makedTotal = 0;
             double makedLabor = 0;
             double laborTotal = 0.0;
             for (WorkInPlan work : part.getWorks()) {
-                if (work.isMaked()) makedTotal++;
+                makedTotal = makedTotal + work.getMakedPercent() / 100;
                 Element e3 = doc.createElement("work");
                 e3.setAttribute("id", "" + workId);
                 e3.setAttribute("planPartId", "" + planPartId);
@@ -273,7 +274,7 @@ public class PlanUtils extends DefaultHandler {
                 e2.setAttribute("makedLabor", "-");
             } else {
                 e2.setAttribute("makedTotal", (part.getWorks().size() != 0) ? ("" + Math.round(100 * makedTotal / part.getWorks().size())) : "-");
-                e2.setAttribute("makedLabor", ((laborTotal != 0) ? ("" + Math.round(100 * makedLabor / laborTotal)) : "-"));
+                e2.setAttribute("makedLabor", ((laborTotal != 0) ? ("" + Math.round(100 * makedLabor / laborTotal) + "% (" + makedLabor + " / " + laborTotal + " ч/м)") : "-"));
             }
             //
             e1.appendChild(e2);
@@ -459,9 +460,21 @@ public class PlanUtils extends DefaultHandler {
                 tempWork = new WorkInPlan("", "");
             }
             tempWork.setEndDate(attributes.getValue("endDate"));
-            if ((attributes.getValue("maked") == null) || (!attributes.getValue("maked").equals("1")))
+            if ((attributes.getValue("maked") == null) || (!attributes.getValue("maked").equals("1"))) {
                 tempWork.setMaked(false);
-            else tempWork.setMaked(true);
+                if (attributes.getValue("makedPercent") == null) {
+                    tempWork.setMakedPercent(0.0);
+                } else {
+                    try {
+                        tempWork.setMakedPercent(Double.parseDouble(attributes.getValue("makedPercent")));
+                    } catch (NumberFormatException ex) {
+                        tempWork.setMakedPercent(0.0);
+                    }
+                }
+            } else {
+                tempWork.setMaked(true);
+                tempWork.setMakedPercent(100.0);
+            }
             WorkTypes workType = WorkTypes.INNER;
             try {
                 workType = WorkTypes.valueOf(attributes.getValue("workType"));
