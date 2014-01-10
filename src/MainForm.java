@@ -449,6 +449,7 @@ public class MainForm {
     private void makeNewPlanTabs() {
         plan.add(new PlanPart("Собств.работы - новые", "1. Собственные работы (по основному процессу подразделения)"));
         plan.add(new PlanPart("Собств.работы - продолжение", "1а). Собственные работы (завершение работ по предыдущим квартальным планам)"));
+        plan.add(new PlanPart("Подд.произв.", "2. Работы по поддержке производства"));
         plan.add(new PlanPart("Внутр.кооп.", "3. Работы по внутренней кооперации"));
         plan.add(new PlanPart("Внешн.заказчик", "4. Работы по внешней кооперации (с другими организациями)"));
         plan.add(new PlanPart("СМК", "5. Разработка документации по СМК"));
@@ -481,19 +482,19 @@ public class MainForm {
         Worker worker2 = new Worker("Золотов А.В.", 0.0);
         workers.add(worker2);
         workers.add(new Worker("Полулях А.В.", 0.0));
-        workers.add(new Worker("Горелов А.Г.", 0.0));
+        //workers.add(new Worker("Горелов А.Г.", 0.0));
         workers.add(new Worker("Воронин Р.М.", 0.0));
         workers.add(new Worker("Гуськов С.С.", 0.0));
         workers.add(new Worker("Конев Д.С.", 0.0));
         workers.add(new Worker("Шумский Ю.Н.", 0.0));
-        workers.add(new Worker("Мироненко Н.Л.", 0.0));
+        //workers.add(new Worker("Мироненко Н.Л.", 0.0));
         workers.add(new Worker("Мармер В.В.", -1.0));
         workers.add(new Worker("Зореев В.П.", -1.0));
         workers.add(new Worker("Шварцман А.М.", 0.0));
         workers.add(new Worker("Никитина Н.Е.", 0.0));
         workers.add(new Worker("Хехнева А.В.", 0.0));
         workers.add(new Worker("Конашина О.А.", 0.0));
-        workers.add(new Worker("Косарев В.В.", 0.0));
+        //workers.add(new Worker("Косарев В.В.", 0.0));
         //
         plan.get(0).getWorks().add(new WorkInPlan("Работа 1", "Описание 1\nСтрока2\n]]", "10.10.2010", "", "Предоставлено \n куча \n всего \n ]]", PlanUtils.WorkTypes.INNER));
         plan.get(0).getWorks().get(0).getWorkersInPlan().add(new WorkerInPlan(worker1, 3.5));

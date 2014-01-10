@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<monthReport month="Сентябрь" year="2013">
+<monthReport month="Октябрь" year="2013">
   <workers>
     <worker labor="1.0" name="Рогов П.А.">
       <works>Разработка ИН-5102 
 (этап РКД)</works>
     </worker>
-    <worker labor="1.0" name="Золотов А.В.">
+    <worker labor="0.5" name="Золотов А.В.">
       <works>Разработка ИН-5102 
 (этап РКД)</works>
     </worker>
@@ -13,13 +13,13 @@
       <works>Разработка ИН-5102 
 (этап РКД)</works>
     </worker>
-    <worker labor="-" name="Воронин Р.М.">
-      <works>-</works>
+    <worker labor="1.0" name="Воронин Р.М.">
+      <works>Разработка ИН-5102 
+(этап РКД)</works>
     </worker>
     <worker labor="1.0" name="Конев Д.С.">
       <works>Разработка ИН-5102 
-(этап РКД)
-Коррекция КД на ИН5101А по результатам доработки</works>
+(этап РКД)</works>
     </worker>
     <worker labor="-" name="Шумский Ю.Н.">
       <works>-</works>
@@ -36,7 +36,7 @@
     <worker labor="-" name="Никитина Н.Е.">
       <works>-</works>
     </worker>
-    <worker labor="1.0" name="Хехнева А.В.">
+    <worker labor="0.5" name="Хехнева А.В.">
       <works>Разработка ИН-5102 
 (этап РКД)</works>
     </worker>
@@ -47,20 +47,17 @@
     <worker labor="-" name="Смирнова Н.В.">
       <works>-</works>
     </worker>
-    <worker labor="1.0" name="Романченко П.А.">
-      <works>Разработка ИН-5102 
-(этап РКД)</works>
+    <worker labor="-" name="Романченко П.А.">
+      <works>-</works>
     </worker>
     <worker labor="1.0" name="Кузин Е.В.">
-      <works>Инспекционный контроль по взрывозащите приборов АДП-3101, СМ3001	
-Коррекция КД на ИН5101А по результатам доработки
-Коррекция КД, ТД, ЭД Т2001М</works>
+      <works>Периодические (совмещенные с типовыми) испытания семейства тахометров ДО-03
+(Сопровождение-2013)</works>
     </worker>
   </workers>
   <works>
-    <work labor="1.0" name="Коррекция КД на ИН5101А по результатам доработки"/>
-    <work labor="0.25" name="Коррекция КД, ТД, ЭД Т2001М"/>
-    <work labor="6.5" name="Разработка ИН-5102 &#10;(этап РКД)"/>
-    <work labor="0.25" name="Инспекционный контроль по взрывозащите приборов АДП-3101, СМ3001&#9;"/>
+    <work labor="0.5" name="Разработка инструкции по разработке и хранению ПД"/>
+    <work labor="6.0" name="Разработка ИН-5102 &#10;(этап РКД)"/>
+    <work labor="1.0" name="Периодические (совмещенные с типовыми) испытания семейства тахометров ДО-03&#10;(Сопровождение-2013)"/>
   </works>
 </monthReport>
