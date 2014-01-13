@@ -30,6 +30,7 @@ public class WorkInPlan {
     public WorkInPlan(String name, String desc) {
         this.name = name;
         this.desc = desc;
+        this.workType = PlanUtils.WorkTypes.INNER;
         this.endDate = "";
         this.reserve = "";
         this.finishDoc = "";
