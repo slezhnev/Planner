@@ -338,7 +338,7 @@ public class AnalyzeForm extends JDialog {
         private void analyze(ArrayList<File> files) {
             for (File file : files) {
                 // Грузим
-                if (PlanUtils.loadPlan(file)) {
+                if (PlanUtils.loadPlanFromXML(file)) {
                     // Если план удачно загрузился - поедем его обрабатывать
                     for (PlanPart planPart : Starter.getMainForm().getPlan()) {
                         for (WorkInPlan work : planPart.getWorks()) {

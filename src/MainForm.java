@@ -16,7 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
-import java.util.Vector;
 
 /**
  * Основной класс
@@ -72,14 +71,14 @@ public class MainForm {
         yearEdit.setText(year);
     }
 
-    public Vector<Worker> getWorkers() {
+    public ArrayList<Worker> getWorkers() {
         return workers;
     }
 
     /**
      * Работники
      */
-    private Vector<Worker> workers = new Vector<Worker>();
+    private ArrayList<Worker> workers = new ArrayList<Worker>();
 
     public ArrayList<PlanPart> getPlan() {
         return plan;
@@ -129,7 +128,7 @@ public class MainForm {
         workersInPlanTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         TableColumn workerColumn = workersInPlanTable.getColumnModel().getColumn(0);
         JComboBox workerSelectCB = new JComboBox();
-        workerSelectCB.setModel(new DefaultComboBoxModel(workers));
+        workerSelectCB.setModel(new DefaultComboBoxModel(workers.toArray()));
         workerColumn.setCellEditor(new DefaultCellEditor(workerSelectCB));
         //
         addWorkBtn.addActionListener(new ActionListener() {
@@ -514,7 +513,7 @@ public class MainForm {
             if (props.get("workFileName") != null) {
                 File f = new File((String) props.get("workFileName"));
                 if (f.isFile() && f.canRead()) {
-                    if (PlanUtils.loadPlan(f)) {
+                    if (PlanUtils.loadPlanFromXML(f)) {
                         refreshData();
                         JOptionPane.showMessageDialog(null, "Загружен план из файла " + f.getPath(), "Загрузка последнего плана", JOptionPane.INFORMATION_MESSAGE);
                         dataChanged = false;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plan quarter="1" year="2014">
+  <workers>
+    <worker isNotInReport="false" isOverhead="false" name="123"/>
+  </workers>
+  <planParts>
+    <planPart longName="1. Собственные работы (по основному процессу подразделения)" name="Собств.работы - новые">
+      <work endDate="333" maked="0" makedPercent="null" workType="INNER">
+        <workName>111</workName>
+        <desc>222</desc>
+        <reserve>555</reserve>
+        <finishDocs>666</finishDocs>
+        <worker labor="12.0" name="123" perMonth1="0.0" perMonth2="0.0" perMonth3="0.0"/>
+      </work>
+    </planPart>
+    <planPart longName="1а). Собственные работы (завершение работ по предыдущим квартальным планам)" name="Собств.работы - продолжение"/>
+    <planPart longName="2. Работы по поддержке производства" name="Подд.произв."/>
+    <planPart longName="3. Работы по внутренней кооперации" name="Внутр.кооп."/>
+    <planPart longName="4. Работы по внешней кооперации (с другими организациями)" name="Внешн.заказчик"/>
+    <planPart longName="5. Разработка документации по СМК" name="СМК"/>
+    <planPart longName="6. Корректирующие и предупреждающие действия" name="Корр.мероприятия"/>
+  </planParts>
+</plan>

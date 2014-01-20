@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b312c0ee-cac9-4011-9fde-32b99fccf067" name="Default" comment="Добавление библиотек&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/forms-1.3.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/gson-2.2.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jasperreports-4.0.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jgoodies-common-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlanPart.java" afterPath="$PROJECT_DIR$/src/PlanPart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Planner.iml" afterPath="$PROJECT_DIR$/Planner.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="b312c0ee-cac9-4011-9fde-32b99fccf067" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plans/1.plan" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AnalyzeForm.java" afterPath="$PROJECT_DIR$/src/AnalyzeForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlanUtils.java" afterPath="$PROJECT_DIR$/src/PlanUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WorkersTableModel.java" afterPath="$PROJECT_DIR$/src/WorkersTableModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Planner.iws" />
@@ -96,16 +91,48 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="50" selection-start="5062" selection-end="5062" vertical-scroll-proportion="0.0" vertical-offset="1258" max-vertical-offset="9146">
+            <state line="94" column="11" selection-start="2674" selection-end="2674" vertical-scroll-proportion="0.0" vertical-offset="4589" max-vertical-offset="9214">
+              <folding>
+                <element signature="e#2322#2323#0" expanded="true" />
+                <element signature="e#2352#2353#0" expanded="true" />
+                <element signature="e#2495#2496#0" expanded="true" />
+                <element signature="e#2522#2523#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkersTableModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WorkersTableModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="14" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1989">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlanPart.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PlanUtils.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PlanUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="27" selection-start="1122" selection-end="1122" vertical-scroll-proportion="0.21609196" vertical-offset="118" max-vertical-offset="15232">
+              <folding>
+                <element signature="e#2818#2819#0" expanded="true" />
+                <element signature="e#2856#2857#0" expanded="true" />
+                <element signature="e#2939#2940#0" expanded="true" />
+                <element signature="e#2974#2975#0" expanded="true" />
+                <element signature="e#3069#3070#0" expanded="true" />
+                <element signature="e#3107#3108#0" expanded="true" />
+                <element signature="e#3200#3201#0" expanded="true" />
+                <element signature="e#3236#3237#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlanPart.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlanPart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="41" selection-start="429" selection-end="429" vertical-scroll-proportion="0.5151515" vertical-offset="0" max-vertical-offset="595">
+            <state line="30" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
               <folding />
             </state>
           </provider>
@@ -136,7 +163,6 @@
         <option value="$PROJECT_DIR$/src/PlanPartModel.java" />
         <option value="$PROJECT_DIR$/src/ReportViewer.form" />
         <option value="$PROJECT_DIR$/src/Starter.java" />
-        <option value="$PROJECT_DIR$/src/WorkersTableModel.java" />
         <option value="$PROJECT_DIR$/src/ReportViewer.java" />
         <option value="$PROJECT_DIR$/src/WorkerInPlan.java" />
         <option value="$PROJECT_DIR$/src/MonthWorksTableModel.java" />
@@ -145,11 +171,12 @@
         <option value="$PROJECT_DIR$/src/AnalyzeForm.form" />
         <option value="$PROJECT_DIR$/src/AnalyzeForm.java" />
         <option value="$PROJECT_DIR$/src/WorkParamForm.java" />
-        <option value="$PROJECT_DIR$/src/PlanUtils.java" />
-        <option value="$PROJECT_DIR$/src/MainForm.java" />
         <option value="$PROJECT_DIR$/src/WorkParamForm.form" />
         <option value="$PROJECT_DIR$/src/WorkInPlan.java" />
         <option value="$PROJECT_DIR$/src/PlanPart.java" />
+        <option value="$PROJECT_DIR$/src/WorkersTableModel.java" />
+        <option value="$PROJECT_DIR$/src/MainForm.java" />
+        <option value="$PROJECT_DIR$/src/PlanUtils.java" />
       </list>
     </option>
   </component>
@@ -255,6 +282,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="plans" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Planner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Planner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -271,7 +312,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.pathVariables" />
+    <property name="options.lastSelected" value="preferences.sourceCode.Java" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/gson-2.2.4.jar!/" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -494,11 +535,16 @@
       <created>1294164530718</created>
       <updated>1294164530718</updated>
     </task>
+    <task id="LOCAL-00001" summary="Добавление библиотек&#10;">
+      <created>1390230683503</created>
+      <updated>1390230683503</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -508,17 +554,17 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281768" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39597315" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32535365" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3247768" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13921994" sideWeight="0.67449665" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14224665" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13869047" sideWeight="0.67449665" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32535365" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" x="27" y="388" width="1865" height="273" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14224665" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3247768" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" x="27" y="388" width="1865" height="273" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.7478166" order="3" side_tool="false" content_ui="tabs" x="96" y="96" width="1728" height="858" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13055255" sideWeight="0.67449665" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -558,7 +604,12 @@
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="137" column="50" selection-start="5062" selection-end="5062" vertical-scroll-proportion="0.0" vertical-offset="2329" max-vertical-offset="10438">
-          <folding />
+          <folding>
+            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2495#2496#0" expanded="true" />
+            <element signature="e#2522#2523#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -584,11 +635,6 @@
         <state line="4" column="0" selection-start="90" selection-end="90" vertical-scroll-proportion="-1.1672186" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WorkersTableModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="63" selection-start="2022" selection-end="2022" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WorkerInPlan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="25" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
@@ -607,13 +653,6 @@
     <entry file="file://$PROJECT_DIR$/src/MainForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="65" selection-start="8448" selection-end="8448" vertical-scroll-proportion="0.029462738" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AnalyzeForm.java">
@@ -649,17 +688,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/WorkersTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="14" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1989">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="50" selection-start="5062" selection-end="5062" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
+        <state line="94" column="11" selection-start="2674" selection-end="2674" vertical-scroll-proportion="0.0" vertical-offset="4589" max-vertical-offset="9214">
+          <folding>
+            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2495#2496#0" expanded="true" />
+            <element signature="e#2522#2523#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlanPart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="41" selection-start="429" selection-end="429" vertical-scroll-proportion="0.5151515" vertical-offset="0" max-vertical-offset="595">
+        <state line="30" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlanUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="27" selection-start="1122" selection-end="1122" vertical-scroll-proportion="0.21609196" vertical-offset="118" max-vertical-offset="15232">
+          <folding>
+            <element signature="e#2818#2819#0" expanded="true" />
+            <element signature="e#2856#2857#0" expanded="true" />
+            <element signature="e#2939#2940#0" expanded="true" />
+            <element signature="e#2974#2975#0" expanded="true" />
+            <element signature="e#3069#3070#0" expanded="true" />
+            <element signature="e#3107#3108#0" expanded="true" />
+            <element signature="e#3200#3201#0" expanded="true" />
+            <element signature="e#3236#3237#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -670,6 +737,17 @@
         <settings>
           <artifact-editor />
           <last-edited>Planner:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

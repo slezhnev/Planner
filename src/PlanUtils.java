@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -15,6 +17,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -33,7 +36,7 @@ public class PlanUtils extends DefaultHandler {
             return false;
         }
         //
-        if (!savePlan(file)) {
+        if (!savePlanToJSON(file)) {
             JOptionPane.showMessageDialog(null, "Ошибка сохранения плана", "Сохранение плана", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
@@ -51,12 +54,100 @@ public class PlanUtils extends DefaultHandler {
     }
 
     /**
+     * Вспомогательное хранилище для плана - для сохранения в JSON
+     *
+     * @author s.lezhnev
+     */
+    private static class Plan {
+
+        /**
+         * Квартал
+         */
+        private int quarter;
+        /**
+         * Год
+         */
+        private String year;
+        /**
+         * Список работников
+         */
+        private List<Worker> workers;
+        /**
+         * Работы в плане
+         */
+        private List<PlanPart> works;
+
+        /**
+         * Default constructor
+         *
+         * @param quarter Квартал
+         * @param year    Год
+         * @param workers Работники
+         * @param works   Работы
+         */
+        private Plan(int quarter, String year, List<Worker> workers, List<PlanPart> works) {
+            this.quarter = quarter;
+            this.year = year;
+            this.workers = workers;
+            this.works = works;
+        }
+
+        /**
+         * @return quarter
+         */
+        public int getQuarter() {
+            return quarter;
+        }
+
+        /**
+         * @return yesr
+         */
+        public String getYear() {
+            return year;
+        }
+
+        /**
+         * @return workers
+         */
+        public List<Worker> getWorkers() {
+            return workers;
+        }
+
+        /**
+         * @return works
+         */
+        public List<PlanPart> getWorks() {
+            return works;
+        }
+    }
+
+    /**
+     * Сохраняет план второй версии в JSON
+     *
+     * @param file Файл, куда сохранять
+     * @return true - если все сохранилось, false - иначе
+     */
+    private static boolean savePlanToJSON(File file) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Plan plan = new Plan(Starter.getMainForm().getSelectedQuarter(), Starter.getMainForm().getYear(),
+                Starter.getMainForm().getWorkers(), Starter.getMainForm().getPlan());
+        try {
+            try (FileWriter fOut = new FileWriter(file)) {
+                fOut.write(gson.toJson(plan));
+            }
+        } catch (IOException e) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Сохранение плана в файл
      *
      * @param file Куда сохранять
      * @return true - если все сохранилось, false - иначе
      */
-    private static boolean savePlan(File file) {
+    private static boolean savePlanToXML(File file) {
         DocumentBuilderFactory factory
                 = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
@@ -178,11 +269,9 @@ public class PlanUtils extends DefaultHandler {
      * Формирование квартального плана
      *
      * @param type 0 - план, 1 - отчет
-     * @throws java.io.IOException В случае ошибок ввода-вывода при формировании и сохранении XML
-     * @throws javax.xml.parsers.ParserConfigurationException
-     *                             см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
-     * @throws javax.xml.transform.TransformerException
-     *                             см. @javax.xml.transform.Transformer
+     * @throws java.io.IOException                            В случае ошибок ввода-вывода при формировании и сохранении XML
+     * @throws javax.xml.parsers.ParserConfigurationException см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
+     * @throws javax.xml.transform.TransformerException       см. @javax.xml.transform.Transformer
      */
     public static void makeQuarterPlan(int type) throws IOException, TransformerException, ParserConfigurationException {
         //File file = File.createTempFile("quarter", "plan");
@@ -312,7 +401,10 @@ public class PlanUtils extends DefaultHandler {
         if (fc == null) {
             fc = new JFileChooser();
             fc.setCurrentDirectory(new File("./plans"));
-            fc.setFileFilter(new FileNameExtensionFilter("Файлы планов", "plan"));
+            final FileNameExtensionFilter plan2 = new FileNameExtensionFilter("Файлы планов версии 2", "plan2");
+            fc.addChoosableFileFilter(plan2);
+            fc.addChoosableFileFilter(new FileNameExtensionFilter("Файлы планов версии 1", "plan"));
+            fc.setFileFilter(plan2);
         }
         fc.setDialogTitle(dialogTitle);
         if (loadedFrom != null) {
@@ -349,7 +441,7 @@ public class PlanUtils extends DefaultHandler {
             return false;
         }
         //
-        if (!loadPlan(file)) {
+        if (!loadPlanFromXML(file)) {
             JOptionPane.showMessageDialog(null, "Ошибка загрузки плана", "загрузка плана", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
@@ -365,7 +457,7 @@ public class PlanUtils extends DefaultHandler {
      * @param file Откуда грузить план
      * @return true - если план загружен, false - иначе
      */
-    public static boolean loadPlan(File file) {
+    public static boolean loadPlanFromXML(File file) {
         PlanUtils util = new PlanUtils();
         try {
             util.parse(file);
@@ -546,11 +638,9 @@ public class PlanUtils extends DefaultHandler {
      *
      * @param month     номер месяца в квартале
      * @param monthName название месяца
-     * @throws java.io.IOException В случае ошибок ввода-вывода при формировании и сохранении XML
-     * @throws javax.xml.parsers.ParserConfigurationException
-     *                             см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
-     * @throws javax.xml.transform.TransformerException
-     *                             см. @javax.xml.transform.Transformer
+     * @throws java.io.IOException                            В случае ошибок ввода-вывода при формировании и сохранении XML
+     * @throws javax.xml.parsers.ParserConfigurationException см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
+     * @throws javax.xml.transform.TransformerException       см. @javax.xml.transform.Transformer
      */
     public static void makeMonthPlan(int month, String monthName) throws ParserConfigurationException, TransformerException, IOException {
         File file = new File("monthReport.toReport");
@@ -663,11 +753,9 @@ public class PlanUtils extends DefaultHandler {
     /**
      * Формирование плана по людям
      *
-     * @throws java.io.IOException В случае ошибок ввода-вывода при формировании и сохранении XML
-     * @throws javax.xml.parsers.ParserConfigurationException
-     *                             см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
-     * @throws javax.xml.transform.TransformerException
-     *                             см. @javax.xml.transform.Transformer
+     * @throws java.io.IOException                            В случае ошибок ввода-вывода при формировании и сохранении XML
+     * @throws javax.xml.parsers.ParserConfigurationException см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
+     * @throws javax.xml.transform.TransformerException       см. @javax.xml.transform.Transformer
      */
     public static void makePerWorkerPlan() throws IOException, TransformerException, ParserConfigurationException {
         File file = new File("perWorkerPlan.toReport");

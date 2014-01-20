@@ -1,14 +1,15 @@
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 /**
  * Класс - модель списка работников
  */
 class WorkersTableModel extends AbstractTableModel {
-    private Vector<Worker> workers;
+    private List<Worker> workers;
 
-    public WorkersTableModel(Vector<Worker> workers) {
+    public WorkersTableModel(List<Worker> workers) {
         this.workers = workers;
     }
 
