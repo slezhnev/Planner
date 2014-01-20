@@ -1,11 +1,9 @@
 import java.util.ArrayList;
 
 /**
- * Created by IntelliJ IDEA.
- * User: Alla
- * Date: 05.01.11
- * Time: 1:06
- * To change this template use File | Settings | File Templates.
+ * Одна работа плана
+ *
+ * @author s.lezhnev
  */
 public class PlanPart {
 
