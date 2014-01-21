@@ -1,0 +1,101 @@
+{
+  "quarter": 4,
+  "year": "2014",
+  "workers": [
+    {
+      "name": "123",
+      "overhead": false,
+      "notInMonthReport": false,
+      "laborContentTotal": 0.0
+    }
+  ],
+  "works": [
+    {
+      "name": "Собств.работы - новые",
+      "longName": "1. Собственные работы (по основному процессу подразделения)",
+      "works": [
+        {
+          "name": "111",
+          "desc": "222",
+          "endDate": "333",
+          "reserve": "555",
+          "maked": false,
+          "makedPercent": 0.0,
+          "finishDoc": "666",
+          "laborTotal": 12.0,
+          "workType": "INNER",
+          "workersInPlan": [
+            {
+              "worker": {
+                "name": "123",
+                "overhead": false,
+                "notInMonthReport": false,
+                "laborContentTotal": 12.0
+              },
+              "laborContent": 12.0,
+              "perMonth": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "stages": [
+            {
+              "name": "Этап1\nСтрока2",
+              "worksInStage": [
+                {
+                  "works": "Работа1",
+                  "results": "Результаты1",
+                  "endDate": "11.11.2011",
+                  "actualResults": ""
+                }
+              ]
+            },
+            {
+              "name": "Этап2",
+              "worksInStage": [
+                {
+                  "works": "Работа5",
+                  "results": "",
+                  "endDate": "",
+                  "actualResults": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Собств.работы - продолжение",
+      "longName": "1а). Собственные работы (завершение работ по предыдущим квартальным планам)",
+      "works": []
+    },
+    {
+      "name": "Подд.произв.",
+      "longName": "2. Работы по поддержке производства",
+      "works": []
+    },
+    {
+      "name": "Внутр.кооп.",
+      "longName": "3. Работы по внутренней кооперации",
+      "works": []
+    },
+    {
+      "name": "Внешн.заказчик",
+      "longName": "4. Работы по внешней кооперации (с другими организациями)",
+      "works": []
+    },
+    {
+      "name": "СМК",
+      "longName": "5. Разработка документации по СМК",
+      "works": []
+    },
+    {
+      "name": "Корр.мероприятия",
+      "longName": "6. Корректирующие и предупреждающие действия",
+      "works": []
+    }
+  ]
+}

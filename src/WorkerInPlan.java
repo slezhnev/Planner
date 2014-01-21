@@ -50,4 +50,8 @@ public class WorkerInPlan {
         if (month >= 2) total = total - perMonth[2];
         return total;
     }
+
+    public WorkerInPlan clone() {
+        return new WorkerInPlan(worker, laborContent);
+    }
 }

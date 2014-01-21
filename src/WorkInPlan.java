@@ -1,20 +1,168 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Работа в плане
  */
 public class WorkInPlan {
 
+    /**
+     * Конструктор используется ТОЛЬКО в clone!
+     */
+    private WorkInPlan() {
+
+    }
+
+    /**
+     * Этап работы
+     */
+    public static class WorkStage {
+        /**
+         * Наименование этапа
+         */
+        private String name;
+        /**
+         * Список работ в этапе
+         */
+        private List<WorkInStage> worksInStage = new ArrayList<>();
+
+        public WorkStage(String name, List<WorkInStage> worksInStage) {
+            this.name = name;
+            this.worksInStage = worksInStage;
+        }
+
+        public WorkStage(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public List<WorkInStage> getWorksInStage() {
+            return worksInStage;
+        }
+
+        public WorkStage clone() {
+            ArrayList<WorkInStage> works = new ArrayList<>();
+            for (WorkInStage work : worksInStage) {
+                works.add(work.clone());
+            }
+            return new WorkStage(name, works);
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setWorksInStage(List<WorkInStage> worksInStage) {
+            this.worksInStage = worksInStage;
+        }
+    }
+
+    /**
+     * Работа в этапе
+     */
+    public static class WorkInStage {
+        /**
+         * Перечень работ
+         */
+        private String works;
+        /**
+         * Представляемые результаты
+         */
+        private String results;
+        /**
+         * Дата завершения
+         */
+        private String endDate;
+
+        /**
+         * Представленные результаты
+         */
+        private String actualResults;
+
+        public WorkInStage clone() {
+            return new WorkInStage(works, results, endDate, actualResults);
+        }
+
+        /**
+         * Default constructor
+         *
+         * @param works         Перечень работ
+         * @param results       Представляемые результаты
+         * @param endDate       Дата завершения
+         * @param actualResults Представленные результаты
+         */
+        public WorkInStage(String works, String results, String endDate, String actualResults) {
+            this.works = works;
+            this.results = results;
+            this.endDate = endDate;
+            this.actualResults = actualResults;
+        }
+
+        public String getWorks() {
+            return works;
+        }
+
+        public String getResults() {
+            return results;
+        }
+
+        public String getEndDate() {
+            return endDate;
+        }
+
+        public String getActualResults() {
+            return actualResults;
+        }
+    }
+
+    /**
+     * Наименование
+     */
     private String name;
+    /**
+     * Описание
+     */
     private String desc;
+    /**
+     * Дата завершения
+     */
     private String endDate;
+    /**
+     * Задел
+     */
     private String reserve;
+    /**
+     * Выполнено
+     */
     private boolean maked;
+    /**
+     * Процент выполнения
+     */
     private Double makedPercent;
+    /**
+     * Отчетные документы по выполнению
+     */
     private String finishDoc;
+    /**
+     * Общая трудоемкость
+     */
     private Double laborTotal;
+    /**
+     * Тип работы
+     */
     private PlanUtils.WorkTypes workType;
-    private ArrayList<WorkerInPlan> workersInPlan = new ArrayList<WorkerInPlan>();
+    /**
+     * Список работников в работе
+     */
+    private List<WorkerInPlan> workersInPlan = new ArrayList<>();
+    /**
+     * Список этапов работы
+     */
+    private List<WorkStage> stages = new ArrayList<>();
+
 
     public WorkInPlan(String name, String desc, String endDate, String reserve, String finishDoc, PlanUtils.WorkTypes workType) {
         this.name = name;
@@ -54,7 +202,7 @@ public class WorkInPlan {
         this.desc = desc;
     }
 
-    public ArrayList<WorkerInPlan> getWorkersInPlan() {
+    public List<WorkerInPlan> getWorkersInPlan() {
         return workersInPlan;
     }
 
@@ -129,6 +277,14 @@ public class WorkInPlan {
         this.workType = workType;
     }
 
+    public List<WorkStage> getStages() {
+        return stages;
+    }
+
+    public void setStages(List<WorkStage> stages) {
+        this.stages = stages;
+    }
+
     @Override
     public int hashCode() {
         if (name == null) {
@@ -153,6 +309,23 @@ public class WorkInPlan {
     }
 
     @Override
+    public WorkInPlan clone() {
+        WorkInPlan res = new WorkInPlan();
+        res.assign(this);
+        // А теперь еще отдельно скопируем workersInPlan и stages
+        res.workersInPlan.clear();
+        for (WorkerInPlan workerInPlan : workersInPlan) {
+            res.workersInPlan.add(workerInPlan.clone());
+        }
+        res.stages.clear();
+        for (WorkStage stage : stages) {
+            res.stages.add(stage.clone());
+        }
+        //
+        return res;
+    }
+
+    @Override
     public String toString() {
         return name;
     }
@@ -171,5 +344,10 @@ public class WorkInPlan {
         this.setWorkType(resWork.getWorkType());
         this.setMaked(resWork.isMaked());
         this.setMakedPercent(resWork.getMakedPercent());
+        //
+        this.workersInPlan.clear();
+        this.workersInPlan.addAll(resWork.getWorkersInPlan());
+        this.stages.clear();
+        this.stages.addAll(resWork.getStages());
     }
 }

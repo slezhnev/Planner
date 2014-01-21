@@ -254,7 +254,7 @@ public class PlanUtils extends DefaultHandler {
      * @param f файл
      * @return расширение файла
      */
-    private static String getExt(File f) {
+    public static String getExt(File f) {
         String ext = null;
         String s = f.getName();
         int i = s.lastIndexOf('.');
@@ -441,7 +441,17 @@ public class PlanUtils extends DefaultHandler {
             return false;
         }
         //
-        if (!loadPlanFromXML(file)) {
+        boolean res = false;
+        if ("plan".equals(getExt(file))) {
+            Starter.getMainForm().setPlanVersion(1);
+            res = loadPlanFromXML(file);
+        } else if ("plan2".equals(getExt(file))) {
+            Starter.getMainForm().setPlanVersion(2);
+            res = loadPlanFromJSON(file);
+        } else {
+            res = false;
+        }
+        if (!res) {
             JOptionPane.showMessageDialog(null, "Ошибка загрузки плана", "загрузка плана", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
@@ -452,7 +462,29 @@ public class PlanUtils extends DefaultHandler {
     }
 
     /**
-     * Загружает план из файла
+     * Загружает план из файла формата версии 2 (JSON)
+     *
+     * @param file Откуда грузить план
+     * @return true - если план загружен, false - иначе
+     */
+    public static boolean loadPlanFromJSON(File file) {
+        Gson gson = new GsonBuilder().create();
+        try (FileReader fIn = new FileReader(file)) {
+            Plan plan = gson.fromJson(fIn, Plan.class);
+            Starter.getMainForm().setYear(plan.getYear());
+            Starter.getMainForm().setSelectedQuarter(plan.getQuarter());
+            Starter.getMainForm().getWorkers().clear();
+            Starter.getMainForm().getWorkers().addAll(plan.getWorkers());
+            Starter.getMainForm().getPlan().clear();
+            Starter.getMainForm().getPlan().addAll(plan.getWorks());
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Загружает план из файла формата версии 1 (XML)
      *
      * @param file Откуда грузить план
      * @return true - если план загружен, false - иначе
