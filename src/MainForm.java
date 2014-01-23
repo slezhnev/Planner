@@ -8,7 +8,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableColumn;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.awt.*;
@@ -57,6 +56,7 @@ public class MainForm {
     private JButton createNewPlanBtn;
     private JButton perWorkerPlanBtn;
     private JButton analyzeBtn;
+    private JComboBox workerSelectCB;
 
     public int getSelectedQuarter() {
         return quarterComboBox.getSelectedIndex() + 1;
@@ -142,10 +142,9 @@ public class MainForm {
         //
         workersInPlanTable.setModel(new WorkersInPlanTableModel());
         workersInPlanTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        TableColumn workerColumn = workersInPlanTable.getColumnModel().getColumn(0);
-        JComboBox workerSelectCB = new JComboBox();
+        workerSelectCB = new JComboBox();
         workerSelectCB.setModel(new DefaultComboBoxModel(workers.toArray()));
-        workerColumn.setCellEditor(new DefaultCellEditor(workerSelectCB));
+        workersInPlanTable.setDefaultEditor(Worker.class, new DefaultCellEditor(workerSelectCB));
         //
         addWorkBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -499,6 +498,7 @@ public class MainForm {
         ((AbstractTableModel) workersInPlanTable.getModel()).fireTableDataChanged();
         ((AbstractTableModel) monthWorksTable.getModel()).fireTableDataChanged();
         ((AbstractTableModel) monthWorkersPerWorkTable.getModel()).fireTableDataChanged();
+        workerSelectCB.setModel(new DefaultComboBoxModel(workers.toArray()));
     }
 
     private void fillTempInfo() {
@@ -617,8 +617,10 @@ public class MainForm {
             }
         }
 
-        worker.setLaborContentTotal(total);
-        ((WorkersTableModel) workersTable.getModel()).fireTableCellUpdated(workers.indexOf(worker), 1);
+        if (worker != null) {
+            worker.setLaborContentTotal(total);
+            ((WorkersTableModel) workersTable.getModel()).fireTableCellUpdated(workers.indexOf(worker), 1);
+        }
     }
 
     /**

@@ -311,7 +311,9 @@ public class PlanUtils extends DefaultHandler {
             double makedLabor = 0;
             double laborTotal = 0.0;
             for (WorkInPlan work : part.getWorks()) {
-                makedTotal = makedTotal + work.getMakedPercent() / 100;
+                if (work.getMakedPercent() != null) {
+                    makedTotal = makedTotal + work.getMakedPercent() / 100;
+                }
                 Element e3 = doc.createElement("work");
                 e3.setAttribute("planPartId", "" + planPartId);
                 e3.setAttribute("id", "" + workId);
