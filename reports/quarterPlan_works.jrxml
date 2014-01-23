@@ -68,7 +68,7 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="20">
+		<band height="20" splitType="Prevent">
 			<subreport>
 				<reportElement isPrintRepeatedValues="false" x="37" y="0" width="708" height="20" isRemoveLineWhenBlank="true" backcolor="#FFFFFF"/>
 				<subreportParameter name="XML_DATA_DOCUMENT">

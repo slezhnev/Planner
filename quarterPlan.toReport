@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><plan quarter="4" type="0" typeStr="План работ на" year="2014">
+<?xml version="1.0" encoding="UTF-8"?><plan quarter="1" type="0" typeStr="План работ на" year="2014">
   <planParts>
     <planPart id="1" labor="0.0" longName="1. Собственные работы (по основному процессу подразделения)" makedLabor="-" makedTotal="-" name="Собств.работы - новые"/>
     <planPart id="2" labor="24.0" longName="1а). Собственные работы (завершение работ по предыдущим квартальным планам)" makedLabor="-" makedTotal="-" name="Собств.работы - продолжение"/>
@@ -35,9 +35,14 @@
             <actualResults/>
           </workInStage>
           <workInStage planPartId="2" stageId="1" workId="1">
-            <works>Сборка, регулировка и предварительные исследования опытных образцов приборов ИН-5102, ИН-5102М</works>
-            <results>Опытные образцы приборов ИН-5102, ИН-5102М с полным комплектом, включая опции
-Протоколы лабоработрных исследований</results>
+            <works>Сборка опытных образцов приборов ИН-5102, ИН-5102М</works>
+            <results>Собранные опытные образцы, протоколы лабораторных исследований</results>
+            <endDate>28.02.2014</endDate>
+            <actualResults/>
+          </workInStage>
+          <workInStage planPartId="2" stageId="1" workId="1">
+            <works>Регулировка БИ и комплексная отладка</works>
+            <results>Протоколы лабораторных исследований</results>
             <endDate>25.03.2014</endDate>
             <actualResults/>
           </workInStage>
@@ -47,22 +52,10 @@
             <endDate>15.03.2014</endDate>
             <actualResults/>
           </workInStage>
-          <workInStage planPartId="2" stageId="1" workId="1">
-            <works>Разработка текстовой документации</works>
-            <results>Текстовая документация с литерой "О" (ТУ, РЭ, ФО) </results>
-            <endDate>20.03.2014</endDate>
-            <actualResults/>
-          </workInStage>
-          <workInStage planPartId="2" stageId="1" workId="1">
-            <works>Разработка 2-ой очереди программного комплекса ВПО</works>
-            <results>Комплект ПД согласно требованиям раздела 4 ЧТЗ на ВПО 2-ой очереди</results>
-            <endDate>25.03.2014</endDate>
-            <actualResults/>
-          </workInStage>
         </stage>
       </stages>
     </work>
-    <work endDate="" id="2" name="АРМИД-Мониторинг" planPartId="2">
+    <work endDate="" id="2" name="Разработка, поставка и внедрение специализированного диагностического программного комплекса для вибромониторинга и диагностирования технического состояния трубной обвязки ГПА-16НК «Урал» для оснащения ГКС ВД ЗАО «Ванкорнефть»" planPartId="2">
       <desc>Договора № 186/11 (ГКА) и 227/11 (ЦТО ТДА):
    Этап 3: Отправленные Заказчику ПМИ натурных испытаний (в Ванкоре) - 01.02.2014
 Договор № 80/13 (ТО ГКА):
@@ -76,7 +69,78 @@
       <reserve/>
       <finishDocs/>
       <labor>132.0 ч/д (6.0 ч/м)</labor>
-      <stages/>
+      <stages>
+        <stage id="2" planPartId="2" workId="2">
+          <name>Этап 1:
+Анализ конструкции трубной обвязки ГПА-16НК "Урал". Разработка ТТ на программный комплекс в целом</name>
+          <workInStage planPartId="2" stageId="2" workId="2">
+            <works/>
+            <results>Перечень устанавливаемых на агрегате датчиков с местами установки&#13;
+Перечень контролируемых параметров вибрации в процессе вибрационного контроля&#13;
+Согласованные ТТ</results>
+            <endDate>Январь 2014</endDate>
+            <actualResults/>
+          </workInStage>
+          <workInStage planPartId="2" stageId="2" workId="2">
+            <works>Разработка перечня устанавливаемых на агрегате датчиков с местами установки&#13;
+Разработка перечня контролируемых параметров вибрации в процессе вибрационного контроля&#13;
+Разработка ТТ</works>
+            <results>Перечень устанавливаемых на агрегате датчиков с местами установки&#13;
+Перечень контролируемых параметров вибрации в процессе вибрационного контроля&#13;
+Согласованные ТТ</results>
+            <endDate>30.01.2014</endDate>
+            <actualResults/>
+          </workInStage>
+        </stage>
+        <stage id="3" planPartId="2" workId="2">
+          <name>Этап 2:
+Разработка алгоритма выброконтроля и диагностирования трубной обвязки ГПА-16НК "Урал"</name>
+          <workInStage planPartId="2" stageId="3" workId="2">
+            <works/>
+            <results>Согласованное с Заказчиком описание алгоритма диагностирования</results>
+            <endDate>январь 2014</endDate>
+            <actualResults/>
+          </workInStage>
+          <workInStage planPartId="2" stageId="3" workId="2">
+            <works>Разработка методики диагностирования</works>
+            <results>Согласованный с Заказчиком алгоритм диагностирования</results>
+            <endDate>30.01.2014</endDate>
+            <actualResults/>
+          </workInStage>
+        </stage>
+        <stage id="4" planPartId="2" workId="2">
+          <name>Этап 3:&#13;
+Подготовка и поставка комплекса</name>
+          <workInStage planPartId="2" stageId="4" workId="2">
+            <works/>
+            <results>Протокол испытаний&#13;
+Пакет ПО на электронном носителе&#13;
+Техническая лркументация, согласно ТТ</results>
+            <endDate>март 2014</endDate>
+            <actualResults/>
+          </workInStage>
+          <workInStage planPartId="2" stageId="4" workId="2">
+            <works>Разработка ПМИ испытаний</works>
+            <results>Согласованная с Заказчиком ПМИ</results>
+            <endDate>15.02.2014</endDate>
+            <actualResults/>
+          </workInStage>
+          <workInStage planPartId="2" stageId="4" workId="2">
+            <works>Разработка и лабораторные испытания комплекса</works>
+            <results>Пакет ПО на электронном носителе&#13;
+Комплект ПД, согласно требований ТТ&#13;
+Акт, протоколы, ведомость соответствия лабораторных испытаний</results>
+            <endDate>06.03.2014</endDate>
+            <actualResults/>
+          </workInStage>
+          <workInStage planPartId="2" stageId="4" workId="2">
+            <works>Испытания комплекса у Заказчика</works>
+            <results>Акт, протоколы, ведомость соответствия испытаний</results>
+            <endDate>15.03.2014</endDate>
+            <actualResults/>
+          </workInStage>
+        </stage>
+      </stages>
     </work>
     <work endDate="" id="3" name="Периодические (совмещенные с типовыми) испытания семейства тахометров ДО-03&#10;(Сопровождение-2013)" planPartId="3">
       <desc>Программа и методика, протоколы, акт периодических испытаний - 15.02.2014
