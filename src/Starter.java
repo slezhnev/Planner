@@ -26,6 +26,7 @@ public class Starter {
         try {
             UIManager.setLookAndFeel("com.jgoodies.looks.plastic.PlasticXPLookAndFeel");
         } catch (Exception ignored) {
+            ignored.printStackTrace();
         }
         //Create and set up the window.
         JFrame frame = new JFrame("Planner");

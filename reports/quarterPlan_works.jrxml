@@ -4,9 +4,12 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="planPartId" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["2"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="labor" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["F:\\Lsv\\JavaProjects\\Planner\\reports\\"]]></defaultValueExpression>
+	</parameter>
 	<queryString language="xPath">
 		<![CDATA[/plan/works/work[@planPartId='$P{planPartId}']]]>
 	</queryString>
@@ -46,12 +49,12 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Arial" isBold="true"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" x="37" y="0" width="155" height="20"/>
+				<reportElement stretchType="RelativeToBandHeight" x="37" y="0" width="764" height="20"/>
 				<box leftPadding="5" rightPadding="5">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -60,12 +63,33 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Arial" isBold="true"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
+		</band>
+		<band height="20">
+			<subreport>
+				<reportElement isPrintRepeatedValues="false" x="37" y="0" width="708" height="20" isRemoveLineWhenBlank="true" backcolor="#FFFFFF"/>
+				<subreportParameter name="XML_DATA_DOCUMENT">
+					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="planPartId">
+					<subreportParameterExpression><![CDATA[$P{planPartId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="XML_LOCALE">
+					<subreportParameterExpression><![CDATA[$P{XML_LOCALE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="workId">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="XML_TIME_ZONE">
+					<subreportParameterExpression><![CDATA[$P{XML_TIME_ZONE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "quarterPlan_works_stages.jasper"]]></subreportExpression>
+			</subreport>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" x="192" y="0" width="181" height="20"/>
+				<reportElement stretchType="RelativeToBandHeight" x="745" y="0" width="56" height="20"/>
 				<box topPadding="3" leftPadding="5" bottomPadding="3" rightPadding="5">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -76,38 +100,10 @@
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{desc}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" x="373" y="0" width="57" height="20"/>
-				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
-					<pen lineWidth="0.5"/>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{labor}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" x="430" y="0" width="104" height="20"/>
-				<box topPadding="3" bottomPadding="3">
-					<pen lineWidth="0.5"/>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{reserve}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" x="534" y="0" width="87" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="37" height="20"/>
 				<box>
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -118,21 +114,6 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{endDate}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" x="621" y="0" width="180" height="20"/>
-				<box topPadding="3" leftPadding="5" bottomPadding="3" rightPadding="5">
-					<pen lineWidth="0.5"/>
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{finishDocs}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

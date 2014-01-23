@@ -269,9 +269,11 @@ public class PlanUtils extends DefaultHandler {
      * Формирование квартального плана
      *
      * @param type 0 - план, 1 - отчет
-     * @throws java.io.IOException                            В случае ошибок ввода-вывода при формировании и сохранении XML
-     * @throws javax.xml.parsers.ParserConfigurationException см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
-     * @throws javax.xml.transform.TransformerException       см. @javax.xml.transform.Transformer
+     * @throws java.io.IOException В случае ошибок ввода-вывода при формировании и сохранении XML
+     * @throws javax.xml.parsers.ParserConfigurationException
+     *                             см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
+     * @throws javax.xml.transform.TransformerException
+     *                             см. @javax.xml.transform.Transformer
      */
     public static void makeQuarterPlan(int type) throws IOException, TransformerException, ParserConfigurationException {
         //File file = File.createTempFile("quarter", "plan");
@@ -297,21 +299,22 @@ public class PlanUtils extends DefaultHandler {
         Element works = doc.createElement("works");
         root.appendChild(works);
         int planPartId = 1;
+        int workId = 1;
+        int stageId = 1;
         for (PlanPart part : Starter.getMainForm().getPlan()) {
             double total = 0;
             Element e2 = doc.createElement("planPart");
             e2.setAttribute("name", part.getName());
             e2.setAttribute("longName", part.getLongName());
             e2.setAttribute("id", "" + planPartId);
-            int workId = 1;
             double makedTotal = 0;
             double makedLabor = 0;
             double laborTotal = 0.0;
             for (WorkInPlan work : part.getWorks()) {
                 makedTotal = makedTotal + work.getMakedPercent() / 100;
                 Element e3 = doc.createElement("work");
-                e3.setAttribute("id", "" + workId);
                 e3.setAttribute("planPartId", "" + planPartId);
+                e3.setAttribute("id", "" + workId);
                 e3.setAttribute("name", work.getName());
                 e3.setAttribute("endDate", work.getEndDate());
                 // desc
@@ -348,14 +351,45 @@ public class PlanUtils extends DefaultHandler {
                 //
                 //e2.appendChild(e3);
                 works.appendChild(e3);
-                //
-                workId++;
                 // Считаем по трудоемкости
                 laborTotal = laborTotal + work.getLaborTotal();
                 for (WorkerInPlan worker : work.getWorkersInPlan()) {
                     for (int i = 0; i < 3; i++) makedLabor = makedLabor + worker.getPerMonth()[i];
                 }
-
+                Element e5 = doc.createElement("stages");
+                e3.appendChild(e5);
+                for (WorkInPlan.WorkStage stage : work.getStages()) {
+                    Element e6 = doc.createElement("stage");
+                    e6.setAttribute("planPartId", "" + planPartId);
+                    e6.setAttribute("workId", "" + workId);
+                    e6.setAttribute("id", "" + stageId);
+                    e5.appendChild(e6);
+                    Element e7 = doc.createElement("name");
+                    e7.setTextContent(stage.getName());
+                    e6.appendChild(e7);
+                    for (WorkInPlan.WorkInStage workInStage : stage.getWorksInStage()) {
+                        Element e8 = doc.createElement("workInStage");
+                        e8.setAttribute("planPartId", "" + planPartId);
+                        e8.setAttribute("workId", "" + workId);
+                        e8.setAttribute("stageId", "" + stageId);
+                        e6.appendChild(e8);
+                        Element e9 = doc.createElement("works");
+                        e9.setTextContent(workInStage.getWorks());
+                        e8.appendChild(e9);
+                        e9 = doc.createElement("results");
+                        e9.setTextContent(workInStage.getResults());
+                        e8.appendChild(e9);
+                        e9 = doc.createElement("endDate");
+                        e9.setTextContent(workInStage.getEndDate());
+                        e8.appendChild(e9);
+                        e9 = doc.createElement("actualResults");
+                        e9.setTextContent(workInStage.getActualResults());
+                        e8.appendChild(e9);
+                    }
+                    stageId++;
+                }
+                //
+                workId++;
             }
             e2.setAttribute("labor", "" + total);
             if (type == 0) {
@@ -670,9 +704,11 @@ public class PlanUtils extends DefaultHandler {
      *
      * @param month     номер месяца в квартале
      * @param monthName название месяца
-     * @throws java.io.IOException                            В случае ошибок ввода-вывода при формировании и сохранении XML
-     * @throws javax.xml.parsers.ParserConfigurationException см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
-     * @throws javax.xml.transform.TransformerException       см. @javax.xml.transform.Transformer
+     * @throws java.io.IOException В случае ошибок ввода-вывода при формировании и сохранении XML
+     * @throws javax.xml.parsers.ParserConfigurationException
+     *                             см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
+     * @throws javax.xml.transform.TransformerException
+     *                             см. @javax.xml.transform.Transformer
      */
     public static void makeMonthPlan(int month, String monthName) throws ParserConfigurationException, TransformerException, IOException {
         File file = new File("monthReport.toReport");
@@ -785,9 +821,11 @@ public class PlanUtils extends DefaultHandler {
     /**
      * Формирование плана по людям
      *
-     * @throws java.io.IOException                            В случае ошибок ввода-вывода при формировании и сохранении XML
-     * @throws javax.xml.parsers.ParserConfigurationException см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
-     * @throws javax.xml.transform.TransformerException       см. @javax.xml.transform.Transformer
+     * @throws java.io.IOException В случае ошибок ввода-вывода при формировании и сохранении XML
+     * @throws javax.xml.parsers.ParserConfigurationException
+     *                             см. @javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder()
+     * @throws javax.xml.transform.TransformerException
+     *                             см. @javax.xml.transform.Transformer
      */
     public static void makePerWorkerPlan() throws IOException, TransformerException, ParserConfigurationException {
         File file = new File("perWorkerPlan.toReport");
