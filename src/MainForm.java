@@ -63,8 +63,8 @@ public class MainForm {
     }
 
     public void setSelectedQuarter(int quarter) {
-        if ((quarter > -1) && (quarter < 4)) {
-            quarterComboBox.setSelectedIndex(quarter);
+        if ((quarter >= 1) && (quarter <= 4)) {
+            quarterComboBox.setSelectedIndex(quarter - 1);
         }
     }
 

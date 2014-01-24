@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><plan quarter="3" type="0" typeStr="План работ на" year="2014">
   <planParts>
     <planPart id="1" labor="0.0" longName="1. Собственные работы (по основному процессу подразделения)" makedLabor="-" makedTotal="-" name="Собств.работы - новые"/>
-    <planPart id="2" labor="24.0" longName="1а). Собственные работы (завершение работ по предыдущим квартальным планам)" makedLabor="-" makedTotal="-" name="Собств.работы - продолжение"/>
-    <planPart id="3" labor="3.0" longName="2. Работы по поддержке производства" makedLabor="-" makedTotal="-" name="Подд.произв."/>
+    <planPart id="2" labor="25.0" longName="1а). Собственные работы (завершение работ по предыдущим квартальным планам)" makedLabor="-" makedTotal="-" name="Собств.работы - продолжение"/>
+    <planPart id="3" labor="2.5" longName="2. Работы по поддержке производства" makedLabor="-" makedTotal="-" name="Подд.произв."/>
     <planPart id="4" labor="0.0" longName="3. Работы по внутренней кооперации" makedLabor="-" makedTotal="-" name="Внутр.кооп."/>
     <planPart id="5" labor="0.0" longName="4. Работы по внешней кооперации (с другими организациями)" makedLabor="-" makedTotal="-" name="Внешн.заказчик"/>
-    <planPart id="6" labor="1.0" longName="5. Разработка документации по СМК" makedLabor="-" makedTotal="-" name="СМК"/>
+    <planPart id="6" labor="0.25" longName="5. Разработка документации по СМК" makedLabor="-" makedTotal="-" name="СМК"/>
     <planPart id="7" labor="0.0" longName="6. Корректирующие и предупреждающие действия" makedLabor="-" makedTotal="-" name="Корр.мероприятия"/>
   </planParts>
   <works>
@@ -24,7 +24,7 @@
     2. Протокол предварительных лабораторных исследований опытных образцов - 25.03.2014</desc>
       <reserve/>
       <finishDocs/>
-      <labor>396.0 ч/д (18.0 ч/м)</labor>
+      <labor>407.0 ч/д (18.5 ч/м)</labor>
       <stages>
         <stage id="1" planPartId="2" workId="1">
           <name>Проведение предварительных испытаний</name>
@@ -163,7 +163,7 @@
       <desc/>
       <reserve/>
       <finishDocs/>
-      <labor/>
+      <labor>5.5 ч/д (0.25 ч/м)</labor>
       <stages>
         <stage id="6" planPartId="2" workId="3">
           <name>Апробация и адаптация (в период гарантийного срока) системы на действующем оборудовании, доработка по результатам апробации</name>
@@ -188,7 +188,7 @@
       <desc/>
       <reserve/>
       <finishDocs/>
-      <labor/>
+      <labor>5.5 ч/д (0.25 ч/м)</labor>
       <stages>
         <stage id="7" planPartId="2" workId="4">
           <name>Апробация и адаптация (в период гарантийного срока) системы на действующем оборудовании, доработка по результатам апробации</name>
@@ -209,34 +209,66 @@
         </stage>
       </stages>
     </work>
-    <work endDate="" id="5" name="Периодические (совмещенные с типовыми) испытания семейства тахометров ДО-03&#10;(Сопровождение-2013)" planPartId="3">
-      <desc>Программа и методика, протоколы, акт периодических испытаний - 15.02.2014
-Скорректированный комплект ТУ, ЭД и ТД с литерой "О1" - 15.02.2014</desc>
-      <reserve/>
-      <finishDocs/>
-      <labor>11.0 ч/д (0.5 ч/м)</labor>
-      <stages/>
-    </work>
-    <work endDate="" id="6" name="Проведение испытаний семейства тахометров ДО-03 по взрывозащите&#10;(Сопровождение-2013)" planPartId="3">
-      <desc>Комплект документов (ПМ, протоколы, акт испытаний), отправленный с сертификационную лабораторию - 15.02.2014</desc>
-      <reserve/>
-      <finishDocs/>
-      <labor>11.0 ч/д (0.5 ч/м)</labor>
-      <stages/>
-    </work>
-    <work endDate="25.03.2014" id="7" name="Сопровождение-2014" planPartId="3">
+    <work endDate="25.03.2014" id="5" name="Сопровождение-2014" planPartId="3">
       <desc>Утвержденное ТЗ - 01.02.2014</desc>
       <reserve/>
       <finishDocs/>
-      <labor>44.0 ч/д (2.0 ч/м)</labor>
-      <stages/>
+      <labor>55.0 ч/д (2.5 ч/м)</labor>
+      <stages>
+        <stage id="8" planPartId="3" workId="5">
+          <name>Разработка ТЗ</name>
+          <workInStage planPartId="3" stageId="8" workId="5">
+            <works>Разработка ТЗ на работы по сопровождению производства на 2014 год</works>
+            <results>Утвержденное ТЗ</results>
+            <endDate>15.02.2014</endDate>
+            <actualResults/>
+          </workInStage>
+        </stage>
+        <stage id="9" planPartId="3" workId="5">
+          <name>Периодические испытания</name>
+          <workInStage planPartId="3" stageId="9" workId="5">
+            <works>Периодические (совмещенные с типовыми) испытания семейства тахометров ДО-03</works>
+            <results>Акт, протоколы периодических испытаний</results>
+            <endDate>15.02.2014</endDate>
+            <actualResults/>
+          </workInStage>
+        </stage>
+        <stage id="10" planPartId="3" workId="5">
+          <name>Испытания по взрывозащите</name>
+          <workInStage planPartId="3" stageId="10" workId="5">
+            <works>Проведение испытаний семейства тахометров ДО-03 по взрывозащите</works>
+            <results>Свидетельство о взрывозащите</results>
+            <endDate>28.02.2014</endDate>
+            <actualResults/>
+          </workInStage>
+        </stage>
+      </stages>
     </work>
-    <work endDate="" id="8" name="Разработка инструкции по разработке и хранению ПД" planPartId="6">
+    <work endDate="" id="6" name="Разработка инструкции по разработке и хранению ПД" planPartId="6">
       <desc>Проект инструкции (разделы XX, XX, XX) - 25.03.2014</desc>
       <reserve/>
       <finishDocs/>
-      <labor>22.0 ч/д (1.0 ч/м)</labor>
-      <stages/>
+      <labor>5.5 ч/д (0.25 ч/м)</labor>
+      <stages>
+        <stage id="11" planPartId="6" workId="6">
+          <name>Разработка технического предложения</name>
+          <workInStage planPartId="6" stageId="11" workId="6">
+            <works>Разработка технического предложения о составе и кратком содержании ПД</works>
+            <results>Согласованное техническое предложение</results>
+            <endDate>II квартал 2014</endDate>
+            <actualResults/>
+          </workInStage>
+        </stage>
+        <stage id="12" planPartId="6" workId="6">
+          <name>Утверждение инструкции</name>
+          <workInStage planPartId="6" stageId="12" workId="6">
+            <works>Разработка и утверждение инструкции по разработке и хранению ПД</works>
+            <results>Утвержденная инструкция по разработке, оформлению, правилам внесения изменений, учет и хранение программной документации на предприятии "ИНКОТЕС"</results>
+            <endDate>III квартал 2014</endDate>
+            <actualResults/>
+          </workInStage>
+        </stage>
+      </stages>
     </work>
   </works>
 </plan>
