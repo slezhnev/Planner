@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><plan quarter="3" type="0" typeStr="План работ на" year="2014">
+<?xml version="1.0" encoding="UTF-8"?><plan quarter="1" type="0" typeStr="План работ на" year="2014">
   <planParts>
     <planPart id="1" labor="0.0" longName="1. Собственные работы (по основному процессу подразделения)" makedLabor="-" makedTotal="-" name="Собств.работы - новые"/>
     <planPart id="2" labor="25.0" longName="1а). Собственные работы (завершение работ по предыдущим квартальным планам)" makedLabor="-" makedTotal="-" name="Собств.работы - продолжение"/>
@@ -41,6 +41,13 @@
             <actualResults/>
           </workInStage>
           <workInStage planPartId="2" stageId="1" workId="1">
+            <works>Проведение лабораторных исследований ВПО 2-ой очереди</works>
+            <results>Протокол лаборатоного исследования ВПО &#13;
+Альфа-версия ВПО для лабораторных исследований БИ</results>
+            <endDate>14.02.2014</endDate>
+            <actualResults/>
+          </workInStage>
+          <workInStage planPartId="2" stageId="1" workId="1">
             <works>Регулировка БИ и комплексная отладка</works>
             <results>Протоколы лабораторных исследований</results>
             <endDate>25.03.2014</endDate>
@@ -75,10 +82,8 @@
 Анализ конструкции трубной обвязки ГПА-16НК "Урал". Разработка ТТ на программный комплекс в целом</name>
           <workInStage planPartId="2" stageId="2" workId="2">
             <works/>
-            <results>Перечень устанавливаемых на агрегате датчиков с местами установки&#13;
-Перечень контролируемых параметров вибрации в процессе вибрационного контроля&#13;
-Согласованные ТТ</results>
-            <endDate>Январь 2014</endDate>
+            <results>Акт, комплект документов согласно КП</results>
+            <endDate>январь 2014</endDate>
             <actualResults/>
           </workInStage>
           <workInStage planPartId="2" stageId="2" workId="2">
@@ -97,7 +102,7 @@
 Разработка алгоритма выброконтроля и диагностирования трубной обвязки ГПА-16НК "Урал"</name>
           <workInStage planPartId="2" stageId="3" workId="2">
             <works/>
-            <results>Согласованное с Заказчиком описание алгоритма диагностирования</results>
+            <results>Акт, комплект документов согласно КП</results>
             <endDate>январь 2014</endDate>
             <actualResults/>
           </workInStage>
@@ -113,7 +118,8 @@
 Подготовка и поставка комплекса</name>
           <workInStage planPartId="2" stageId="4" workId="2">
             <works/>
-            <results>Протокол испытаний&#13;
+            <results>Акт, комплект документов согласно КП, в т.ч.:&#13;
+Протокол испытаний&#13;
 Пакет ПО на электронном носителе&#13;
 Техническая лркументация, согласно ТТ</results>
             <endDate>март 2014</endDate>
@@ -145,7 +151,8 @@
 Апробация и адаптация ПО на действующем оборудовании, доработка по результатам апробации</name>
           <workInStage planPartId="2" stageId="5" workId="2">
             <works/>
-            <results>Протокол испытаний&#13;
+            <results>Акт, комплект документов согласно КП, в т.ч.:&#13;
+Протокол испытаний&#13;
 Доработанный комплект ПО на электронном носителе</results>
             <endDate>июнь 2014</endDate>
             <actualResults/>
@@ -169,7 +176,8 @@
           <name>Апробация и адаптация (в период гарантийного срока) системы на действующем оборудовании, доработка по результатам апробации</name>
           <workInStage planPartId="2" stageId="6" workId="3">
             <works/>
-            <results>Акт и протокол апробации (натурных испытаний) комплекса&#13;
+            <results>Акт, комплект документов согласно КП, в т.ч.:&#13;
+Акт и протокол апробации (натурных испытаний) комплекса&#13;
 Доработанный пакет ПО (в т.ч. алгоритмы диагностирования) комплекса на электронном носителе по результатам апробации&#13;
 Доработка ПО (в т.ч. алгоритмов диагностирования) под конкретный экземпляр агрегата на электронном носителе по результатам адаптации</results>
             <endDate>июнь 2014</endDate>
@@ -194,7 +202,8 @@
           <name>Апробация и адаптация (в период гарантийного срока) системы на действующем оборудовании, доработка по результатам апробации</name>
           <workInStage planPartId="2" stageId="7" workId="4">
             <works/>
-            <results>Акт и протокол апробации (натурных испытаний) комплекса&#13;
+            <results>Акт, комплект документов согласно КП, в т.ч.:&#13;
+Акт и протокол апробации (натурных испытаний) комплекса&#13;
 Доработанный пакет ПО (в т.ч. алгоритмы диагностирования) комплекса на электронном носителе по результатам апробации&#13;
 Доработка ПО (в т.ч. алгоритмов диагностирования) под конкретный экземпляр агрегата на электронном носителе по результатам адаптации</results>
             <endDate>июнь 2014</endDate>
@@ -216,28 +225,29 @@
       <labor>55.0 ч/д (2.5 ч/м)</labor>
       <stages>
         <stage id="8" planPartId="3" workId="5">
-          <name>Разработка ТЗ</name>
+          <name>Работы I квартала 2014 года</name>
           <workInStage planPartId="3" stageId="8" workId="5">
-            <works>Разработка ТЗ на работы по сопровождению производства на 2014 год</works>
-            <results>Утвержденное ТЗ</results>
+            <works/>
+            <results>Решение НТС&#13;
+Дополнение к ТЗ (в случае необходимости)</results>
+            <endDate>25.03.2014</endDate>
+            <actualResults/>
+          </workInStage>
+          <workInStage planPartId="3" stageId="8" workId="5">
+            <works>Разработка ТЗ</works>
+            <results>Утврежденное ТЗ</results>
             <endDate>15.02.2014</endDate>
             <actualResults/>
           </workInStage>
-        </stage>
-        <stage id="9" planPartId="3" workId="5">
-          <name>Периодические испытания</name>
-          <workInStage planPartId="3" stageId="9" workId="5">
-            <works>Периодические (совмещенные с типовыми) испытания семейства тахометров ДО-03</works>
+          <workInStage planPartId="3" stageId="8" workId="5">
+            <works>Проведение периодических, совмещенных с типовым,  испытаний тахометров ДО-03</works>
             <results>Акт, протоколы периодических испытаний</results>
-            <endDate>15.02.2014</endDate>
+            <endDate>07.02.2014</endDate>
             <actualResults/>
           </workInStage>
-        </stage>
-        <stage id="10" planPartId="3" workId="5">
-          <name>Испытания по взрывозащите</name>
-          <workInStage planPartId="3" stageId="10" workId="5">
-            <works>Проведение испытаний семейства тахометров ДО-03 по взрывозащите</works>
-            <results>Свидетельство о взрывозащите</results>
+          <workInStage planPartId="3" stageId="8" workId="5">
+            <works>Проведение испытаний по взрывозащите тахометров ДО-03</works>
+            <results>Сертификат соответствия</results>
             <endDate>28.02.2014</endDate>
             <actualResults/>
           </workInStage>
@@ -250,18 +260,18 @@
       <finishDocs/>
       <labor>5.5 ч/д (0.25 ч/м)</labor>
       <stages>
-        <stage id="11" planPartId="6" workId="6">
+        <stage id="9" planPartId="6" workId="6">
           <name>Разработка технического предложения</name>
-          <workInStage planPartId="6" stageId="11" workId="6">
-            <works>Разработка технического предложения о составе и кратком содержании ПД</works>
+          <workInStage planPartId="6" stageId="9" workId="6">
+            <works>Разработка технического предложения о составе и кратком содержании инструкции по разработке и хранению ПД</works>
             <results>Согласованное техническое предложение</results>
             <endDate>II квартал 2014</endDate>
             <actualResults/>
           </workInStage>
         </stage>
-        <stage id="12" planPartId="6" workId="6">
+        <stage id="10" planPartId="6" workId="6">
           <name>Утверждение инструкции</name>
-          <workInStage planPartId="6" stageId="12" workId="6">
+          <workInStage planPartId="6" stageId="10" workId="6">
             <works>Разработка и утверждение инструкции по разработке и хранению ПД</works>
             <results>Утвержденная инструкция по разработке, оформлению, правилам внесения изменений, учет и хранение программной документации на предприятии "ИНКОТЕС"</results>
             <endDate>III квартал 2014</endDate>

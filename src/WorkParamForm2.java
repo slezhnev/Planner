@@ -663,7 +663,7 @@ public class WorkParamForm2 extends JDialog implements ActionListener, ItemListe
                     List<WorkInPlan.WorkInStage> works =
                             ((WorkInStageTableModel) worksInStageTable.getModel()).getWorks();
                     int row = worksInStageTable.getSelectedRow();
-                    if ((row > 0) && (res.getStages().size() > 1)) {
+                    if ((row > 0) && (works.size() > 1)) {
                         // Меняем местами row и row-1
                         WorkInPlan.WorkInStage work = works.get(row - 1);
                         works.set(row - 1, works.get(row));
@@ -677,7 +677,7 @@ public class WorkParamForm2 extends JDialog implements ActionListener, ItemListe
                     List<WorkInPlan.WorkInStage> works =
                             ((WorkInStageTableModel) worksInStageTable.getModel()).getWorks();
                     int row = worksInStageTable.getSelectedRow();
-                    if ((row > -1) && (row < (res.getStages().size() - 1)) && (res.getStages().size() > 1)) {
+                    if ((row > -1) && (row < (works.size() - 1)) && (works.size() > 1)) {
                         // Меняем местами row и row+1
                         WorkInPlan.WorkInStage work = works.get(row + 1);
                         works.set(row + 1, works.get(row));

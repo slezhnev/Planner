@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b312c0ee-cac9-4011-9fde-32b99fccf067" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WorkParamForm2.java" afterPath="$PROJECT_DIR$/src/WorkParamForm2.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/quarterPlan.toReport" afterPath="$PROJECT_DIR$/quarterPlan.toReport" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Planner.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390483093218" ignored="false" />
+    <file path="/Dummy.txt" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390548967704" ignored="false" />
     <file path="/Starter.java" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390382605640" ignored="false" />
     <file path="/PlanUtils.java" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390480249718" ignored="false" />
     <file path="/MainForm.java" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390482957140" ignored="false" />
+    <file path="/WorkParamForm2.java" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390818870093" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,16 +90,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainForm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="41" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.35321638">
+            <state line="65" column="41" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#5279#5747#0" expanded="true" />
                 <element signature="e#5736#5737#0" expanded="true" />
                 <element signature="e#17630#17879#0" expanded="true" />
                 <element signature="e#17868#17869#0" expanded="true" />
                 <element signature="initializer##0;class#MainForm#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkParamForm2.form" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WorkParamForm2.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkParamForm2.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/WorkParamForm2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="679" column="74" selection-start="28292" selection-end="28292" vertical-scroll-proportion="0.49356726">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="initializer##0;class#WorkParamForm2#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,10 +163,10 @@
         <option value="$PROJECT_DIR$/src/WorkStageParamDialog.java" />
         <option value="$PROJECT_DIR$/src/WorkInStageParamForm.java" />
         <option value="$PROJECT_DIR$/src/WorkParamForm2.form" />
-        <option value="$PROJECT_DIR$/src/WorkParamForm2.java" />
         <option value="$PROJECT_DIR$/src/Starter.java" />
         <option value="$PROJECT_DIR$/src/PlanUtils.java" />
         <option value="$PROJECT_DIR$/src/MainForm.java" />
+        <option value="$PROJECT_DIR$/src/WorkParamForm2.java" />
       </list>
     </option>
   </component>
@@ -237,8 +257,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="reports" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Planner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Planner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WorkParamForm2" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -493,7 +531,11 @@
       <created>1390483106125</created>
       <updated>1390483106125</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Фикс загрузки квартала">
+      <created>1390548975907</created>
+      <updated>1390548975907</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -512,10 +554,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3232662" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1419285" sideWeight="0.6756152" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1419285" sideWeight="0.6756152" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12892741" sideWeight="0.6756152" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12892741" sideWeight="0.6756152" order="0" side_tool="true" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32438478" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" x="27" y="388" width="1865" height="273" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.7478166" order="3" side_tool="false" content_ui="tabs" x="96" y="96" width="1728" height="858" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -578,7 +620,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Правка ошибки с неотображением работников при выборе в трудоемкости работы (а как оно раньше работало, интересно :)? )" />
+    <option name="LAST_COMMIT_MESSAGE" value="Фикс загрузки квартала" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -597,6 +639,7 @@
     <MESSAGE value="Скорректировано формирование плана под новый формат&#10;Окончательно перенесены в lib все необходимые библиотеки" />
     <MESSAGE value="Правка &quot;отчета&quot; плана" />
     <MESSAGE value="Правка ошибки с неотображением работников при выборе в трудоемкости работы (а как оно раньше работало, интересно :)? )" />
+    <MESSAGE value="Фикс загрузки квартала" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -628,11 +671,6 @@
             <element signature="e#1360#1361#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WorkInStageParamForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WorkStageParamDialog.form">
@@ -668,25 +706,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WorkParamForm2.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WorkParamForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="77" column="121" selection-start="3109" selection-end="3158" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WorkParamForm2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="733" column="36" selection-start="30559" selection-end="30559" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="initializer##0;class#WorkParamForm2#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -716,15 +739,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/WorkInStageParamForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="41" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.35321638">
+        <state line="65" column="41" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#5279#5747#0" expanded="true" />
             <element signature="e#5736#5737#0" expanded="true" />
             <element signature="e#17630#17879#0" expanded="true" />
             <element signature="e#17868#17869#0" expanded="true" />
             <element signature="initializer##0;class#MainForm#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WorkParamForm2.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WorkParamForm2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="679" column="74" selection-start="28292" selection-end="28292" vertical-scroll-proportion="0.49356726">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="initializer##0;class#WorkParamForm2#0" expanded="true" />
           </folding>
         </state>
       </provider>
