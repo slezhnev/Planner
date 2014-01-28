@@ -98,6 +98,10 @@ public class MainForm {
         this.planVersion = planVersion;
     }
 
+    public int getPlanVersion() {
+        return planVersion;
+    }
+
     /**
      * Версия плана. От этого будет зависеть - какой диалог редактирования будет открываться.
      * Задается ЖЕСТКО при загрузке

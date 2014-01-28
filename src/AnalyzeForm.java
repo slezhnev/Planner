@@ -558,7 +558,7 @@ public class AnalyzeForm extends JDialog {
          * @see javax.swing.table.AbstractTableModel#getColumnCount()
          */
         public int getColumnCount() {
-            return 2;
+            return 3;
         }
 
         /**
@@ -581,23 +581,29 @@ public class AnalyzeForm extends JDialog {
                         double lab = totalLaboriousness.get(PlanUtils.WorkTypes.values()[rowIndex]);
                         StringBuffer res = new StringBuffer();
                         if (showLabor) {
-                            res.append(df.format(lab)).append(" ч/м (");
+                            res.append(df.format(lab));
                         }
+                        return res.toString();
+                    } else {
+                        if (showLabor) {
+                            return df.format(totalAllLab);
+                        } else {
+                            return "-";
+                        }
+                    }
+                }
+                case 2: {
+                    if (rowIndex < PlanUtils.WorkTypes.values().length) {
+                        double lab = totalLaboriousness.get(PlanUtils.WorkTypes.values()[rowIndex]);
+                        StringBuffer res = new StringBuffer();
                         if (totalAllLab == 0) {
                             res.append("-");
                         } else {
                             res.append(df.format(((lab / totalAllLab) * 100))).append("%");
                         }
-                        if (showLabor) {
-                            res.append(")");
-                        }
                         return res.toString();
                     } else {
-                        if (showLabor) {
-                            return df.format(totalAllLab) + " ч/м";
-                        } else {
-                            return "-";
-                        }
+                        return "-";
                     }
                 }
                 default: {
@@ -613,7 +619,10 @@ public class AnalyzeForm extends JDialog {
                     return "Тип работы";
                 }
                 case 1: {
-                    return "Трудоемкость";
+                    return "Трудоемкость (ч/м)";
+                }
+                case 2: {
+                    return "%";
                 }
                 default: {
                     return "WTF?!";
@@ -792,7 +801,7 @@ public class AnalyzeForm extends JDialog {
          * @see #getRowCount
          */
         public int getColumnCount() {
-            return 2;
+            return 3;
         }
 
         /**
@@ -808,7 +817,9 @@ public class AnalyzeForm extends JDialog {
                 case 0:
                     return works.keySet().toArray()[rowIndex].toString();
                 case 1:
-                    return df.format(works.get(works.keySet().toArray()[rowIndex])) + " ч/м";
+                    return df.format(works.get(works.keySet().toArray()[rowIndex]));
+                case 2:
+                    return ((WorkInPlan) works.keySet().toArray()[rowIndex]).getWorkType();
                 default:
                     return "WTF?!";
             }
@@ -829,7 +840,9 @@ public class AnalyzeForm extends JDialog {
                 case 0:
                     return "Название работы";
                 case 1:
-                    return "Трудоемкость";
+                    return "Трудоемкость (ч/м)";
+                case 2:
+                    return "Тип работы";
                 default:
                     return "WTF?!";
             }

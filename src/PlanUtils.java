@@ -36,7 +36,13 @@ public class PlanUtils extends DefaultHandler {
             return false;
         }
         //
-        if (!savePlanToJSON(file)) {
+        boolean res = false;
+        if (Starter.getMainForm().getPlanVersion() == 1) {
+            res = savePlanToXML(file);
+        } else {
+            res = savePlanToJSON(file);
+        }
+        if (!res) {
             JOptionPane.showMessageDialog(null, "Ошибка сохранения плана", "Сохранение плана", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
