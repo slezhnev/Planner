@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b312c0ee-cac9-4011-9fde-32b99fccf067" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AnalyzeForm.java" afterPath="$PROJECT_DIR$/src/AnalyzeForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlanUtils.java" afterPath="$PROJECT_DIR$/src/PlanUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/monthReport.toReport" afterPath="$PROJECT_DIR$/monthReport.toReport" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/quarterPlan.toReport" afterPath="$PROJECT_DIR$/quarterPlan.toReport" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Planner.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390909414781" ignored="false" />
+    <file path="/Dummy.txt" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1392102470390" ignored="false" />
     <file path="/Starter.java" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390382605640" ignored="false" />
     <file path="/PlanUtils.java" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390911305328" ignored="false" />
     <file path="/MainForm.java" changelist="b312c0ee-cac9-4011-9fde-32b99fccf067" time="1390482957140" ignored="false" />
@@ -30,6 +27,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -83,7 +81,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -97,12 +94,7 @@
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="100" column="33" selection-start="2927" selection-end="2927" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#16263#17369#0" expanded="true" />
-                <element signature="e#17358#17359#0" expanded="true" />
-                <element signature="e#17421#17658#0" expanded="true" />
-                <element signature="e#17647#17648#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,7 +116,7 @@
       <file leaf-file-name="PlanUtils.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PlanUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="488" column="170" selection-start="18444" selection-end="18444" vertical-scroll-proportion="0.19585253">
+            <state line="510" column="70" selection-start="19195" selection-end="19195" vertical-scroll-proportion="0.2546083">
               <folding />
             </state>
           </provider>
@@ -134,9 +126,7 @@
         <entry file="file://$PROJECT_DIR$/src/WorkParamForm2.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="679" column="74" selection-start="28292" selection-end="28292" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,14 +142,7 @@
         <entry file="file://$PROJECT_DIR$/src/AnalyzeForm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="813" column="102" selection-start="37671" selection-end="37671" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#3790#3923#0" expanded="true" />
-                <element signature="e#3912#3913#0" expanded="true" />
-                <element signature="e#3960#4656#0" expanded="true" />
-                <element signature="e#4645#4646#0" expanded="true" />
-                <element signature="e#31212#31279#0" expanded="true" />
-                <element signature="e#31466#31512#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -259,6 +242,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -329,22 +314,20 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="236" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="236" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="236" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="248" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="F:/JDeveloper/myprojects/CompsParams/CompsParams.ipr" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="243" />
@@ -360,17 +343,17 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="options.lastSelected" value="project.propGUI" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -407,19 +390,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -445,6 +415,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -588,14 +571,18 @@
       <created>1390820139046</created>
       <updated>1390820139046</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Minor bug fixes&#10;Добавлено сохранение в том же формате, в каком был загружен план">
+      <created>1390913542781</created>
+      <updated>1390913542781</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="5" width="1900" height="1040" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12892741" sideWeight="0.67002237" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12892741" sideWeight="0.66964287" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299025" sideWeight="0.67449665" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14463705" sideWeight="0.67449665" order="3" side_tool="false" content_ui="tabs" />
@@ -618,8 +605,8 @@
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295711" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32662192" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -673,7 +660,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Фикс ошибки изменения порядка следования работ в этапе" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor bug fixes&#10;Добавлено сохранение в том же формате, в каком был загружен план" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -694,6 +681,7 @@
     <MESSAGE value="Правка ошибки с неотображением работников при выборе в трудоемкости работы (а как оно раньше работало, интересно :)? )" />
     <MESSAGE value="Фикс загрузки квартала" />
     <MESSAGE value="Фикс ошибки изменения порядка следования работ в этапе" />
+    <MESSAGE value="Minor bug fixes&#10;Добавлено сохранение в том же формате, в каком был загружен план" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -765,9 +753,7 @@
     <entry file="file://$PROJECT_DIR$/src/WorkParamForm2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="679" column="74" selection-start="28292" selection-end="28292" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -780,20 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="271" column="24" selection-start="6122" selection-end="6122" vertical-scroll-proportion="0.3329493">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AnalyzeForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="813" column="102" selection-start="37671" selection-end="37671" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#3790#3923#0" expanded="true" />
-            <element signature="e#3912#3913#0" expanded="true" />
-            <element signature="e#3960#4656#0" expanded="true" />
-            <element signature="e#4645#4646#0" expanded="true" />
-            <element signature="e#31212#31279#0" expanded="true" />
-            <element signature="e#31466#31512#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -810,18 +782,20 @@
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="33" selection-start="2927" selection-end="2927" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#16263#17369#0" expanded="true" />
-            <element signature="e#17358#17359#0" expanded="true" />
-            <element signature="e#17421#17658#0" expanded="true" />
-            <element signature="e#17647#17648#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AnalyzeForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="813" column="102" selection-start="37671" selection-end="37671" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlanUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="488" column="170" selection-start="18444" selection-end="18444" vertical-scroll-proportion="0.19585253">
+        <state line="510" column="70" selection-start="19195" selection-end="19195" vertical-scroll-proportion="0.2546083">
           <folding />
         </state>
       </provider>

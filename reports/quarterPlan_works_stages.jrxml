@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quarterPlan_works_stages" pageWidth="708" pageHeight="555" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="708" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quarterPlan_works_stages" pageWidth="708" pageHeight="555" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="708" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="be2ec27c-22c8-4293-9ae6-bbf81368aef8">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -21,13 +22,16 @@
 	<field name="id" class="java.lang.String">
 		<fieldDescription><![CDATA[@id]]></fieldDescription>
 	</field>
+	<field name="actualResults" class="java.lang.String">
+		<fieldDescription><![CDATA[actualResults]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
 		<band height="20" splitType="Prevent">
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="199" height="20"/>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="199" height="20" uuid="b5f97a76-4d2b-4930-9634-fd40b3cf08d0"/>
 				<box topPadding="3" leftPadding="5" bottomPadding="3" rightPadding="5">
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -38,10 +42,10 @@
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="199" y="0" width="509" height="20"/>
+				<reportElement x="199" y="0" width="509" height="20" uuid="eb8ebd3d-6369-4e50-8dd2-369c83249e82"/>
 				<subreportParameter name="XML_DATA_DOCUMENT">
 					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -64,7 +68,7 @@
 					<subreportParameterExpression><![CDATA[$P{workId}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "quarterPlan_works_stages_works.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "quarterPlan_works_stages_works.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>

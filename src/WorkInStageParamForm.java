@@ -2,6 +2,7 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +11,7 @@ import java.awt.event.KeyEvent;
 /**
  * Форма редактирования одной работы в этапе
  */
+@SuppressWarnings("serial")
 public class WorkInStageParamForm extends JDialog implements ActionListener {
     private JPanel contentPane;
     private JButton saveBtn;

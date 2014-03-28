@@ -6,9 +6,11 @@ import net.sf.jasperreports.engine.query.JRXPathQueryExecuterFactory;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.util.JRXmlUtils;
 import net.sf.jasperreports.view.JRViewer;
+
 import org.w3c.dom.Document;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Locale;
@@ -21,6 +23,7 @@ import java.util.Map;
  * Time: 15:25
  * To change this template use File | Settings | File Templates.
  */
+@SuppressWarnings("serial")
 public class ReportViewer extends JDialog {
     private JRViewer JRViewer1;
     private JPanel panel1;

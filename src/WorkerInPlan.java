@@ -20,7 +20,8 @@ public class WorkerInPlan {
         this.worker = worker;
         this.laborContent = laborContent;
         perMonth = new Double[3];
-        for (int i = 0; i < 3; i++) perMonth[i] = 0.0;
+        for (int i = 0; i < 3; i++)
+            perMonth[i] = 0.0;
     }
 
     public Worker getWorker() {
@@ -52,6 +53,12 @@ public class WorkerInPlan {
     }
 
     public WorkerInPlan clone() {
-        return new WorkerInPlan(worker, laborContent);
+        WorkerInPlan res = new WorkerInPlan(worker, laborContent);
+        res.perMonth = new Double[perMonth.length];
+        int i = 0;
+        for (Double tmp : perMonth) {
+            res.perMonth[i++] = tmp;
+        }
+        return res;
     }
 }

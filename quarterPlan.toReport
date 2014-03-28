@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><plan quarter="1" type="0" typeStr="План работ на" year="2014">
+<?xml version="1.0" encoding="UTF-8"?><plan quarter="1" type="1" typeStr="Отчет" year="2014">
   <planParts>
     <planPart id="1" labor="0.0" longName="1. Собственные работы (по основному процессу подразделения)" makedLabor="-" makedTotal="-" name="Собств.работы - новые"/>
-    <planPart id="2" labor="25.0" longName="1а). Собственные работы (завершение работ по предыдущим квартальным планам)" makedLabor="-" makedTotal="-" name="Собств.работы - продолжение"/>
-    <planPart id="3" labor="2.5" longName="2. Работы по поддержке производства" makedLabor="-" makedTotal="-" name="Подд.произв."/>
+    <planPart id="2" labor="25.0" longName="1а). Собственные работы (завершение работ по предыдущим квартальным планам)" makedLabor="80% (20.0 / 25.0 ч/м)" makedTotal="93" name="Собств.работы - продолжение"/>
+    <planPart id="3" labor="2.5" longName="2. Работы по поддержке производства" makedLabor="100% (2.5 / 2.5 ч/м)" makedTotal="95" name="Подд.произв."/>
     <planPart id="4" labor="0.0" longName="3. Работы по внутренней кооперации" makedLabor="-" makedTotal="-" name="Внутр.кооп."/>
     <planPart id="5" labor="0.0" longName="4. Работы по внешней кооперации (с другими организациями)" makedLabor="-" makedTotal="-" name="Внешн.заказчик"/>
-    <planPart id="6" labor="0.25" longName="5. Разработка документации по СМК" makedLabor="-" makedTotal="-" name="СМК"/>
+    <planPart id="6" labor="0.25" longName="5. Разработка документации по СМК" makedLabor="0% (0.0 / 0.25 ч/м)" makedTotal="100" name="СМК"/>
     <planPart id="7" labor="0.0" longName="6. Корректирующие и предупреждающие действия" makedLabor="-" makedTotal="-" name="Корр.мероприятия"/>
   </planParts>
   <works>
@@ -36,28 +36,30 @@
           </workInStage>
           <workInStage planPartId="2" stageId="1" workId="1">
             <works>Сборка опытных образцов приборов ИН-5102, ИН-5102М</works>
-            <results>Собранные опытные образцы, протоколы лабораторных исследований</results>
+            <results>Собранные опытные образцы</results>
             <endDate>28.02.2014</endDate>
-            <actualResults/>
+            <actualResults>Собранные опытные образцы - 22.01.2014</actualResults>
           </workInStage>
           <workInStage planPartId="2" stageId="1" workId="1">
             <works>Проведение лабораторных исследований ВПО 2-ой очереди</works>
             <results>Протокол лаборатоного исследования ВПО &#13;
 Альфа-версия ВПО для лабораторных исследований БИ</results>
             <endDate>14.02.2014</endDate>
-            <actualResults/>
+            <actualResults>Альфа-версия - 20.02.2014&#13;
+Протоколы, ведомость соответствия - 27.02.2014&#13;
+Перечень замечаний - 20.03.2014</actualResults>
           </workInStage>
           <workInStage planPartId="2" stageId="1" workId="1">
             <works>Регулировка БИ и комплексная отладка</works>
             <results>Протоколы лабораторных исследований</results>
             <endDate>25.03.2014</endDate>
-            <actualResults/>
+            <actualResults>Протоколы, ведомость соответствия, акт - 31.03.2014</actualResults>
           </workInStage>
           <workInStage planPartId="2" stageId="1" workId="1">
             <works>Разработка РКД</works>
             <results>РКД с литерой "О" в объеме ОТЗ</results>
             <endDate>15.03.2014</endDate>
-            <actualResults/>
+            <actualResults>Перенесено на II квартал по служебной записке от 28.03.2014</actualResults>
           </workInStage>
         </stage>
       </stages>
@@ -94,12 +96,13 @@
 Перечень контролируемых параметров вибрации в процессе вибрационного контроля&#13;
 Согласованные ТТ</results>
             <endDate>30.01.2014</endDate>
-            <actualResults/>
+            <actualResults>Перечень датчиков - 25.03.2014&#13;
+Перечень контролируемых параметров, согласованные ТТ - 14.03.2014</actualResults>
           </workInStage>
         </stage>
         <stage id="3" planPartId="2" workId="2">
           <name>Этап 2:
-Разработка алгоритма выброконтроля и диагностирования трубной обвязки ГПА-16НК "Урал"</name>
+Разработка алгоритма виброконтроля и диагностирования трубной обвязки ГПА-16НК "Урал"</name>
           <workInStage planPartId="2" stageId="3" workId="2">
             <works/>
             <results>Акт, комплект документов согласно КП</results>
@@ -110,7 +113,7 @@
             <works>Разработка методики диагностирования</works>
             <results>Согласованный с Заказчиком алгоритм диагностирования</results>
             <endDate>30.01.2014</endDate>
-            <actualResults/>
+            <actualResults>Согласованный алгоритм - 14.03.2014</actualResults>
           </workInStage>
         </stage>
         <stage id="4" planPartId="2" workId="2">
@@ -121,7 +124,7 @@
             <results>Акт, комплект документов согласно КП, в т.ч.:&#13;
 Протокол испытаний&#13;
 Пакет ПО на электронном носителе&#13;
-Техническая лркументация, согласно ТТ</results>
+Техническая документация, согласно ТТ</results>
             <endDate>март 2014</endDate>
             <actualResults/>
           </workInStage>
@@ -129,7 +132,8 @@
             <works>Разработка ПМИ испытаний</works>
             <results>Согласованная с Заказчиком ПМИ</results>
             <endDate>15.02.2014</endDate>
-            <actualResults/>
+            <actualResults>Согласованная Толушкиным ПМИ - 25.03.2014&#13;
+Перенесено на II квартал по служебной записке от 28.03.2014</actualResults>
           </workInStage>
           <workInStage planPartId="2" stageId="4" workId="2">
             <works>Разработка и лабораторные испытания комплекса</works>
@@ -137,13 +141,13 @@
 Комплект ПД, согласно требований ТТ&#13;
 Акт, протоколы, ведомость соответствия лабораторных испытаний</results>
             <endDate>06.03.2014</endDate>
-            <actualResults/>
+            <actualResults>Акт стендовых испытаний - 24.03.2014</actualResults>
           </workInStage>
           <workInStage planPartId="2" stageId="4" workId="2">
             <works>Испытания комплекса у Заказчика</works>
             <results>Акт, протоколы, ведомость соответствия испытаний</results>
             <endDate>15.03.2014</endDate>
-            <actualResults/>
+            <actualResults>Перенесено на II квартал по служебной записке от 28.03.2014</actualResults>
           </workInStage>
         </stage>
         <stage id="5" planPartId="2" workId="2">
@@ -161,7 +165,7 @@
             <works>Разработка и согласование ПМИ в Ванкоре</works>
             <results>Отправленная Заказчику ПМИ испытаний в Ванкоре</results>
             <endDate>25.03.2014</endDate>
-            <actualResults/>
+            <actualResults>Перенесено на II квартал по служебной записке от 28.03.2014</actualResults>
           </workInStage>
         </stage>
       </stages>
@@ -187,7 +191,7 @@
             <works>Разработка ПМИ натурных испытаний (в Ванкоре)</works>
             <results>Отправленная Заказчику ПМИ натурных испытаний</results>
             <endDate>25.03.2014</endDate>
-            <actualResults/>
+            <actualResults>Отправленная Заказчику ПМИ натурных испытаний - 18.03.2014</actualResults>
           </workInStage>
         </stage>
       </stages>
@@ -213,7 +217,7 @@
             <works>Разработка ПМИ натурных испытаний (в Ванкоре)</works>
             <results>Отправленная Заказчику ПМИ натурных испытаний</results>
             <endDate>25.03.2014</endDate>
-            <actualResults/>
+            <actualResults>Отправленная Заказчику ПМИ натурных испытаний - 18.03.2014</actualResults>
           </workInStage>
         </stage>
       </stages>
@@ -228,8 +232,7 @@
           <name>Работы I квартала 2014 года</name>
           <workInStage planPartId="3" stageId="8" workId="5">
             <works/>
-            <results>Решение НТС&#13;
-Дополнение к ТЗ (в случае необходимости)</results>
+            <results>Решение НТС</results>
             <endDate>25.03.2014</endDate>
             <actualResults/>
           </workInStage>
@@ -237,19 +240,19 @@
             <works>Разработка ТЗ</works>
             <results>Утврежденное ТЗ</results>
             <endDate>15.02.2014</endDate>
-            <actualResults/>
+            <actualResults>Утврежденное ТЗ - 14.03.2014</actualResults>
           </workInStage>
           <workInStage planPartId="3" stageId="8" workId="5">
             <works>Проведение периодических, совмещенных с типовым,  испытаний тахометров ДО-03</works>
             <results>Акт, протоколы периодических испытаний</results>
             <endDate>07.02.2014</endDate>
-            <actualResults/>
+            <actualResults>Акт - 27.01.2014</actualResults>
           </workInStage>
           <workInStage planPartId="3" stageId="8" workId="5">
             <works>Проведение испытаний по взрывозащите тахометров ДО-03</works>
             <results>Сертификат соответствия</results>
             <endDate>28.02.2014</endDate>
-            <actualResults/>
+            <actualResults>Перенесено на II квартал по служебной записке от 28.03.2014</actualResults>
           </workInStage>
         </stage>
       </stages>

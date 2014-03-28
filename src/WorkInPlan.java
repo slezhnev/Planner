@@ -320,7 +320,7 @@ public class WorkInPlan {
         res.stages.clear();
         for (WorkStage stage : stages) {
             res.stages.add(stage.clone());
-        }
+        }        
         //
         return res;
     }
